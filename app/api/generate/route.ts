@@ -84,8 +84,13 @@ export async function POST(request: NextRequest) {
     }
 
     // 处理 SSE 流式响应
+    let finalData: any = null;
+    let dataCount = 0;
+
     for await (const data of parseSSE(response.body!)) {
-      console.log('[Generate API] SSE data:', JSON.stringify(data, null, 2));
+      dataCount++;
+      console.log(`[Generate API] SSE data #${dataCount}:`, JSON.stringify(data, null, 2));
+      finalData = data;
 
       // 检查是否成功完成
       if (data.status === 'succeeded' && data.results?.[0]?.url) {
@@ -102,6 +107,17 @@ export async function POST(request: NextRequest) {
           { status: 500 }
         );
       }
+    }
+
+    console.log('[Generate API] Stream ended. Total messages:', dataCount);
+    console.log('[Generate API] Final data:', JSON.stringify(finalData, null, 2));
+
+    // 流结束后检查最后一条数据
+    if (finalData?.status === 'succeeded' && finalData.results?.[0]?.url) {
+      return NextResponse.json({
+        status: 'succeeded',
+        imageUrl: finalData.results[0].url,
+      });
     }
 
     return NextResponse.json(
