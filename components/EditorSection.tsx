@@ -41,6 +41,11 @@ export default function EditorSection() {
   const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file && file.type.startsWith('image/')) {
+      // 限制图片大小为 2MB
+      if (file.size > 2 * 1024 * 1024) {
+        alert('图片大小不能超过 2MB，请选择更小的图片');
+        return;
+      }
       const reader = new FileReader();
       reader.onloadend = () => {
         setUploadedImage(reader.result as string);
@@ -53,6 +58,11 @@ export default function EditorSection() {
     e.preventDefault();
     const file = e.dataTransfer.files[0];
     if (file && file.type.startsWith('image/')) {
+      // 限制图片大小为 2MB
+      if (file.size > 2 * 1024 * 1024) {
+        alert('图片大小不能超过 2MB，请选择更小的图片');
+        return;
+      }
       const reader = new FileReader();
       reader.onloadend = () => {
         setUploadedImage(reader.result as string);
@@ -82,8 +92,20 @@ export default function EditorSection() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || '生成失败');
+        // 尝试解析错误信息
+        let errorMessage = '生成失败';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch {
+          // 如果不是 JSON，使用状态码
+          if (response.status === 413) {
+            errorMessage = '请求体过大，请尝试使用更小的图片或不使用参考图片';
+          } else {
+            errorMessage = `服务器错误 (${response.status})`;
+          }
+        }
+        throw new Error(errorMessage);
       }
 
       const data = await response.json();
