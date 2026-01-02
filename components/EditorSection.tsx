@@ -132,12 +132,24 @@ export default function EditorSection() {
 
     setIsDownloading(true);
     try {
+      // 获取图片数据
+      const response = await fetch(generatedImage.url);
+      const blob = await response.blob();
+
+      // 创建下载链接
+      const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
-      link.href = generatedImage.url;
+      link.href = url;
       link.download = `banana-pro-${generatedImage.timestamp}.png`;
       document.body.appendChild(link);
       link.click();
+
+      // 清理
       document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('下载失败:', error);
+      alert('下载失败，请重试');
     } finally {
       setIsDownloading(false);
     }
