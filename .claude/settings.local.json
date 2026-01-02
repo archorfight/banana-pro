@@ -26,7 +26,11 @@
       "Bash(git commit:*)",
       "Bash(git remote add:*)",
       "Bash(git branch:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(claude:*)",
+      "Bash(code:*)",
+      "WebSearch",
+      "Bash(powershell -Command \"Invoke-WebRequest -Uri ''https://update.code.visualstudio.com/latest/win32-x64/user/stable'' -OutFile ''$env:TEMP\\\\VSCodeSetup.exe''\")"
     ]
   }
 }
