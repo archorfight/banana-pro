@@ -161,7 +161,7 @@ export default function GalleryShowcase() {
               {/* 提示词 */}
               <div className="p-4">
                 <p className="text-sm text-gray-700 line-clamp-2 mb-3">
-                  "{item.prompt}"
+                  &ldquo;{item.prompt}&rdquo;
                 </p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1 text-gray-500">
