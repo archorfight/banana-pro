@@ -1,0 +1,143 @@
+{
+  "common": {
+    "appName": "Banana Pro",
+    "tagline": "AI 图像编辑器",
+    "getStarted": "开始使用",
+    "learnMore": "了解更多"
+  },
+  "hero": {
+    "title": "用 AI 创作惊艳图像",
+    "subtitle": "将您的想法在几秒钟内转化为精美艺术作品",
+    "cta": "开始创作"
+  },
+  "features": {
+    "title": "为什么选择 Banana Pro？",
+    "subtitle": "强大功能让 AI 图像创作变得简单有趣",
+    "naturalLanguage": {
+      "title": "自然语言编辑",
+      "description": "像聊天一样编辑图片，无需学习复杂参数"
+    },
+    "characterConsistency": {
+      "title": "角色一致性",
+      "description": "让您的角色在不同场景和风格中保持一致"
+    },
+    "sceneFusion": {
+      "title": "场景融合",
+      "description": "一键更换背景，自然融合无违和感"
+    }
+  },
+  "editor": {
+    "title": "创建您的图像",
+    "subtitle": "描述您的想象，让 AI 为您呈现",
+    "textToImage": "文生图",
+    "imageToImage": "图生图",
+    "promptPlaceholder": "描述您想创建的图像...",
+    "promptLabel": "提示词",
+    "promptHint": "详细描述您的图像",
+    "uploadImage": "上传图片",
+    "clickToChange": "点击更换图片",
+    "dragDrop": "拖放或点击上传",
+    "generate": "生成",
+    "downloading": "下载中...",
+    "download": "下载",
+    "generating": "生成中...",
+    "model": "模型",
+    "style": "风格",
+    "imageWillAppear": "您生成的图像将显示在这里",
+    "styles": {
+      "default": "默认",
+      "anime": "动漫",
+      "realistic": "写实"
+    },
+    "models": {
+      "banana-pro": "Banana Pro V2",
+      "flux": "Flux"
+    }
+  },
+  "gallery": {
+    "title": "精彩作品展示",
+    "subtitle": "探索社区使用 Banana Pro AI 创作的惊艳艺术作品",
+    "badge": "社区画廊",
+    "trySimilar": "试试类似",
+    "viewAll": "查看全部作品",
+    "styles": {
+      "fantasy": "奇幻",
+      "cyberpunk": "赛博朋克",
+      "anime": "动漫",
+      "realistic": "写实",
+      "abstract": "抽象",
+      "comic": "漫画",
+      "watercolor": "水彩",
+      "3d": "3D渲染"
+    }
+  },
+  "testimonials": {
+    "title": "全球创作者信赖",
+    "subtitle": "加入数千名信赖 Banana Pro 的艺术家、创作者和专业人士",
+    "joinCreators": "加入 150,000+ 正在使用 Banana Pro 的创作者",
+    "startCreating": "免费开始创作",
+    "stats": {
+      "images": "已生成图片",
+      "users": "活跃用户",
+      "rating": "平均评分",
+      "uptime": "运行时间"
+    },
+    "roles": {
+      "artist": "数字艺术家",
+      "creator": "内容创作者",
+      "developer": "游戏开发者",
+      "marketing": "市场总监",
+      "illustrator": "插画师",
+      "youtuber": "视频博主"
+    },
+    "highlights": {
+      "workflowTransformed": "彻底改变了我的工作流程",
+      "engagement300": "参与度提升300%",
+      "characterConsistency": "完美的角色一致性",
+      "cost70": "成本降低70%",
+      "creativePartner": "就像创意伙伴一样",
+      "ctrDoubled": "点击率翻倍"
+    }
+  },
+  "faq": {
+    "title": "常见问题解答",
+    "subtitle": "了解关于 Banana Pro 的一切",
+    "badge": "FAQ",
+    "categories": {
+      "all": "全部",
+      "general": "通用",
+      "features": "功能",
+      "pricing": "定价",
+      "legal": "法律",
+      "tips": "技巧",
+      "technical": "技术"
+    },
+    "q1": "Banana Pro 是什么？如何使用？",
+    "a1": "Banana Pro 是一个先进的 AI 图像生成平台，可以根据文字描述创建精美的视觉作品。只需描述您想要创作的内容，选择喜欢的风格和模型，我们的 AI 就会在几秒钟内生成独特的高质量图像。",
+    "q2": "文生图和图生图有什么区别？",
+    "a2": "文生图根据您的文字描述生成全新的图像。图生图允许您上传现有图像，在保持原有构图的同时使用 AI 进行变换。两种模式都支持多种风格和模型。",
+    "q3": "有哪些 AI 模型可用？",
+    "a3": "我们目前提供两个强大的模型：Banana Pro V2 专为创意和艺术风格优化，具有出色的角色一致性；Flux 擅长照片级渲染和复杂场景。更多模型即将推出！",
+    "q4": "我可以生成多少张图片？",
+    "a4": "免费用户每天最多可生成 50 张图片。专业用户享有无限生成次数。我们还提供灵活的积分套餐，供偶尔需要超过免费额度的用户使用。",
+    "q5": "支持哪些图像风格？",
+    "a5": "我们提供多种风格，包括默认（平衡）、动漫（日式动画风格）、写实（照片级真实）、奇幻、赛博朋克、水彩、3D 渲染等。您还可以混合风格创造独特效果。",
+    "q6": "我可以将生成的图片用于商业用途吗？",
+    "a6": "可以！Banana Pro 生成的所有图像均归您所有，可用于个人或商业项目。包括社交媒体、营销材料、产品等。专业订阅用户可获得增强的许可保护。",
+    "q7": "如何在多张图片中保持角色一致？",
+    "a7": "Banana Pro V2 具有先进的角色一致性技术。只需在提示词中一致地引用角色名称或描述角色。为获得最佳效果，请在图生图模式中使用角色参考功能。",
+    "q8": "图像的分辨率和格式是什么？",
+    "a8": "图像以高分辨率生成（最高 2048x2048），以 PNG 格式提供，支持透明度（如适用）。专业用户可访问更高分辨率和额外格式。",
+    "q9": "有开发者 API 吗？",
+    "a9": "有的！我们提供全面的 REST API，供开发者将 Banana Pro 集成到他们的应用程序和工作流中。专业和企业套餐可访问 API，并提供详细文档。",
+    "q10": "如何写出更好的提示词？",
+    "a10": "要具体和描述性！包括主题、风格、情绪、光线、构图和颜色的细节。例如：'一只可爱的猫坐在窗台上，日落光线，水彩风格，暖色调'比只写'猫'效果更好。",
+    "q11": "你们接受哪些支付方式？",
+    "a11": "我们接受所有主要信用卡（Visa、MasterCard、American Express）、PayPal 和加密货币（比特币、以太坊）。所有支付都通过符合 PCI 标准的支付合作伙伴安全处理。",
+    "q12": "我可以随时取消订阅吗？",
+    "a12": "当然可以！您可以随时取消订阅，无需任何理由。您将在计费周期结束前继续享有访问权限。我们还为新订阅者提供 30 天退款保证。",
+    "contactSupport": "联系客服",
+    "viewDocs": "查看文档",
+    "stillHaveQuestions": "还有疑问？"
+  }
+}

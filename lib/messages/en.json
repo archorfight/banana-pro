@@ -1,0 +1,143 @@
+{
+  "common": {
+    "appName": "Banana Pro",
+    "tagline": "AI Image Editor",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More"
+  },
+  "hero": {
+    "title": "Create Stunning Images with AI",
+    "subtitle": "Transform your ideas into beautiful artwork in seconds",
+    "cta": "Start Creating"
+  },
+  "features": {
+    "title": "Why Choose Banana Pro?",
+    "subtitle": "Powerful features that make AI image creation simple and fun",
+    "naturalLanguage": {
+      "title": "Natural Language Editing",
+      "description": "Edit images like you're chatting with ChatGPT. No complex parameters needed."
+    },
+    "characterConsistency": {
+      "title": "Character Consistency",
+      "description": "Keep your character consistent across different scenes and styles."
+    },
+    "sceneFusion": {
+      "title": "Scene Fusion",
+      "description": "Change backgrounds seamlessly with natural blending."
+    }
+  },
+  "editor": {
+    "title": "Create Your Image",
+    "subtitle": "Describe your vision and let AI bring it to life",
+    "textToImage": "Text to Image",
+    "imageToImage": "Image to Image",
+    "promptPlaceholder": "Describe the image you want to create...",
+    "promptLabel": "Prompt",
+    "promptHint": "Describe your image in detail",
+    "uploadImage": "Upload Image",
+    "clickToChange": "Click to change image",
+    "dragDrop": "Drag & drop or click to upload",
+    "generate": "Generate",
+    "downloading": "Downloading...",
+    "download": "Download",
+    "generating": "Generating...",
+    "model": "Model",
+    "style": "Style",
+    "imageWillAppear": "Your generated image will appear here",
+    "styles": {
+      "default": "Default",
+      "anime": "Anime",
+      "realistic": "Realistic"
+    },
+    "models": {
+      "banana-pro": "Banana Pro V2",
+      "flux": "Flux"
+    }
+  },
+  "gallery": {
+    "title": "Amazing Creations",
+    "subtitle": "Explore stunning artwork created by our community using Banana Pro AI",
+    "badge": "Community Gallery",
+    "trySimilar": "Try Similar",
+    "viewAll": "View All Creations",
+    "styles": {
+      "fantasy": "Fantasy",
+      "cyberpunk": "Cyberpunk",
+      "anime": "Anime",
+      "realistic": "Realistic",
+      "abstract": "Abstract",
+      "comic": "Comic",
+      "watercolor": "Watercolor",
+      "3d": "3D Render"
+    }
+  },
+  "testimonials": {
+    "title": "Loved by Creators Worldwide",
+    "subtitle": "Join thousands of artists, creators, and professionals who trust Banana Pro",
+    "joinCreators": "Join 150,000+ creators already using Banana Pro",
+    "startCreating": "Start Creating Free",
+    "stats": {
+      "images": "Images Generated",
+      "users": "Active Users",
+      "rating": "Average Rating",
+      "uptime": "Uptime"
+    },
+    "roles": {
+      "artist": "Digital Artist",
+      "creator": "Content Creator",
+      "developer": "Game Developer",
+      "marketing": "Marketing Director",
+      "illustrator": "Illustrator",
+      "youtuber": "YouTuber"
+    },
+    "highlights": {
+      "workflowTransformed": "Transformed my workflow",
+      "engagement300": "Engagement up 300%",
+      "characterConsistency": "Perfect character consistency",
+      "cost70": "70% cost reduction",
+      "creativePartner": "Like a creative partner",
+      "ctrDoubled": "CTR has doubled"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about Banana Pro",
+    "badge": "FAQ",
+    "categories": {
+      "all": "All",
+      "general": "General",
+      "features": "Features",
+      "pricing": "Pricing",
+      "legal": "Legal",
+      "tips": "Tips",
+      "technical": "Technical"
+    },
+    "q1": "What is Banana Pro and how does it work?",
+    "a1": "Banana Pro is an advanced AI-powered image generation platform that creates stunning visuals from text descriptions. Simply describe what you want to create, choose your preferred style and model, and our AI will generate unique, high-quality images in seconds.",
+    "q2": "What's the difference between Text-to-Image and Image-to-Image?",
+    "a2": "Text-to-Image generates entirely new images from your text descriptions. Image-to-Image allows you to upload an existing image and transform it using AI while maintaining the original composition. Both modes support multiple styles and models.",
+    "q3": "Which AI models are available?",
+    "a3": "We currently offer two powerful models: Banana Pro V2, optimized for creative and artistic styles with excellent character consistency, and Flux, which excels at photorealistic renders and complex scenes. More models are coming soon!",
+    "q4": "How many images can I generate?",
+    "a4": "Free tier users can generate up to 50 images per day. Pro users enjoy unlimited generations. We also offer flexible credit packages for occasional users who need more than the free tier provides.",
+    "q5": "What image styles are supported?",
+    "a5": "We offer a wide range of styles including Default (balanced), Anime (Japanese animation style), Realistic (photorealistic), Fantasy, Cyberpunk, Watercolor, 3D Render, and many more. You can also mix styles for unique results.",
+    "q6": "Can I use generated images commercially?",
+    "a6": "Yes! All images generated with Banana Pro are yours to use for personal or commercial projects. This includes social media, marketing materials, products, and more. Pro subscribers get enhanced license protection.",
+    "q7": "How do I maintain character consistency across multiple images?",
+    "a7": "Banana Pro V2 features advanced character consistency technology. Simply reference your character's name or describe them consistently across prompts. For best results, use our character reference feature in Image-to-Image mode.",
+    "q8": "What resolution and format are the images?",
+    "a8": "Images are generated in high resolution (up to 2048x2048) and provided in PNG format with support for transparency where applicable. Pro users can access even higher resolutions and additional formats.",
+    "q9": "Is there an API for developers?",
+    "a9": "Yes! We offer a comprehensive REST API for developers to integrate Banana Pro into their applications and workflows. API access is available for Pro and Enterprise plans with detailed documentation.",
+    "q10": "How do I write better prompts?",
+    "a10": "Be specific and descriptive! Include details about subject, style, mood, lighting, composition, and colors. For example: 'A cute cat sitting on a windowsill, sunset lighting, watercolor style, warm colors' works better than just 'cat'.",
+    "q11": "What payment methods do you accept?",
+    "a11": "We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and cryptocurrency (Bitcoin, Ethereum). All payments are processed securely through our PCI-compliant payment partners.",
+    "q12": "Can I cancel my subscription anytime?",
+    "a12": "Absolutely! You can cancel your subscription at any time with no questions asked. You'll continue to have access until the end of your billing period. We also offer a 30-day money-back guarantee for new subscribers.",
+    "contactSupport": "Contact Support",
+    "viewDocs": "View Documentation",
+    "stillHaveQuestions": "Still have questions?"
+  }
+}
