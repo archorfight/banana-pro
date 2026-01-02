@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/lib/i18n';
 import Link from 'next/link';
@@ -15,6 +15,9 @@ export function generateStaticParams() {
 }
 
 export default async function LocaleLayout({ children, params: { locale } }: LayoutProps) {
+  // Enable static rendering
+  setRequestLocale(locale);
+
   if (!locales.includes(locale as any)) {
     notFound();
   }

@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
 import HeroSection from '@/components/HeroSection';
 import FeatureList from '@/components/FeatureList';
 import EditorSection from '@/components/EditorSection';
@@ -7,7 +7,18 @@ import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import BananaDecoration from '@/components/BananaDecoration';
 
-export default function HomePage() {
+interface PageProps {
+  params: { locale: string };
+}
+
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'zh' }];
+}
+
+export default async function HomePage({ params: { locale } }: PageProps) {
+  // Enable static rendering
+  setRequestLocale(locale);
+
   return (
     <main className="relative">
       <BananaDecoration />
