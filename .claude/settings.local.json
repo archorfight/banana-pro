@@ -30,7 +30,10 @@
       "Bash(claude:*)",
       "Bash(code:*)",
       "WebSearch",
-      "Bash(powershell -Command \"Invoke-WebRequest -Uri ''https://update.code.visualstudio.com/latest/win32-x64/user/stable'' -OutFile ''$env:TEMP\\\\VSCodeSetup.exe''\")"
+      "Bash(powershell -Command \"Invoke-WebRequest -Uri ''https://update.code.visualstudio.com/latest/win32-x64/user/stable'' -OutFile ''$env:TEMP\\\\VSCodeSetup.exe''\")",
+      "Bash(npm uninstall:*)",
+      "mcp__zai-mcp-server__extract_text_from_screenshot",
+      "Bash(ping:*)"
     ]
   }
 }

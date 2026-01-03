@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { locales } from '@/lib/i18n';
 import Link from 'next/link';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import AuthButton from '@/components/AuthButton';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -36,7 +37,10 @@ export default async function LocaleLayout({ children, params: { locale } }: Lay
                     <span className="text-2xl">🍌</span>
                     <span className="text-xl font-bold text-primary-600">Banana Pro</span>
                   </Link>
-                  <LanguageSwitcher currentLocale={locale} />
+                  <div className="flex items-center space-x-4">
+                    <LanguageSwitcher currentLocale={locale} />
+                    <AuthButton />
+                  </div>
                 </div>
               </div>
             </nav>
