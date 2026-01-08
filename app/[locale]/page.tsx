@@ -5,6 +5,7 @@ import EditorSection from '@/components/EditorSection';
 import GalleryShowcase from '@/components/GalleryShowcase';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
+import AITransparency from '@/components/AITransparency';
 import BananaDecoration from '@/components/BananaDecoration';
 
 interface PageProps {
@@ -28,6 +29,7 @@ export default async function HomePage({ params: { locale } }: PageProps) {
       <GalleryShowcase />
       <Testimonials />
       <FAQ />
+      <AITransparency />
     </main>
   );
 }

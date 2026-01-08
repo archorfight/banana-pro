@@ -5,6 +5,7 @@ import { locales } from '@/lib/i18n';
 import Link from 'next/link';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import AuthButton from '@/components/AuthButton';
+import Footer from '@/components/Footer';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -35,7 +36,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Lay
                 <div className="flex h-16 items-center justify-between">
                   <Link href={`/${locale}`} className="flex items-center space-x-2">
                     <span className="text-2xl">🍌</span>
-                    <span className="text-xl font-bold text-primary-600">Banana Pro</span>
+                    <span className="text-xl font-bold text-primary-600">PixBanana</span>
                   </Link>
                   <div className="flex items-center space-x-4">
                     <LanguageSwitcher currentLocale={locale} />
@@ -45,11 +46,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Lay
               </div>
             </nav>
             {children}
-            <footer className="border-t border-gray-200 bg-white/50 dark:border-gray-700 dark:bg-gray-900/50">
-              <div className="mx-auto max-w-7xl px-4 py-6 text-center text-sm text-gray-600 dark:text-gray-400">
-                © 2025 Banana Pro. All rights reserved.
-              </div>
-            </footer>
+            <Footer />
           </div>
         </NextIntlClientProvider>
       </body>

@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "Banana Pro",
+    "appName": "PixBanana",
     "tagline": "AI Image Editor",
     "getStarted": "Get Started",
     "learnMore": "Learn More"
@@ -11,7 +11,7 @@
     "cta": "Start Creating"
   },
   "features": {
-    "title": "Why Choose Banana Pro?",
+    "title": "Why Choose PixBanana?",
     "subtitle": "Powerful features that make AI image creation simple and fun",
     "naturalLanguage": {
       "title": "Natural Language Editing",
@@ -50,14 +50,16 @@
       "realistic": "Realistic"
     },
     "models": {
-      "banana-pro": "Banana Pro V2",
+      "banana-pro": "PixBanana V2",
       "flux": "Flux"
     }
   },
   "gallery": {
     "title": "Amazing Creations",
-    "subtitle": "Explore stunning artwork created by our community using Banana Pro AI",
-    "badge": "Community Gallery",
+    "subtitle": "Explore what you can create with PixBanana AI",
+    "badge": "Example Gallery",
+    "description": "See what you can create with AI. Try these example prompts or write your own!",
+    "tryItYourself": "Try It Yourself",
     "trySimilar": "Try Similar",
     "viewAll": "View All Creations",
     "styles": {
@@ -72,9 +74,11 @@
     }
   },
   "testimonials": {
-    "title": "Loved by Creators Worldwide",
-    "subtitle": "Join thousands of artists, creators, and professionals who trust Banana Pro",
-    "joinCreators": "Join 150,000+ creators already using Banana Pro",
+    "title": "Share Your Experience",
+    "subtitle": "Be the first to review PixBanana",
+    "joinCreators": "Start your creative journey today",
+    "placeholderTitle": "Be the First to Share Your Experience",
+    "placeholderMessage": "We're a new product and haven't collected customer reviews yet. Try our AI image editor and share your feedback!",
     "startCreating": "Start Creating Free",
     "stats": {
       "images": "Images Generated",
@@ -101,7 +105,7 @@
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "subtitle": "Everything you need to know about Banana Pro",
+    "subtitle": "Everything you need to know about PixBanana",
     "badge": "FAQ",
     "categories": {
       "all": "All",
@@ -112,24 +116,24 @@
       "tips": "Tips",
       "technical": "Technical"
     },
-    "q1": "What is Banana Pro and how does it work?",
-    "a1": "Banana Pro is an advanced AI-powered image generation platform that creates stunning visuals from text descriptions. Simply describe what you want to create, choose your preferred style and model, and our AI will generate unique, high-quality images in seconds.",
+    "q1": "What is PixBanana and how does it work?",
+    "a1": "PixBanana is an advanced AI-powered image generation platform that creates stunning visuals from text descriptions. Simply describe what you want to create, choose your preferred style and model, and our AI will generate unique, high-quality images in seconds.",
     "q2": "What's the difference between Text-to-Image and Image-to-Image?",
     "a2": "Text-to-Image generates entirely new images from your text descriptions. Image-to-Image allows you to upload an existing image and transform it using AI while maintaining the original composition. Both modes support multiple styles and models.",
     "q3": "Which AI models are available?",
-    "a3": "We currently offer two powerful models: Banana Pro V2, optimized for creative and artistic styles with excellent character consistency, and Flux, which excels at photorealistic renders and complex scenes. More models are coming soon!",
+    "a3": "We currently offer two powerful models: PixBanana V2, optimized for creative and artistic styles with excellent character consistency, and Flux, which excels at photorealistic renders and complex scenes. More models are coming soon!",
     "q4": "How many images can I generate?",
     "a4": "Free tier users can generate up to 50 images per day. Pro users enjoy unlimited generations. We also offer flexible credit packages for occasional users who need more than the free tier provides.",
     "q5": "What image styles are supported?",
     "a5": "We offer a wide range of styles including Default (balanced), Anime (Japanese animation style), Realistic (photorealistic), Fantasy, Cyberpunk, Watercolor, 3D Render, and many more. You can also mix styles for unique results.",
     "q6": "Can I use generated images commercially?",
-    "a6": "Yes! All images generated with Banana Pro are yours to use for personal or commercial projects. This includes social media, marketing materials, products, and more. Pro subscribers get enhanced license protection.",
+    "a6": "Yes! All images generated with PixBanana are yours to use for personal or commercial projects. This includes social media, marketing materials, products, and more. Pro subscribers get enhanced license protection.",
     "q7": "How do I maintain character consistency across multiple images?",
-    "a7": "Banana Pro V2 features advanced character consistency technology. Simply reference your character's name or describe them consistently across prompts. For best results, use our character reference feature in Image-to-Image mode.",
+    "a7": "PixBanana V2 features advanced character consistency technology. Simply reference your character's name or describe them consistently across prompts. For best results, use our character reference feature in Image-to-Image mode.",
     "q8": "What resolution and format are the images?",
     "a8": "Images are generated in high resolution (up to 2048x2048) and provided in PNG format with support for transparency where applicable. Pro users can access even higher resolutions and additional formats.",
     "q9": "Is there an API for developers?",
-    "a9": "Yes! We offer a comprehensive REST API for developers to integrate Banana Pro into their applications and workflows. API access is available for Pro and Enterprise plans with detailed documentation.",
+    "a9": "Yes! We offer a comprehensive REST API for developers to integrate PixBanana into their applications and workflows. API access is available for Pro and Enterprise plans with detailed documentation.",
     "q10": "How do I write better prompts?",
     "a10": "Be specific and descriptive! Include details about subject, style, mood, lighting, composition, and colors. For example: 'A cute cat sitting on a windowsill, sunset lighting, watercolor style, warm colors' works better than just 'cat'.",
     "q11": "What payment methods do you accept?",
@@ -139,5 +143,213 @@
     "contactSupport": "Contact Support",
     "viewDocs": "View Documentation",
     "stillHaveQuestions": "Still have questions?"
+  },
+  "pricing": {
+    "title": "Simple, Transparent Pricing",
+    "subtitle": "Choose the plan that works best for you",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "save": "Save 20%",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "description": "Perfect for trying out",
+        "price": "$0",
+        "period": "forever",
+        "features": [
+          "50 images per day",
+          "Standard resolution",
+          "Basic styles",
+          "Community support"
+        ],
+        "cta": "Get Started"
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "For serious creators",
+        "price": "$19",
+        "period": "month",
+        "features": [
+          "Unlimited generations",
+          "High resolution (2048x2048)",
+          "All styles and models",
+          "Priority processing",
+          "Commercial license",
+          "Email support"
+        ],
+        "cta": "Start Pro Trial",
+        "popular": "Popular"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "For teams and businesses",
+        "price": "Custom",
+        "period": "",
+        "features": [
+          "Everything in Pro",
+          "API access",
+          "Custom models",
+          "Dedicated support",
+          "SLA guarantee",
+          "Team management"
+        ],
+        "cta": "Contact Sales"
+      }
+    },
+    "faq": {
+      "title": "Pricing FAQ",
+      "items": [
+        {
+          "q": "What happens after my free trial ends?",
+          "a": "After your 7-day Pro trial ends, you can continue with the Free plan or upgrade to Pro. No credit card required to start."
+        },
+        {
+          "q": "Can I change plans anytime?",
+          "a": "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate your billing."
+        },
+        {
+          "q": "What payment methods do you accept?",
+          "a": "We accept all major credit cards and PayPal. All payments are processed securely."
+        }
+      ]
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: January 8, 2026",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "content": "PixBanana ('we', 'our', or 'us') is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our AI image generation service."
+      },
+      "informationCollect": {
+        "title": "Information We Collect",
+        "items": {
+          "account": "Account Information: Name, email address, and password when you create an account",
+          "usage": "Usage Data: Prompts, generated images, and interaction data",
+          "payment": "Payment Information: Processed securely through our payment partners (we do not store your card details)",
+          "technical": "Technical Data: IP address, browser type, device information for service delivery"
+        }
+      },
+      "informationUse": {
+        "title": "How We Use Your Information",
+        "items": [
+          "Provide and improve our AI image generation services",
+          "Process transactions and send billing information",
+          "Send technical notices and support messages",
+          "Respond to comments and questions",
+          "Monitor and analyze usage patterns",
+          "Detect and prevent fraud or abuse"
+        ]
+      },
+      "dataSharing": {
+        "title": "Data Sharing",
+        "content": "We do not sell your personal data. We may share data with:"
+      },
+      "dataSecurity": {
+        "title": "Data Security",
+        "content": "We implement industry-standard security measures including encryption, secure servers, and access controls to protect your information."
+      },
+      "userRights": {
+        "title": "Your Rights",
+        "items": [
+          "Access your personal data",
+          "Correct inaccurate data",
+          "Request deletion of your data",
+          "Opt-out of marketing communications",
+          "Export your data"
+        ]
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "We use cookies for authentication, analytics, and to improve user experience. You can manage cookie preferences through your browser settings."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "content": "For privacy-related questions, contact us at:"
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: January 8, 2026",
+    "sections": {
+      "introduction": {
+        "title": "Acceptance of Terms",
+        "content": "By accessing or using PixBanana, you agree to be bound by these Terms of Service."
+      },
+      "serviceDescription": {
+        "title": "Service Description",
+        "content": "PixBanana provides an AI-powered image generation platform. We reserve the right to modify or discontinue features at any time."
+      },
+      "userObligations": {
+        "title": "User Obligations",
+        "items": [
+          "You must be at least 18 years old",
+          "Provide accurate account information",
+          "Maintain security of your account",
+          "Comply with all applicable laws",
+          "Not attempt to circumvent usage limits"
+        ]
+      },
+      "prohibitedUses": {
+        "title": "Prohibited Uses",
+        "items": [
+          "Generate illegal, harmful, or explicit content",
+          "Violate intellectual property rights",
+          "Impersonate others",
+          "Spread misinformation or propaganda",
+          "Reverse engineer our AI models",
+          "Use the service for spam or fraud"
+        ]
+      },
+      "contentOwnership": {
+        "title": "Content Ownership",
+        "content": "You retain ownership of images you generate. You grant us a license to operate and improve the service. Free tier images may be used for promotional purposes."
+      },
+      "payment": {
+        "title": "Payment Terms",
+        "items": [
+          "Paid subscriptions are billed monthly or annually",
+          "Prices are subject to change with 30 days notice",
+          "All sales are final after the refund period"
+        ]
+      },
+      "cancellation": {
+        "title": "Cancellation",
+        "content": "You may cancel at any time. Access continues until the end of the billing period. No refunds for partial months."
+      },
+      "disclaimer": {
+        "title": "Disclaimer",
+        "content": "The service is provided 'as is'. We do not guarantee uninterrupted or error-free operation. AI-generated content may not always be accurate or as expected."
+      },
+      "limitation": {
+        "title": "Limitation of Liability",
+        "content": "We shall not be liable for indirect, incidental, or consequential damages. Our total liability shall not exceed the amount you paid in the past 12 months."
+      },
+      "termination": {
+        "title": "Termination",
+        "content": "We may suspend or terminate accounts that violate these terms. Upon termination, your right to use the service ends immediately."
+      },
+      "governingLaw": {
+        "title": "Governing Law",
+        "content": "These terms are governed by the laws of the jurisdiction where our business is registered."
+      },
+      "changes": {
+        "title": "Changes to Terms",
+        "content": "We may update these terms at any time. Continued use constitutes acceptance of changes."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "For questions about these terms, contact us at:"
+      }
+    }
+  },
+  "footer": {
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "supportEmail": "support@pixbanan.xyz"
   }
 }
