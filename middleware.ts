@@ -16,7 +16,6 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Create a response that will be modified by both middlewares
   let response = intlMiddleware(request);
 
   // Update Supabase session
@@ -29,13 +28,9 @@ export default async function middleware(request: NextRequest) {
           return request.cookies.getAll();
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => {
-            request.cookies.set(name, value);
-            response = NextResponse.next({
-              request: { headers: request.headers },
-            });
-            response.cookies.set(name, value, options);
-          });
+          cookiesToSet.forEach(({ name, value, options }) =>
+            response.cookies.set(name, value, options)
+          );
         },
       },
     }
