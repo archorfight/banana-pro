@@ -1,7 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import { Check, Zap, Mail, HelpCircle } from 'lucide-react';
-import Link from 'next/link';
+import { Check, Zap, Mail, HelpCircle, Coins } from 'lucide-react';
 
 interface PageProps {
   params: { locale: string };
@@ -28,7 +27,7 @@ function PricingContent() {
         <div className="mx-auto max-w-5xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary-500/10 px-4 py-2 text-sm font-medium text-primary-600 dark:text-primary-400">
             <Zap className="h-4 w-4" />
-            <span>Simple Pricing</span>
+            <span>{t('badge')}</span>
           </div>
           <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
             {t('title')}
@@ -41,7 +40,7 @@ function PricingContent() {
 
       {/* Pricing Cards */}
       <div className="max-w-7xl mx-auto px-4 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Free Plan */}
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -67,80 +66,131 @@ function PricingContent() {
               ))}
             </ul>
             <a
-              href="#"
+              href="#editor"
               className="block w-full py-3 px-6 text-center rounded-full border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
             >
               {t('plans.free.cta')}
             </a>
           </div>
 
-          {/* Pro Plan */}
-          <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl shadow-xl p-8 relative transform md:-translate-y-4">
+          {/* Credit Packages */}
+          <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl shadow-xl p-8 relative">
             <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-1 rounded-full text-sm font-medium">
-              {t('plans.pro.popular')}
+              {t('plans.credits.popular')}
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">
-              {t('plans.pro.name')}
+              {t('plans.credits.name')}
             </h3>
             <p className="text-white/80 mb-6">
-              {t('plans.pro.description')}
+              {t('plans.credits.description')}
             </p>
-            <div className="mb-6">
-              <span className="text-5xl font-bold text-white">
-                {t('plans.pro.price')}
-              </span>
-              <span className="text-white/80 ml-2">
-                /{t('plans.pro.period')}
-              </span>
-            </div>
-            <ul className="space-y-3 mb-8">
-              {t.raw('plans.pro.features').map((feature: string, i: number) => (
-                <li key={i} className="flex items-start gap-3 text-white">
-                  <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
-                  <span>{feature}</span>
-                </li>
+
+            {/* Credit Package Options */}
+            <div className="space-y-3 mb-8">
+              {t.raw('plans.credits.packages').map((pkg: any, i: number) => (
+                <div
+                  key={i}
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-colors"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <Coins className="w-8 h-8 text-yellow-300" />
+                      <div>
+                        <div className="text-white font-bold text-lg">
+                          {pkg.amount} {t('plans.credits.credits')}
+                        </div>
+                        <div className="text-white/70 text-sm">
+                          {t('plans.credits.perPackage')}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-white font-bold text-2xl">
+                        {pkg.price}
+                      </div>
+                      <div className="text-white/70 text-sm">
+                        {t('plans.credits.oneTime')}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ))}
-            </ul>
+            </div>
+
+            {/* Credit Package Features */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 mb-6">
+              <ul className="space-y-2">
+                {t.raw('plans.credits.features').map((feature: string, i: number) => (
+                  <li key={i} className="flex items-start gap-2 text-white text-sm">
+                    <Check className="w-4 h-4 text-yellow-300 flex-shrink-0 mt-0.5" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <a
-              href="#"
+              href="#editor"
               className="block w-full py-3 px-6 text-center rounded-full bg-white text-gray-900 font-semibold hover:bg-gray-100 transition-colors shadow-lg"
             >
-              {t('plans.pro.cta')}
-            </a>
-          </div>
-
-          {/* Enterprise Plan */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-              {t('plans.enterprise.name')}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
-              {t('plans.enterprise.description')}
-            </p>
-            <div className="mb-6">
-              <span className="text-5xl font-bold text-gray-900 dark:text-white">
-                {t('plans.enterprise.price')}
-              </span>
-            </div>
-            <ul className="space-y-3 mb-8">
-              {t.raw('plans.enterprise.features').map((feature: string, i: number) => (
-                <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-gray-300">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-            <a
-              href={`mailto:${footer('supportEmail')}`}
-              className="block w-full py-3 px-6 text-center rounded-full border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-            >
-              {t('plans.enterprise.cta')}
+              {t('plans.credits.cta')}
             </a>
           </div>
         </div>
 
+        {/* Features Comparison */}
+        <div className="max-w-4xl mx-auto mb-20">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">
+            {t('comparison.title')}
+          </h2>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
+            <table className="w-full">
+              <thead className="bg-gray-50 dark:bg-gray-700">
+                <tr>
+                  <th className="px-6 py-4 text-left text-gray-900 dark:text-white font-semibold">
+                    {t('comparison.feature')}
+                  </th>
+                  <th className="px-6 py-4 text-center text-gray-900 dark:text-white font-semibold">
+                    {t('plans.free.name')}
+                  </th>
+                  <th className="px-6 py-4 text-center text-gray-900 dark:text-white font-semibold">
+                    {t('plans.credits.name')}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                {t.raw('comparison.rows').map((row: any, i: number) => (
+                  <tr key={i}>
+                    <td className="px-6 py-4 text-gray-700 dark:text-gray-300">
+                      {row.feature}
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      {row.free === '✓' ? (
+                        <span className="text-green-500 font-bold">✓</span>
+                      ) : row.free === '✗' ? (
+                        <span className="text-red-500 font-bold">✗</span>
+                      ) : (
+                        <span className="text-gray-500">{row.free}</span>
+                      )}
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      {row.credits === '✓' ? (
+                        <span className="text-green-500 font-bold">✓</span>
+                      ) : row.credits === '✗' ? (
+                        <span className="text-red-500 font-bold">✗</span>
+                      ) : (
+                        <span className="text-gray-500">{row.credits}</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         {/* FAQ Section */}
-        <div className="mt-20 max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900/30 mb-4">
               <HelpCircle className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
@@ -171,10 +221,10 @@ function PricingContent() {
         <div className="mt-20 text-center bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/30 dark:to-orange-900/30 rounded-2xl p-12">
           <Mail className="w-12 h-12 text-yellow-600 dark:text-yellow-400 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-            Questions about pricing?
+            {t('contact.title')}
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Contact our team for custom solutions
+            {t('contact.description')}
           </p>
           <a
             href={`mailto:${footer('supportEmail')}`}

@@ -146,72 +146,81 @@
   },
   "pricing": {
     "title": "Simple, Transparent Pricing",
-    "subtitle": "Choose the plan that works best for you",
-    "monthly": "Monthly",
-    "yearly": "Yearly",
-    "save": "Save 20%",
+    "subtitle": "Pay only for what you need",
+    "badge": "No Subscription Required",
     "plans": {
       "free": {
         "name": "Free",
-        "description": "Perfect for trying out",
-        "price": "$0",
-        "period": "forever",
+        "description": "Try PixBanana for free",
+        "price": "1",
+        "period": "generation per day",
         "features": [
-          "50 images per day",
+          "1 free generation per day",
           "Standard resolution",
           "Basic styles",
           "Community support"
         ],
-        "cta": "Get Started"
+        "cta": "Get Started Free"
       },
-      "pro": {
-        "name": "Pro",
-        "description": "For serious creators",
-        "price": "$19",
-        "period": "month",
+      "credits": {
+        "name": "Credit Packages",
+        "description": "One-time purchase, no subscription required",
+        "popular": "Best Value",
+        "credits": "generations",
+        "perPackage": "credits per package",
+        "oneTime": "one-time purchase",
+        "packages": [
+          { "amount": "100", "price": "$9.99" },
+          { "amount": "200", "price": "$16.99" },
+          { "amount": "500", "price": "$29.99" }
+        ],
         "features": [
-          "Unlimited generations",
+          "One-time purchase, no recurring charges",
+          "Credits never expire",
           "High resolution (2048x2048)",
           "All styles and models",
-          "Priority processing",
-          "Commercial license",
+          "Commercial license included",
           "Email support"
         ],
-        "cta": "Start Pro Trial",
-        "popular": "Popular"
-      },
-      "enterprise": {
-        "name": "Enterprise",
-        "description": "For teams and businesses",
-        "price": "Custom",
-        "period": "",
-        "features": [
-          "Everything in Pro",
-          "API access",
-          "Custom models",
-          "Dedicated support",
-          "SLA guarantee",
-          "Team management"
-        ],
-        "cta": "Contact Sales"
+        "cta": "Purchase Credits"
       }
+    },
+    "comparison": {
+      "title": "Feature Comparison",
+      "feature": "Feature",
+      "rows": [
+        { "feature": "Generations per day", "free": "1", "credits": "Unlimited" },
+        { "feature": "Resolution", "free": "Standard (1024x1024)", "credits": "High (2048x2048)" },
+        { "feature": "Styles & Models", "free": "Basic", "credits": "All" },
+        { "feature": "Commercial License", "free": "✗", "credits": "✓" },
+        { "feature": "Credits Expiration", "free": "N/A", "credits": "Never" },
+        { "feature": "Support", "free": "Community", "credits": "Email" }
+      ]
     },
     "faq": {
       "title": "Pricing FAQ",
       "items": [
         {
-          "q": "What happens after my free trial ends?",
-          "a": "After your 7-day Pro trial ends, you can continue with the Free plan or upgrade to Pro. No credit card required to start."
+          "q": "Do credits expire?",
+          "a": "No, your purchased credits never expire. Use them whenever you want."
         },
         {
-          "q": "Can I change plans anytime?",
-          "a": "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate your billing."
+          "q": "Can I buy multiple credit packages?",
+          "a": "Yes, you can purchase multiple packages and your credits will stack."
         },
         {
           "q": "What payment methods do you accept?",
-          "a": "We accept all major credit cards and PayPal. All payments are processed securely."
+          "a": "We accept all major credit cards. All payments are processed securely."
+        },
+        {
+          "q": "Is there a subscription?",
+          "a": "No, we use a one-time purchase model. Buy credits, use them whenever you want, with no recurring charges."
         }
       ]
+    },
+    "contact": {
+      "title": "Questions about pricing?",
+      "description": "Contact us for help"
     }
   },
   "privacy": {
