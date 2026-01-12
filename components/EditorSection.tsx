@@ -2,12 +2,15 @@
 
 import { useState, useRef, type ChangeEvent } from 'react';
 import { useTranslations } from 'next-intl';
-import { Upload, Download, Image as ImageIcon, Sparkles, Loader2 } from 'lucide-react';
+import { Upload, Download, Image as ImageIcon, Sparkles, Loader2, Lock, CreditCard, Coins } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useGenerationQuota } from '@/lib/hooks/useGenerationQuota';
+import { GENERATION_CONFIG, getCreditCost, FREE_TIER_RESTRICTIONS } from '@/lib/config/generation';
 
 type EditorMode = 'text-to-image' | 'image-to-image';
 type Style = 'default' | 'anime' | 'realistic';
 type Model = 'banana-pro' | 'flux';
+type Resolution = 'standard' | 'high';
 
 interface GeneratedImage {
   url: string;
@@ -16,21 +19,23 @@ interface GeneratedImage {
 
 export default function EditorSection() {
   const t = useTranslations('editor');
+  const { isFreeUser, credits, dailyLimit, canUseRealisticStyle, canUseHighResolution, loading: quotaLoading, refresh: refreshQuota } = useGenerationQuota();
 
   const [mode, setMode] = useState<EditorMode>('text-to-image');
   const [prompt, setPrompt] = useState('');
   const [style, setStyle] = useState<Style>('default');
   const [model, setModel] = useState<Model>('banana-pro');
+  const [resolution, setResolution] = useState<Resolution>('standard');
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [generatedImage, setGeneratedImage] = useState<GeneratedImage | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const styles: { value: Style; label: string }[] = [
+  const styles: { value: Style; label: string; requiresCredits?: boolean }[] = [
     { value: 'default', label: t(`styles.default`) },
     { value: 'anime', label: t(`styles.anime`) },
-    { value: 'realistic', label: t(`styles.realistic`) },
+    { value: 'realistic', label: t(`styles.realistic`), requiresCredits: true },
   ];
 
   const models: { value: Model; label: string }[] = [
@@ -38,10 +43,14 @@ export default function EditorSection() {
     { value: 'flux', label: t(`models.flux`) },
   ];
 
+  const resolutions: { value: Resolution; label: string; requiresCredits?: boolean }[] = [
+    { value: 'standard', label: '标准 (1024x1024)' },
+    { value: 'high', label: '高清 (2048x2048)', requiresCredits: true },
+  ];
+
   const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file && file.type.startsWith('image/')) {
-      // 限制图片大小为 2MB
       if (file.size > 2 * 1024 * 1024) {
         alert('图片大小不能超过 2MB，请选择更小的图片');
         return;
@@ -58,7 +67,6 @@ export default function EditorSection() {
     e.preventDefault();
     const file = e.dataTransfer.files[0];
     if (file && file.type.startsWith('image/')) {
-      // 限制图片大小为 2MB
       if (file.size > 2 * 1024 * 1024) {
         alert('图片大小不能超过 2MB，请选择更小的图片');
         return;
@@ -75,8 +83,48 @@ export default function EditorSection() {
     e.preventDefault();
   };
 
+  const needsCredits = (style === 'realistic' || resolution === 'high');
+
+  const canGenerate = () => {
+    if (!prompt.trim()) return false;
+    if (isGenerating) return false;
+    if (mode === 'image-to-image' && !uploadedImage) return false;
+
+    if (isFreeUser) {
+      if (needsCredits) return false;
+      if (dailyLimit && !dailyLimit.can_generate) return false;
+    }
+
+    if (!isFreeUser) {
+      const cost = getCreditCost(model, resolution);
+      if (credits < cost) return false;
+    }
+
+    return true;
+  };
+
+  const getRestrictionMessage = () => {
+    if (isFreeUser && needsCredits) {
+      return '此功能需要积分，请购买积分后使用';
+    }
+    if (isFreeUser && dailyLimit && !dailyLimit.can_generate) {
+      return `免费用户每天只能生成1次，请购买积分后无限使用`;
+    }
+    if (!isFreeUser) {
+      const cost = getCreditCost(model, resolution);
+      if (credits < cost) {
+        return `积分不足，需要${cost}积分，当前${credits}积分`;
+      }
+    }
+    return null;
+  };
+
   const handleGenerate = async () => {
-    if (!prompt.trim()) return;
+    const restrictionMessage = getRestrictionMessage();
+    if (restrictionMessage) {
+      alert(restrictionMessage);
+      return;
+    }
 
     setIsGenerating(true);
 
@@ -86,19 +134,28 @@ export default function EditorSection() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           prompt: prompt.trim(),
-          model: model === 'flux' ? 'nano-banana' : 'nano-banana-fast',
+          model: GENERATION_CONFIG[model].apiModel,
+          style,
+          resolution,
           ...(uploadedImage && { imageUrls: [uploadedImage] }),
         }),
       });
 
       if (!response.ok) {
-        // 尝试解析错误信息
         let errorMessage = '生成失败';
         try {
           const errorData = await response.json();
           errorMessage = errorData.error || errorMessage;
+
+          // Handle Grasi API credit error
+          if (errorData.code === 'GRASI_API_ERROR' && errorData.originalError === 'apikey credits not enough') {
+            errorMessage = '生成服务暂时不可用，请稍后重试';
+          } else if (errorData.needsUpgrade || errorData.dailyLimit) {
+            errorMessage += '\n\n请购买积分后无限使用所有功能';
+          } else if (errorData.insufficient) {
+            errorMessage += `\n\n需要${errorData.required}积分，当前${errorData.current}积分`;
+          }
         } catch {
-          // 如果不是 JSON，使用状态码
           if (response.status === 413) {
             errorMessage = '请求体过大，请尝试使用更小的图片或不使用参考图片';
           } else {
@@ -115,6 +172,7 @@ export default function EditorSection() {
           url: data.imageUrl,
           timestamp: Date.now(),
         });
+        await refreshQuota();
       } else {
         throw new Error(data.failureReason || '生成失败，请重试');
       }
@@ -132,11 +190,9 @@ export default function EditorSection() {
 
     setIsDownloading(true);
     try {
-      // 获取图片数据
       const response = await fetch(generatedImage.url);
       const blob = await response.blob();
 
-      // 创建下载链接
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
@@ -144,7 +200,6 @@ export default function EditorSection() {
       document.body.appendChild(link);
       link.click();
 
-      // 清理
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
     } catch (error) {
@@ -157,11 +212,11 @@ export default function EditorSection() {
 
   const maxLength = 500;
   const promptLength = prompt.length;
-  const canGenerate = prompt.trim().length > 0 && !isGenerating && (mode === 'text-to-image' || uploadedImage);
+  const canGenerateBtn = canGenerate();
 
   return (
     <section id="editor" className="relative px-4 py-20 sm:px-6 lg:px-8 overflow-hidden">
-      {/* 背景装饰 - 与 HeroSection 风格统一 */}
+      {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/30 via-orange-50/30 to-pink-50/30 dark:from-yellow-900/10 dark:via-orange-900/10 dark:to-pink-900/10" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.08),transparent_50%)]" />
@@ -175,9 +230,29 @@ export default function EditorSection() {
           <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300">
             {t('subtitle')}
           </p>
+
+          {/* User status display */}
+          {!quotaLoading && (
+            <div className="mt-4 flex items-center justify-center gap-4 text-sm">
+              {isFreeUser ? (
+                <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 dark:bg-gray-800">
+                  <span className="text-gray-600 dark:text-gray-400">
+                    免费用户 - 今日剩余: <span className="font-semibold text-gray-900 dark:text-white">{dailyLimit?.remaining ?? 0}/1</span>
+                  </span>
+                </div>
+              ) : (
+                <div className="inline-flex items-center gap-2 rounded-full bg-yellow-100 px-4 py-2 dark:bg-yellow-900/20">
+                  <Coins className="w-4 h-4 text-yellow-600 dark:text-yellow-400" />
+                  <span className="text-yellow-700 dark:text-yellow-400">
+                    积分用户 - 剩余: <span className="font-semibold">{credits}</span> 积分
+                  </span>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
-        {/* Editor Container with Frame */}
+        {/* Editor Container */}
         <div className="mx-auto max-w-6xl rounded-2xl border border-gray-300/80 bg-gray-50 p-6 shadow-xl dark:border-gray-700 dark:bg-neutral-900">
           <div className="grid gap-6 lg:grid-cols-[1fr,1.2fr]">
             {/* Left Panel - Controls */}
@@ -208,7 +283,7 @@ export default function EditorSection() {
                 </button>
               </div>
 
-              {/* Image Upload (for Image-to-Image) */}
+              {/* Image Upload */}
               {mode === 'image-to-image' && (
                 <div
                   onDrop={handleDrop}
@@ -278,21 +353,70 @@ export default function EditorSection() {
                   {t('style')}
                 </label>
                 <div className="grid grid-cols-3 gap-3">
-                  {styles.map((s) => (
-                    <button
-                      key={s.value}
-                      onClick={() => setStyle(s.value)}
-                      className={cn(
-                        'rounded-lg border px-4 py-2.5 text-sm font-medium transition-all',
-                        style === s.value
-                          ? 'border-primary-500 bg-primary-500 text-white'
-                          : 'border-gray-300 text-gray-700 hover:border-gray-400 dark:border-gray-700 dark:text-gray-300 dark:hover:border-gray-600'
-                      )}
-                    >
-                      {s.label}
-                    </button>
-                  ))}
+                  {styles.map((s) => {
+                    const isRestricted = s.requiresCredits && isFreeUser;
+                    return (
+                      <button
+                        key={s.value}
+                        onClick={() => !isRestricted && setStyle(s.value)}
+                        disabled={isRestricted}
+                        className={cn(
+                          'relative rounded-lg border px-4 py-2.5 text-sm font-medium transition-all',
+                          style === s.value
+                            ? 'border-primary-500 bg-primary-500 text-white'
+                            : 'border-gray-300 text-gray-700 hover:border-gray-400 dark:border-gray-700 dark:text-gray-300 dark:hover:border-gray-600',
+                          isRestricted && 'cursor-not-allowed opacity-60'
+                        )}
+                      >
+                        <span className="flex items-center justify-center gap-1">
+                          {s.label}
+                          {isRestricted && <Lock className="h-3 w-3" />}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
+                {isFreeUser && style === 'realistic' && (
+                  <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                    写实风格需要积分，请购买积分后使用
+                  </p>
+                )}
+              </div>
+
+              {/* Resolution Selection */}
+              <div>
+                <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  分辨率
+                </label>
+                <div className="grid grid-cols-2 gap-3">
+                  {resolutions.map((r) => {
+                    const isRestricted = r.requiresCredits && isFreeUser;
+                    return (
+                      <button
+                        key={r.value}
+                        onClick={() => !isRestricted && setResolution(r.value)}
+                        disabled={isRestricted}
+                        className={cn(
+                          'relative rounded-lg border px-4 py-2.5 text-sm font-medium transition-all',
+                          resolution === r.value
+                            ? 'border-primary-500 bg-primary-500 text-white'
+                            : 'border-gray-300 text-gray-700 hover:border-gray-400 dark:border-gray-700 dark:text-gray-300 dark:hover:border-gray-600',
+                          isRestricted && 'cursor-not-allowed opacity-60'
+                        )}
+                      >
+                        <span className="flex items-center justify-center gap-1">
+                          {r.label}
+                          {isRestricted && <Lock className="h-3 w-3" />}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+                {isFreeUser && resolution === 'high' && (
+                  <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                    高清分辨率需要积分，请购买积分后使用
+                  </p>
+                )}
               </div>
 
               {/* Model Selection */}
@@ -313,30 +437,53 @@ export default function EditorSection() {
                 </select>
               </div>
 
-              {/* Generate Button */}
-              <button
-                onClick={handleGenerate}
-                disabled={!canGenerate}
-                className={cn(
-                  'flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 font-semibold text-white shadow-lg transition-all',
-                  canGenerate
-                    ? 'bg-primary-500 hover:bg-primary-600 hover:shadow-xl hover:-translate-y-0.5'
-                    : 'cursor-not-allowed bg-gray-400 dark:bg-gray-700',
-                  isGenerating && 'cursor-wait'
+              {/* Generate Button Area */}
+              <div className="space-y-3">
+                {/* Credit cost preview for paid users */}
+                {!isFreeUser && (
+                  <div className="rounded-lg bg-yellow-50 px-4 py-2 text-sm text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400">
+                    本次生成消耗: <span className="font-semibold">{getCreditCost(model, resolution)}</span> 积分
+                  </div>
                 )}
-              >
-                {isGenerating ? (
-                  <>
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                    {t('generating')}
-                  </>
-                ) : (
-                  <>
-                    <Sparkles className="h-5 w-5" />
-                    {t('generate')}
-                  </>
+
+                {/* Restriction warning */}
+                {getRestrictionMessage() && (
+                  <div className="rounded-lg bg-red-50 px-4 py-2 text-sm text-red-800 dark:bg-red-900/20 dark:text-red-400">
+                    {getRestrictionMessage()}
+                    <button
+                      onClick={() => window.location.href = '/pricing'}
+                      className="ml-2 inline-flex items-center gap-1 font-semibold underline hover:no-underline"
+                    >
+                      购买积分 <CreditCard className="h-3 w-3" />
+                    </button>
+                  </div>
                 )}
-              </button>
+
+                {/* Generate Button */}
+                <button
+                  onClick={handleGenerate}
+                  disabled={!canGenerateBtn}
+                  className={cn(
+                    'flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 font-semibold text-white shadow-lg transition-all',
+                    canGenerateBtn
+                      ? 'bg-primary-500 hover:bg-primary-600 hover:shadow-xl hover:-translate-y-0.5'
+                      : 'cursor-not-allowed bg-gray-400 dark:bg-gray-700',
+                    isGenerating && 'cursor-wait'
+                  )}
+                >
+                  {isGenerating ? (
+                    <>
+                      <Loader2 className="h-5 w-5 animate-spin" />
+                      {t('generating')}
+                    </>
+                  ) : (
+                    <>
+                      <Sparkles className="h-5 w-5" />
+                      {t('generate')}
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
 
             {/* Right Panel - Result */}
@@ -399,7 +546,6 @@ export default function EditorSection() {
             </div>
           </div>
         </div>
-        {/* End Editor Container */}
       </div>
     </section>
   );
