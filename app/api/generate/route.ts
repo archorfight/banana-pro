@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import { getCreditCostByApiModel, FREE_TIER_RESTRICTIONS } from '@/lib/config/generation';
 
+// Force dynamic rendering for API routes that use cookies
+export const dynamic = 'force-dynamic';
+
 interface GenerateRequest {
   prompt: string;
   model?: 'nano-banana-fast' | 'nano-banana';

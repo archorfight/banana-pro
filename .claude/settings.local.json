@@ -43,7 +43,11 @@
       "Bash(set HTTPS_PROXY=http://127.0.0.1:7897:*)",
       "Bash(if not exist \"E:\\\\AIWorkspace\\\\test\\\\banana_pro\\\\.claude\\\\skills\" mkdir \"E:\\\\AIWorkspace\\\\test\\\\banana_pro\\\\.claude\\\\skills\")",
       "Bash(npm search:*)",
-      "Bash(skill-creator:*)"
+      "Bash(skill-creator:*)",
+      "Bash(git config:*)",
+      "Bash(vercel --version)",
+      "Bash(npm i:*)",
+      "Bash(vercel whoami:*)"
     ]
   }
 }

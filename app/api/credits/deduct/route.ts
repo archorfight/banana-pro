@@ -3,6 +3,9 @@ import { createClient } from '@/utils/supabase/server';
 import { deductCredits } from '@/lib/db/credits';
 import type { CreditsResult } from '@/lib/types/credits';
 
+// Force dynamic rendering for API routes that use cookies
+export const dynamic = 'force-dynamic';
+
 /**
  * POST /api/credits/deduct
  * Deduct credits from user account

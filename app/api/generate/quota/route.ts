@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import { FREE_TIER_RESTRICTIONS } from '@/lib/config/generation';
 
+// Force dynamic rendering for API routes that use cookies
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
     console.log('[Quota API] Request received');
