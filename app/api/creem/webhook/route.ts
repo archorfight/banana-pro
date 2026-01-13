@@ -100,6 +100,10 @@ export async function POST(request: NextRequest) {
         await handleCheckoutCompleted(eventData);
         break;
 
+      case 'checkout.refunded':
+        await handleCheckoutRefunded(eventData);
+        break;
+
       case 'checkout.failed':
         console.log('Payment failed:', eventData);
         break;
@@ -194,5 +198,77 @@ async function handleCheckoutCompleted(data: any) {
     console.log(`Successfully added ${creditsToAdd} credits to user ${user.id}. New balance: ${creditResult.new_balance}`);
   } else {
     console.error('Failed to add credits:', creditResult);
+  }
+}
+
+async function handleCheckoutRefunded(data: any) {
+  const customer_email = data.customer?.email || data.customer_email;
+  const product_id = data.product?.id || data.product_id;
+  const order_id = data.order?.id || data.order_id;
+  const metadata = data.metadata;
+  const amount = data.amount || data.order?.amount;
+
+  console.log('Payment refunded:', { product_id, customer_email, order_id, metadata });
+
+  // Extract package amount from metadata or product_id
+  let creditsToDeduct = 0;
+
+  if (metadata?.package_amount) {
+    creditsToDeduct = parseInt(metadata.package_amount) || 0;
+  } else if (product_id) {
+    const match = product_id.match(/(\d+)/);
+    creditsToDeduct = match ? parseInt(match[1]) : 0;
+  }
+
+  if (creditsToDeduct <= 0) {
+    console.error('Invalid credit amount for refund:', { product_id, metadata });
+    return;
+  }
+
+  const supabase = createServiceRoleClient();
+
+  // Find user by email
+  const { data: { users }, error: userError } = await supabase.auth.admin.listUsers();
+
+  if (userError) {
+    console.error('Error listing users:', userError);
+    return;
+  }
+
+  const user = users.find((u: any) => u.email === customer_email);
+
+  if (!user) {
+    console.error('User not found for email:', customer_email);
+    return;
+  }
+
+  console.log(`Deducting ${creditsToDeduct} credits from user ${user.id} (${user.email}) due to refund`);
+
+  // Deduct credits using RPC function
+  const { data: result, error: creditError } = await supabase.rpc('deduct_credits', {
+    p_user_id: user.id,
+    p_amount: creditsToDeduct,
+    p_type: 'refund',
+    p_description: `Refunded for order ${order_id}`,
+    p_metadata: {
+      product_id,
+      order_id,
+      amount,
+      customer_email,
+      refund_reason: data.refund_reason || 'customer_request'
+    }
+  });
+
+  if (creditError) {
+    console.error('Failed to deduct credits:', creditError);
+    return;
+  }
+
+  const creditResult = result as CreditsResult;
+
+  if (creditResult.success) {
+    console.log(`Successfully deducted ${creditsToDeduct} credits from user ${user.id}. New balance: ${creditResult.new_balance}`);
+  } else {
+    console.error('Failed to deduct credits:', creditResult);
   }
 }
