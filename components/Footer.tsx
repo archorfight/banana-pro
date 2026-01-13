@@ -50,6 +50,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/refund" className="hover:text-white transition-colors">
+                  {t('refundPolicy')}
+                </Link>
+              </li>
+              <li>
                 <Link href="/pricing" className="hover:text-white transition-colors">
                   {t('pricing')}
                 </Link>

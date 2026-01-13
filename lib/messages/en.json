@@ -356,9 +356,47 @@
       }
     }
   },
+  "refund": {
+    "title": "Refund Policy",
+    "subtitle": "Our commitment to customer satisfaction",
+    "lastUpdated": "Last updated",
+    "conditions": {
+      "title": "Refund Conditions",
+      "items": [
+        "You may request a refund within 7 days of purchase if credits remain unused",
+        "Partially used credit packages will be refunded on a prorated basis",
+        "Free tier generations cannot be refunded",
+        "Refunds are processed at our discretion and may require account verification",
+        "Abuse of the refund policy may result in account suspension"
+      ]
+    },
+    "process": {
+      "title": "How to Request a Refund",
+      "steps": [
+        "Contact our support team at support@pixbanan.xyz with your order details",
+        "Provide your order ID, email used for purchase, and reason for refund",
+        "Our team will review your request within 1-2 business days",
+        "If approved, refunds will be processed within 3-5 business days",
+        "You will receive a confirmation email once the refund is initiated"
+      ]
+    },
+    "partial": {
+      "title": "Partial Refund Policy",
+      "noticeTitle": "Important Notice",
+      "noticeContent": "If you have used some of your credits, the refund amount will be calculated based on the remaining credits.",
+      "description": "For example, if you purchased 200 credits and used 50 credits (25%), you will be refunded 75% of the original purchase amount."
+    },
+    "contact": {
+      "title": "Need Help?",
+      "description": "If you have any questions about our refund policy or need assistance with a refund request, please don't hesitate to contact us.",
+      "email": "support@pixbanan.xyz",
+      "button": "Contact Support"
+    }
+  },
   "footer": {
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
+    "refundPolicy": "Refund Policy",
     "pricing": "Pricing",
     "contact": "Contact",
     "supportEmail": "support@pixbanan.xyz"

@@ -356,9 +356,47 @@
       }
     }
   },
+  "refund": {
+    "title": "退款政策",
+    "subtitle": "我们致力于客户满意度",
+    "lastUpdated": "最后更新",
+    "conditions": {
+      "title": "退款条件",
+      "items": [
+        "购买后 7 天内，如积分未使用可申请退款",
+        "部分使用的积分套餐将按比例退款",
+        "免费版生成次数不可退款",
+        "退款由我们酌情处理，可能需要账户验证",
+        "滥用退款政策可能导致账户暂停"
+      ]
+    },
+    "process": {
+      "title": "如何申请退款",
+      "steps": [
+        "联系客服团队 support@pixbanan.xyz，提供订单详情",
+        "提供订单 ID、购买邮箱和退款原因",
+        "我们团队将在 1-2 个工作日内审核",
+        "审核通过后，退款将在 3-5 个工作日内处理",
+        "退款启动后，您将收到确认邮件"
+      ]
+    },
+    "partial": {
+      "title": "部分退款政策",
+      "noticeTitle": "重要提示",
+      "noticeContent": "如果您已使用部分积分，退款金额将根据剩余积分计算。",
+      "description": "例如，您购买了 200 积分并使用了 50 积分（25%），您将获得原购买金额 75% 的退款。"
+    },
+    "contact": {
+      "title": "需要帮助？",
+      "description": "如果您对退款政策有任何疑问或需要协助处理退款申请，请随时联系我们。",
+      "email": "support@pixbanan.xyz",
+      "button": "联系客服"
+    }
+  },
   "footer": {
     "privacyPolicy": "隐私政策",
     "termsOfService": "服务条款",
+    "refundPolicy": "退款政策",
     "pricing": "定价",
     "contact": "联系我们",
     "supportEmail": "support@pixbanan.xyz"
