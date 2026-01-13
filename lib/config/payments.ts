@@ -9,26 +9,13 @@ export interface CreditPackage {
 }
 
 /**
- * Get product ID for a credit package based on environment
+ * Get product ID for a credit package
+ * Reads from environment variables
  */
 function getProductIdForPackage(amount: string): string {
-  const isTest = process.env.NODE_ENV !== 'production';
-
-  if (isTest) {
-    // Test environment
-    return (
-      process.env[`CREEM_TEST_PRODUCT_ID_${amount}`] ||
-      process.env[`CREEM_PRODUCT_ID_${amount}`] ||
-      ''
-    );
-  } else {
-    // Production environment
-    return (
-      process.env[`CREEM_PRODUCT_ID_${amount}`] ||
-      process.env[`CREEM_TEST_PRODUCT_ID_${amount}`] ||
-      ''
-    );
-  }
+  // Directly read from CREEM_PRODUCT_ID_* environment variables
+  // Vercel will have these configured
+  return process.env[`CREEM_PRODUCT_ID_${amount}`] || '';
 }
 
 /**
@@ -56,7 +43,6 @@ export const CREEM_CONFIG = {
 
   /**
    * Get product ID by package amount
-   * Automatically selects test or production product ID based on NODE_ENV
    */
   getProductId(amount: string): string {
     return getProductIdForPackage(amount);
