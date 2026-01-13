@@ -1,7 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Sparkles, Wand2 } from 'lucide-react';
+import { Sparkles, Wand2, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function HeroSection() {
   const t = useTranslations('hero');
@@ -35,6 +36,13 @@ export default function HeroSection() {
             <Wand2 className="h-5 w-5" />
             {t('cta')}
           </a>
+          <Link
+            href="/pricing"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-gray-300 dark:border-gray-600 px-8 py-3.5 font-semibold text-gray-700 dark:text-gray-200 transition-all hover:border-primary-500 hover:text-primary-600 dark:hover:border-primary-400 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800"
+          >
+            {t('pricingCta') || 'View Pricing'}
+            <ArrowRight className="h-5 w-5" />
+          </Link>
         </div>
 
         {/* Demo Image Preview */}

@@ -4,9 +4,31 @@
  */
 
 export interface CreditPackage {
-  id: string;
   amount: number;
   displayName: string;
+}
+
+/**
+ * Get product ID for a credit package based on environment
+ */
+function getProductIdForPackage(amount: string): string {
+  const isTest = process.env.NODE_ENV !== 'production';
+
+  if (isTest) {
+    // Test environment
+    return (
+      process.env[`CREEM_TEST_PRODUCT_ID_${amount}`] ||
+      process.env[`CREEM_PRODUCT_ID_${amount}`] ||
+      ''
+    );
+  } else {
+    // Production environment
+    return (
+      process.env[`CREEM_PRODUCT_ID_${amount}`] ||
+      process.env[`CREEM_TEST_PRODUCT_ID_${amount}`] ||
+      ''
+    );
+  }
 }
 
 /**
@@ -16,21 +38,17 @@ export interface CreditPackage {
 export const CREEM_CONFIG = {
   /**
    * Credit packages available for purchase
-   * Product IDs must be configured in Creem Dashboard
    */
   creditPackages: {
     '100': {
-      id: 'prod_2h4o9YVLDdR33ch289vaBs',
       amount: 100,
       displayName: '100 Credits',
     },
     '200': {
-      id: 'pixbanana-200',
       amount: 200,
       displayName: '200 Credits',
     },
     '500': {
-      id: 'pixbanana-500',
       amount: 500,
       displayName: '500 Credits',
     },
@@ -38,8 +56,9 @@ export const CREEM_CONFIG = {
 
   /**
    * Get product ID by package amount
+   * Automatically selects test or production product ID based on NODE_ENV
    */
   getProductId(amount: string): string {
-    return this.creditPackages[amount]?.id || '';
+    return getProductIdForPackage(amount);
   },
 } as const;

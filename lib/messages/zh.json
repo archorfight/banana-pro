@@ -8,7 +8,8 @@
   "hero": {
     "title": "用 AI 创作惊艳图像",
     "subtitle": "将您的想法在几秒钟内转化为精美艺术作品",
-    "cta": "开始创作"
+    "cta": "开始创作",
+    "pricingCta": "查看定价"
   },
   "features": {
     "title": "为什么选择 PixBanana？",
@@ -148,6 +149,7 @@
     "title": "简单透明的定价",
     "subtitle": "按需付费，无订阅",
     "badge": "无需订阅",
+    "generating": "处理中...",
     "plans": {
       "free": {
         "name": "免费版",

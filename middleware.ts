@@ -17,9 +17,32 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // For API routes, only update Supabase session (skip intlMiddleware)
+  if (request.nextUrl.pathname.startsWith('/api')) {
+    const response = NextResponse.next();
+    const supabase = createServerClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        cookies: {
+          getAll() {
+            return request.cookies.getAll();
+          },
+          setAll(cookiesToSet) {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              response.cookies.set(name, value, options)
+            );
+          },
+        },
+      }
+    );
+    await supabase.auth.getSession();
+    return response;
+  }
+
+  // For page routes, apply intlMiddleware and update Supabase session
   let response = intlMiddleware(request);
 
-  // Update Supabase session
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -37,7 +60,6 @@ export default async function middleware(request: NextRequest) {
     }
   );
 
-  // Refresh session if expired - required for Server Components
   await supabase.auth.getSession();
 
   return response;
@@ -51,7 +73,8 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      * - public files (images, etc.)
+     * - api routes (API endpoints)
      */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$|api.*).*)',
   ],
 };

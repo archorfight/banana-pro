@@ -8,7 +8,8 @@
   "hero": {
     "title": "Create Stunning Images with AI",
     "subtitle": "Transform your ideas into beautiful artwork in seconds",
-    "cta": "Start Creating"
+    "cta": "Start Creating",
+    "pricingCta": "View Pricing"
   },
   "features": {
     "title": "Why Choose PixBanana?",
@@ -148,6 +149,7 @@
     "title": "Simple, Transparent Pricing",
     "subtitle": "Pay only for what you need",
     "badge": "No Subscription Required",
+    "generating": "Processing...",
     "plans": {
       "free": {
         "name": "Free",

@@ -1,19 +1,90 @@
-import { setRequestLocale } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
-import { Check, Zap, Mail, HelpCircle, Coins } from 'lucide-react';
+'use client';
+
+import { useTranslations, useLocale } from 'next-intl';
+import { Check, Zap, Mail, HelpCircle, Coins, Star, ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { createClient } from '@/utils/supabase/client';
+import { CREEM_CONFIG } from '@/lib/config/payments';
 
 interface PageProps {
   params: { locale: string };
 }
 
 export default function PricingPage({ params: { locale } }: PageProps) {
-  setRequestLocale(locale);
   return <PricingContent />;
 }
 
 function PricingContent() {
   const t = useTranslations('pricing');
   const footer = useTranslations('footer');
+  const locale = useLocale();
+  const [loadingPackage, setLoadingPackage] = useState<string | null>(null);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+  const supabase = createClient();
+
+  // Get current user's email on mount
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUserEmail(session?.user?.email ?? null);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUserEmail(session?.user?.email ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handlePurchase = async (packageAmount: string) => {
+    // Check if user is logged in
+    if (!userEmail) {
+      alert('请先登录后再购买积分');
+      return;
+    }
+
+    setLoadingPackage(packageAmount);
+
+    try {
+      const productId = CREEM_CONFIG.getProductId(packageAmount);
+
+      // Build URLs with locale prefix (only for non-default locale)
+      const successUrl = locale === 'en'
+        ? `${window.location.origin}/success?package=${packageAmount}`
+        : `${window.location.origin}/${locale}/success?package=${packageAmount}`;
+      const cancelUrl = locale === 'en'
+        ? `${window.location.origin}/pricing`
+        : `${window.location.origin}/${locale}/pricing`;
+
+      const response = await fetch('/api/creem/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          product_id: productId,
+          success_url: successUrl,
+          cancel_url: cancelUrl,
+          customer_email: userEmail, // Pass logged-in user's email
+          metadata: {
+            package_amount: packageAmount,
+          },
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.checkout_url) {
+        window.location.href = data.checkout_url;
+      } else {
+        alert('Payment initiation failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Payment error:', error);
+      alert('An error occurred. Please try again.');
+    } finally {
+      setLoadingPackage(null);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -40,101 +111,163 @@ function PricingContent() {
 
       {/* Pricing Cards */}
       <div className="max-w-7xl mx-auto px-4 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Free Plan */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-              {t('plans.free.name')}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
-              {t('plans.free.description')}
-            </p>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all border-2 border-transparent hover:border-yellow-200 dark:hover:border-yellow-800 flex flex-col h-full">
             <div className="mb-6">
-              <span className="text-5xl font-bold text-gray-900 dark:text-white">
-                {t('plans.free.price')}
-              </span>
-              <span className="text-gray-600 dark:text-gray-400 ml-2">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                {t('plans.free.name')}
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                {t('plans.free.description')}
+              </p>
+              <div className="flex items-baseline">
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">
+                  {t('plans.free.price')}
+                </span>
+              </div>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                 {t('plans.free.period')}
-              </span>
+              </p>
             </div>
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-3 mb-6 flex-grow">
               {t.raw('plans.free.features').map((feature: string, i: number) => (
-                <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-gray-300">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                  <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                   <span>{feature}</span>
                 </li>
               ))}
             </ul>
             <a
               href="#editor"
-              className="block w-full py-3 px-6 text-center rounded-full border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="block w-full py-3 px-4 text-center rounded-full border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-sm"
             >
               {t('plans.free.cta')}
             </a>
           </div>
 
-          {/* Credit Packages */}
-          <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl shadow-xl p-8 relative">
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-1 rounded-full text-sm font-medium">
+          {/* Credit Package 100 */}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all border-2 border-transparent hover:border-yellow-200 dark:hover:border-yellow-800 flex flex-col h-full">
+            <div className="mb-6">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <Coins className="w-5 h-5 text-yellow-500" />
+                  <span className="text-xs font-medium text-yellow-600 dark:text-yellow-400">STARTER</span>
+                </div>
+              </div>
+              <div className="flex items-baseline">
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">
+                  {t('plans.credits.packages.0.amount')}
+                </span>
+              </div>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                {t('plans.credits.credits')}
+              </p>
+              <div className="mt-2 text-2xl font-bold text-gray-900 dark:text-white">
+                {t('plans.credits.packages.0.price')}
+              </div>
+              <p className="text-xs text-gray-500">{t('plans.credits.oneTime')}</p>
+            </div>
+            <ul className="space-y-2 mb-6 flex-grow">
+              {t.raw('plans.credits.features').slice(0, 4).map((feature: string, i: number) => (
+                <li key={i} className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                  <Check className="w-3 h-3 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <button
+              onClick={() => handlePurchase('100')}
+              disabled={loadingPackage !== null}
+              className="w-full py-3 px-4 text-center rounded-full border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-sm flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loadingPackage === '100' ? t('generating') : t('plans.credits.cta')}
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
+          {/* Credit Package 200 - Popular */}
+          <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl shadow-xl p-6 relative transform lg:-translate-y-2 flex flex-col h-full">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+              <Star className="w-3 h-3 fill-yellow-300" />
               {t('plans.credits.popular')}
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">
-              {t('plans.credits.name')}
-            </h3>
-            <p className="text-white/80 mb-6">
-              {t('plans.credits.description')}
-            </p>
-
-            {/* Credit Package Options */}
-            <div className="space-y-3 mb-8">
-              {t.raw('plans.credits.packages').map((pkg: any, i: number) => (
-                <div
-                  key={i}
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-colors"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <Coins className="w-8 h-8 text-yellow-300" />
-                      <div>
-                        <div className="text-white font-bold text-lg">
-                          {pkg.amount} {t('plans.credits.credits')}
-                        </div>
-                        <div className="text-white/70 text-sm">
-                          {t('plans.credits.perPackage')}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-white font-bold text-2xl">
-                        {pkg.price}
-                      </div>
-                      <div className="text-white/70 text-sm">
-                        {t('plans.credits.oneTime')}
-                      </div>
-                    </div>
-                  </div>
+            <div className="mb-6">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <Coins className="w-5 h-5 text-yellow-300" />
+                  <span className="text-xs font-medium text-yellow-100">RECOMMENDED</span>
                 </div>
+              </div>
+              <div className="flex items-baseline">
+                <span className="text-4xl font-bold text-white">
+                  {t('plans.credits.packages.1.amount')}
+                </span>
+              </div>
+              <p className="text-sm text-white/80 mt-1">
+                {t('plans.credits.credits')}
+              </p>
+              <div className="mt-2 text-2xl font-bold text-white">
+                {t('plans.credits.packages.1.price')}
+              </div>
+              <p className="text-xs text-white/70">{t('plans.credits.oneTime')}</p>
+            </div>
+            <ul className="space-y-2 mb-6 flex-grow">
+              {t.raw('plans.credits.features').slice(0, 5).map((feature: string, i: number) => (
+                <li key={i} className="flex items-start gap-2 text-xs text-white">
+                  <Check className="w-3 h-3 text-yellow-300 flex-shrink-0 mt-0.5" />
+                  <span>{feature}</span>
+                </li>
               ))}
-            </div>
-
-            {/* Credit Package Features */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 mb-6">
-              <ul className="space-y-2">
-                {t.raw('plans.credits.features').map((feature: string, i: number) => (
-                  <li key={i} className="flex items-start gap-2 text-white text-sm">
-                    <Check className="w-4 h-4 text-yellow-300 flex-shrink-0 mt-0.5" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <a
-              href="#editor"
-              className="block w-full py-3 px-6 text-center rounded-full bg-white text-gray-900 font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+            </ul>
+            <button
+              onClick={() => handlePurchase('200')}
+              disabled={loadingPackage !== null}
+              className="w-full py-3 px-4 text-center rounded-full bg-white text-gray-900 font-semibold hover:bg-gray-100 transition-colors text-sm flex items-center justify-center gap-2 group shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {t('plans.credits.cta')}
-            </a>
+              {loadingPackage === '200' ? t('generating') : t('plans.credits.cta')}
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
+          {/* Credit Package 500 */}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all border-2 border-transparent hover:border-yellow-200 dark:hover:border-yellow-800 flex flex-col h-full">
+            <div className="mb-6">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <Coins className="w-5 h-5 text-yellow-500" />
+                  <span className="text-xs font-medium text-yellow-600 dark:text-yellow-400">BEST VALUE</span>
+                </div>
+              </div>
+              <div className="flex items-baseline">
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">
+                  {t('plans.credits.packages.2.amount')}
+                </span>
+              </div>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                {t('plans.credits.credits')}
+              </p>
+              <div className="mt-2 text-2xl font-bold text-gray-900 dark:text-white">
+                {t('plans.credits.packages.2.price')}
+              </div>
+              <p className="text-xs text-gray-500">{t('plans.credits.oneTime')}</p>
+            </div>
+            <ul className="space-y-2 mb-6 flex-grow">
+              {t.raw('plans.credits.features').map((feature: string, i: number) => (
+                <li key={i} className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                  <Check className="w-3 h-3 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <button
+              onClick={() => handlePurchase('500')}
+              disabled={loadingPackage !== null}
+              className="w-full py-3 px-4 text-center rounded-full border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-sm flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loadingPackage === '500' ? t('generating') : t('plans.credits.cta')}
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
         </div>
 

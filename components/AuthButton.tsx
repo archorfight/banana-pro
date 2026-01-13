@@ -1,13 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { createClient } from "@/utils/supabase/client";
+import { CreditsDisplay } from "@/components/CreditsDisplay";
 import type { User } from "@supabase/supabase-js";
 
 export default function AuthButton() {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isActionLoading, setIsActionLoading] = useState(false);
+  const avatarUrlRef = useRef<string | null>(null);
   const supabase = createClient();
 
   useEffect(() => {
@@ -25,7 +27,17 @@ export default function AuthButton() {
     });
 
     return () => subscription.unsubscribe();
-  }, [supabase]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Only update avatar URL when it actually changes
+  const currentAvatarUrl = useMemo(() => {
+    const newAvatarUrl = user?.user_metadata?.avatar_url;
+    if (newAvatarUrl && newAvatarUrl !== avatarUrlRef.current) {
+      avatarUrlRef.current = newAvatarUrl;
+    }
+    return avatarUrlRef.current;
+  }, [user?.user_metadata?.avatar_url]);
 
   const handleSignIn = async () => {
     setIsActionLoading(true);
@@ -50,22 +62,30 @@ export default function AuthButton() {
   }
 
   if (user) {
+    const name = user.user_metadata?.name;
+    const firstLetter = name?.[0] || "U";
+
     return (
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center space-x-4">
+        {/* Credits Display */}
+        <CreditsDisplay showLabel={false} />
+
+        {/* User Info */}
         <div className="flex items-center space-x-2">
-          {user.user_metadata?.avatar_url ? (
+          {currentAvatarUrl ? (
             <img
-              src={user.user_metadata.avatar_url}
-              alt={user.user_metadata?.name || "User"}
-              className="h-8 w-8 rounded-full"
+              src={currentAvatarUrl}
+              alt={name || "User"}
+              className="h-8 w-8 rounded-full object-cover"
+              referrerPolicy="no-referrer"
             />
           ) : (
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-500 text-white">
-              {user.user_metadata?.name?.[0] || "U"}
+              {firstLetter}
             </div>
           )}
           <span className="hidden text-sm text-gray-700 dark:text-gray-300 sm:block">
-            {user.user_metadata?.name || user.email}
+            {name || user.email}
           </span>
         </div>
         <button

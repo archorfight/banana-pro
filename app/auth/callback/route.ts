@@ -17,19 +17,9 @@ export async function GET(request: Request) {
     const { error } = await supabase.auth.exchangeCodeForSession(code)
 
     if (!error) {
-      // Get the correct origin for the redirect
-      // Try x-forwarded-host first (for Vercel/load balancers), then fall back to origin
-      const forwardedHost = request.headers.get('x-forwarded-host')
-      const forwardedProto = request.headers.get('x-forwarded-proto')
-      const host = forwardedHost || request.headers.get('host') || new URL(request.url).host
-      const protocol = forwardedProto || 'https'
-
-      // Construct the base URL
-      const baseUrl = forwardedHost
-        ? `${protocol}://${forwardedHost}`
-        : origin
-
-      return NextResponse.redirect(`${baseUrl}${next}`)
+      // Use the request origin for redirect
+      // This ensures local development stays local
+      return NextResponse.redirect(`${origin}${next}`)
     }
   }
 
