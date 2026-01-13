@@ -4,7 +4,6 @@ import { useTranslations, useLocale } from 'next-intl';
 import { Check, Zap, Mail, HelpCircle, Coins, Star, ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { createClient } from '@/utils/supabase/client';
-import { CREEM_CONFIG } from '@/lib/config/payments';
 
 interface PageProps {
   params: { locale: string };
@@ -20,10 +19,18 @@ function PricingContent() {
   const locale = useLocale();
   const [loadingPackage, setLoadingPackage] = useState<string | null>(null);
   const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [productIds, setProductIds] = useState<Record<string, string>>({});
   const supabase = createClient();
 
-  // Get current user's email on mount
+  // Get product IDs and user email on mount
   useEffect(() => {
+    // Fetch product IDs from API
+    fetch('/api/creem/products')
+      .then(res => res.json())
+      .then(data => setProductIds(data))
+      .catch(err => console.error('Failed to fetch product IDs:', err));
+
+    // Get user session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUserEmail(session?.user?.email ?? null);
     });
@@ -42,11 +49,15 @@ function PricingContent() {
       return;
     }
 
+    const productId = productIds[packageAmount];
+    if (!productId) {
+      alert('产品配置错误，请联系客服');
+      return;
+    }
+
     setLoadingPackage(packageAmount);
 
     try {
-      const productId = CREEM_CONFIG.getProductId(packageAmount);
-
       // Build URLs with locale prefix (only for non-default locale)
       const successUrl = locale === 'en'
         ? `${window.location.origin}/success?package=${packageAmount}`
