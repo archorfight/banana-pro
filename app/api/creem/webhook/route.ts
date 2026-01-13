@@ -244,31 +244,53 @@ async function handleCheckoutRefunded(data: any) {
 
   console.log(`Deducting ${creditsToDeduct} credits from user ${user.id} (${user.email}) due to refund`);
 
-  // Deduct credits using RPC function
-  const { data: result, error: creditError } = await supabase.rpc('deduct_credits', {
-    p_user_id: user.id,
-    p_amount: creditsToDeduct,
-    p_type: 'refund',
-    p_description: `Refunded for order ${order_id}`,
-    p_metadata: {
-      product_id,
-      order_id,
-      amount,
-      customer_email,
-      refund_reason: data.refund_reason || 'customer_request'
-    }
-  });
+  // For refunds, directly update the balance to allow negative values
+  // This is because users may have already spent their credits
+  const { data: existingCredit } = await supabase
+    .from('user_credits')
+    .select('credits')
+    .eq('user_id', user.id)
+    .single();
 
-  if (creditError) {
-    console.error('Failed to deduct credits:', creditError);
+  const currentBalance = existingCredit?.credits || 0;
+  const newBalance = currentBalance - creditsToDeduct;
+
+  // Update or insert credit record (allowing negative balance for refunds)
+  const { error: updateError } = await supabase
+    .from('user_credits')
+    .upsert({
+      user_id: user.id,
+      credits: newBalance,
+      updated_at: new Date().toISOString(),
+    });
+
+  if (updateError) {
+    console.error('Failed to update credits:', updateError);
     return;
   }
 
-  const creditResult = result as CreditsResult;
+  // Record the refund in history
+  const { error: historyError } = await supabase
+    .from('user_credit_history')
+    .insert({
+      user_id: user.id,
+      amount: -creditsToDeduct,
+      balance_after: newBalance,
+      type: 'refund',
+      description: `Refunded for order ${order_id}`,
+      metadata: {
+        product_id,
+        order_id,
+        amount,
+        customer_email,
+        refund_reason: data.refund_reason || 'customer_request',
+        previous_balance: currentBalance
+      },
+    });
 
-  if (creditResult.success) {
-    console.log(`Successfully deducted ${creditsToDeduct} credits from user ${user.id}. New balance: ${creditResult.new_balance}`);
-  } else {
-    console.error('Failed to deduct credits:', creditResult);
+  if (historyError) {
+    console.error('Failed to record credit history:', historyError);
   }
+
+  console.log(`Successfully deducted ${creditsToDeduct} credits from user ${user.id}. New balance: ${newBalance} (was ${currentBalance})`);
 }
