@@ -2,17 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Creem API configuration
-const CREEM_BASE_URL = process.env.CREEM_BASE_URL || (process.env.NODE_ENV === 'production'
-  ? 'https://api.creem.io'
-  : 'https://test-api.creem.io');
+const CREEM_BASE_URL = process.env.CREEM_BASE_URL || 'https://api.creem.io';
 
-// Select API key based on environment
+// Select API key - prioritize production key
 const getCreemApiKey = () => {
-  if (process.env.NODE_ENV === 'production') {
-    return process.env.CREEM_API_KEY || process.env.CREEM_TEST_API_KEY || '';
-  } else {
-    return process.env.CREEM_TEST_API_KEY || process.env.CREEM_API_KEY || '';
-  }
+  return process.env.CREEM_API_KEY || process.env.CREEM_TEST_API_KEY || '';
 };
 
 const MOCK_MODE = process.env.MOCK_PAYMENT === 'true';
