@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     sitemap.push({
       url: `${SITE_URL}${page}`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: 'weekly' as const,
       priority: page === '' ? 1 : 0.8,
     })
   })
@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     sitemap.push({
       url: `${SITE_URL}/en${page}`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: 'weekly' as const,
       priority: page === '' ? 0.9 : 0.7,
     })
   })
