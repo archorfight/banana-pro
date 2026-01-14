@@ -47,7 +47,9 @@
       "Bash(git config:*)",
       "Bash(vercel --version)",
       "Bash(npm i:*)",
-      "Bash(vercel whoami:*)"
+      "Bash(vercel whoami:*)",
+      "Bash(git diff:*)",
+      "Bash(git rm:*)"
     ]
   }
 }

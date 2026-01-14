@@ -1,39 +1,70 @@
 import { MetadataRoute } from 'next'
 
-const SITE_URL = 'https://www.pixbanana.xyz'
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  // 基础页面（支持中英文）
-  const pages = [
-    '',
-    '/pricing',
-    '/privacy',
-    '/terms',
-    '/refund',
+  const baseUrl = 'https://www.pixbanana.xyz'
+
+  return [
+    // 中文页面
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/pricing`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/refund`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    // 英文页面
+    {
+      url: `${baseUrl}/en`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/en/pricing`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/en/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/en/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/en/refund`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.4,
+    },
   ]
-
-  // 为每个页面生成中英文版本的 URL
-  const sitemap: MetadataRoute.Sitemap = []
-
-  // 中文版本（默认语言，不带 /zh 前缀）
-  pages.forEach((page) => {
-    sitemap.push({
-      url: `${SITE_URL}${page}`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: page === '' ? 1 : 0.8,
-    })
-  })
-
-  // 英文版本
-  pages.forEach((page) => {
-    sitemap.push({
-      url: `${SITE_URL}/en${page}`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: page === '' ? 0.9 : 0.7,
-    })
-  })
-
-  return sitemap
 }

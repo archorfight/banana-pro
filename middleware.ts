@@ -74,7 +74,8 @@ export const config = {
      * - favicon.ico (favicon file)
      * - public files (images, etc.)
      * - api routes (API endpoints)
+     * - sitemap.xml & robots.txt (SEO files)
      */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$|api.*).*)',
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$|api.*|sitemap\\.xml|robots\\.txt).*)',
   ],
 };
