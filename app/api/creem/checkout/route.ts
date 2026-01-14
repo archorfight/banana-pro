@@ -3,12 +3,7 @@ import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Creem API configuration
 const CREEM_BASE_URL = process.env.CREEM_BASE_URL || 'https://api.creem.io';
-
-// Select API key - prioritize production key
-const getCreemApiKey = () => {
-  return process.env.CREEM_API_KEY || process.env.CREEM_TEST_API_KEY || '';
-};
-
+const CREEM_API_KEY = process.env.CREEM_API_KEY;
 const MOCK_MODE = process.env.MOCK_PAYMENT === 'true';
 
 // Proxy configuration (for Creem API access in restricted regions)
@@ -28,8 +23,6 @@ interface CreemCheckoutRequest {
 
 export async function POST(request: NextRequest) {
   try {
-    const CREEM_API_KEY = getCreemApiKey();
-
     if (!CREEM_API_KEY) {
       return NextResponse.json(
         { error: 'Creem API key not configured' },

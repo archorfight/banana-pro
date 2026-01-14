@@ -150,7 +150,7 @@ function PricingContent() {
               ))}
             </ul>
             <a
-              href="#editor"
+              href={locale === 'en' ? '/#editor' : `/${locale}/#editor`}
               className="block w-full py-3 px-4 text-center rounded-full border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-sm"
             >
               {t('plans.free.cta')}
