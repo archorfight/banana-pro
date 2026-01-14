@@ -28,6 +28,18 @@ export default async function LocaleLayout({ children, params: { locale } }: Lay
 
   return (
     <html lang={locale}>
+      <head>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-F96LQ95MYZ"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-F96LQ95MYZ');
+          `
+        }} />
+      </head>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>
           <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
