@@ -5,12 +5,15 @@
 
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { defaultLocale } from '@/lib/i18n';
 import { Mail, Github, Twitter } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
   const t = useTranslations('footer');
+  const locale = useLocale();
+  const prefix = locale === defaultLocale ? '' : `/${locale}`;
 
   return (
     <footer className="bg-gray-900 text-gray-400 py-12 px-4">
@@ -26,12 +29,12 @@ export default function Footer() {
               AI-powered image generation platform for creators, designers, and businesses.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="hover:text-white transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                <Github className="w-5 h-5" />
-              </a>
+              <span className="hover:text-white transition-colors inline-block">
+                <Twitter className="w-5 h-5" aria-hidden />
+              </span>
+              <span className="hover:text-white transition-colors inline-block">
+                <Github className="w-5 h-5" aria-hidden />
+              </span>
             </div>
           </div>
 
@@ -40,22 +43,22 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Legal</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/privacy" className="hover:text-white transition-colors">
+                <Link href={`${prefix}/privacy`} className="hover:text-white transition-colors">
                   {t('privacyPolicy')}
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-white transition-colors">
+                <Link href={`${prefix}/terms`} className="hover:text-white transition-colors">
                   {t('termsOfService')}
                 </Link>
               </li>
               <li>
-                <Link href="/refund" className="hover:text-white transition-colors">
+                <Link href={`${prefix}/refund`} className="hover:text-white transition-colors">
                   {t('refundPolicy')}
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-white transition-colors">
+                <Link href={`${prefix}/pricing`} className="hover:text-white transition-colors">
                   {t('pricing')}
                 </Link>
               </li>

@@ -1,7 +1,8 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
+import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { locales } from '@/lib/i18n';
+import { locales, defaultLocale } from '@/lib/i18n';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import AuthButton from '@/components/AuthButton';
@@ -12,8 +13,58 @@ interface LayoutProps {
   params: { locale: typeof locales[number] };
 }
 
+const SITE_URL = 'https://www.pixbanana.xyz';
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params: { locale } }: LayoutProps): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'common' });
+  const tHero = await getTranslations({ locale, namespace: 'hero' });
+  const appName = t('appName');
+  const tagline = t('tagline');
+  const heroTitle = tHero('title');
+  const heroSubtitle = tHero('subtitle');
+  const localePath = locale === defaultLocale ? '' : `/${locale}`;
+
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: `${appName} — ${heroTitle}`,
+      template: `%s | ${appName}`,
+    },
+    description: heroSubtitle,
+    keywords: ['AI image generator', 'AI image editor', 'text to image', 'image to image', appName],
+    alternates: {
+      canonical: `${SITE_URL}${localePath}`,
+      languages: {
+        'en': `${SITE_URL}`,
+        'zh': `${SITE_URL}/zh`,
+        'x-default': `${SITE_URL}`,
+      },
+    },
+    openGraph: {
+      title: `${appName} — ${heroTitle}`,
+      description: heroSubtitle,
+      url: `${SITE_URL}${localePath}`,
+      siteName: appName,
+      type: 'website',
+      locale: locale === 'zh' ? 'zh_CN' : 'en_US',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${appName} — ${heroTitle}`,
+      description: heroSubtitle,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    icons: {
+      icon: '/favicon.ico',
+    },
+  };
 }
 
 export default async function LocaleLayout({ children, params: { locale } }: LayoutProps) {
@@ -46,7 +97,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Lay
             <nav className="border-b border-gray-200 bg-white/50 backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/50">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
-                  <Link href={`/${locale}`} className="flex items-center space-x-2">
+                  <Link href={locale === defaultLocale ? '/' : `/${locale}`} className="flex items-center space-x-2">
                     <span className="text-2xl">🍌</span>
                     <span className="text-xl font-bold text-primary-600">PixBanana</span>
                   </Link>

@@ -1,70 +1,56 @@
 import { MetadataRoute } from 'next'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.pixbanana.xyz'
+const SITE_URL = 'https://www.pixbanana.xyz'
 
-  return [
-    // 中文页面
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/pricing`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/refund`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    // 英文页面
-    {
-      url: `${baseUrl}/en`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/en/pricing`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/en/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/en/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/en/refund`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.4,
-    },
-  ]
+/**
+ * Sitemap — only final 200-status, indexable URLs.
+ *
+ * localePrefix: 'as-needed' + defaultLocale: 'en' means:
+ *   English (default): no prefix  → /, /pricing, /privacy, ...
+ *   Chinese:           /zh prefix → /zh, /zh/pricing, /zh/privacy, ...
+ *
+ * /en/* URLs are NOT included because they 3XX-redirect to the unprefixed
+ * canonical URLs.
+ */
+export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date()
+
+  const routes = ['', '/pricing', '/privacy', '/terms', '/refund']
+
+  const entries: MetadataRoute.Sitemap = []
+
+  for (const route of routes) {
+    const enPath = route || '/'
+    const zhPath = `/zh${route}`
+
+    entries.push({
+      url: `${SITE_URL}${enPath}`,
+      lastModified,
+      changeFrequency: route === '' ? 'daily' : route === '/pricing' ? 'weekly' : 'monthly',
+      priority: route === '' ? 1.0 : route === '/pricing' ? 0.9 : 0.5,
+      alternates: {
+        languages: {
+          en: `${SITE_URL}${enPath}`,
+          zh: `${SITE_URL}${zhPath}`,
+          'x-default': `${SITE_URL}${enPath}`,
+        },
+      },
+    })
+
+    entries.push({
+      url: `${SITE_URL}${zhPath}`,
+      lastModified,
+      changeFrequency: route === '' ? 'daily' : route === '/pricing' ? 'weekly' : 'monthly',
+      priority: route === '' ? 0.9 : route === '/pricing' ? 0.8 : 0.4,
+      alternates: {
+        languages: {
+          en: `${SITE_URL}${enPath}`,
+          zh: `${SITE_URL}${zhPath}`,
+          'x-default': `${SITE_URL}${enPath}`,
+        },
+      },
+    })
+  }
+
+  return entries
 }

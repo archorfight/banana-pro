@@ -1,9 +1,31 @@
-import { setRequestLocale } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { Shield, Mail } from 'lucide-react';
+import type { Metadata } from 'next';
+import { defaultLocale } from '@/lib/i18n';
+
+const SITE_URL = 'https://www.pixbanana.xyz';
 
 interface PageProps {
   params: { locale: string };
+}
+
+export async function generateMetadata({ params: { locale } }: PageProps): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'privacy' });
+  const localePath = locale === defaultLocale ? '' : `/${locale}`;
+  const title = t('title');
+
+  return {
+    title,
+    description: 'Privacy Policy for PixBanana AI image generation platform.',
+    alternates: {
+      canonical: `${SITE_URL}${localePath}/privacy`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
 }
 
 export default function PrivacyPage({ params: { locale } }: PageProps) {

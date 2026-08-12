@@ -1,13 +1,14 @@
-import { useTranslations } from 'next-intl';
+'use client';
+
+import { useTranslations, useLocale } from 'next-intl';
+import { defaultLocale } from '@/lib/i18n';
 import { XCircle } from 'lucide-react';
 import Link from 'next/link';
 
-interface PageProps {
-  params: { locale: string };
-}
-
-export default function CancelPage({ params: { locale } }: PageProps) {
+export default function CancelPage() {
   const t = useTranslations('pricing');
+  const locale = useLocale();
+  const prefix = locale === defaultLocale ? '' : `/${locale}`;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 flex items-center justify-center px-4">
@@ -30,13 +31,13 @@ export default function CancelPage({ params: { locale } }: PageProps) {
 
         <div className="flex flex-col gap-3">
           <Link
-            href="/pricing"
+            href={`${prefix}/pricing`}
             className="w-full py-3 px-6 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 font-semibold rounded-full hover:from-yellow-500 hover:to-orange-600 transition-all shadow-lg"
           >
             Back to Pricing
           </Link>
           <Link
-            href="/"
+            href={`${prefix}/`}
             className="w-full py-3 px-6 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-full hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
           >
             Back to Home
