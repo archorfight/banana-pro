@@ -3,23 +3,42 @@ import { useTranslations } from 'next-intl';
 import { FileText, Mail } from 'lucide-react';
 import type { Metadata } from 'next';
 import { defaultLocale } from '@/lib/i18n';
-
-const SITE_URL = 'https://www.pixbanana.xyz';
+import { SITE_URL, OG_IMAGE } from '@/lib/seo';
 
 interface PageProps {
   params: { locale: string };
 }
 
+const descriptions: Record<string, string> = {
+  en: 'Read the PixBanana terms of service: acceptable use, prohibited content, ownership of generated images, credit purchases and refunds, liability, and how terms may change.',
+  zh: '阅读 PixBanana 服务条款：可接受的用途、禁用内容、生成图像的版权归属、点数购买与退款、责任限制，以及条款的变更方式。',
+};
+
 export async function generateMetadata({ params: { locale } }: PageProps): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'terms' });
   const localePath = locale === defaultLocale ? '' : `/${locale}`;
   const title = t('title');
+  const description = descriptions[locale] ?? descriptions.en;
+  const url = `${SITE_URL}${localePath}/terms`;
 
   return {
     title,
-    description: 'Terms of Service for PixBanana AI image generation platform.',
+    description,
     alternates: {
-      canonical: `${SITE_URL}${localePath}/terms`,
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: 'website',
+      images: [{ url: OG_IMAGE.url, width: OG_IMAGE.width, height: OG_IMAGE.height, alt: OG_IMAGE.alt }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [OG_IMAGE.url],
     },
     robots: {
       index: true,

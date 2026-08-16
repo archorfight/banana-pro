@@ -3,23 +3,42 @@ import { useTranslations } from 'next-intl';
 import { Shield, Mail } from 'lucide-react';
 import type { Metadata } from 'next';
 import { defaultLocale } from '@/lib/i18n';
-
-const SITE_URL = 'https://www.pixbanana.xyz';
+import { SITE_URL, OG_IMAGE } from '@/lib/seo';
 
 interface PageProps {
   params: { locale: string };
 }
 
+const descriptions: Record<string, string> = {
+  en: 'Read the PixBanana privacy policy: what data we collect (account, usage, payment, technical), how we use and protect it, who we share it with, and the rights you have over your information.',
+  zh: '阅读 PixBanana 隐私政策：我们收集哪些数据（账户、使用、支付、技术信息），如何使用与保护数据、与谁共享，以及您对自己信息的权利。',
+};
+
 export async function generateMetadata({ params: { locale } }: PageProps): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'privacy' });
   const localePath = locale === defaultLocale ? '' : `/${locale}`;
   const title = t('title');
+  const description = descriptions[locale] ?? descriptions.en;
+  const url = `${SITE_URL}${localePath}/privacy`;
 
   return {
     title,
-    description: 'Privacy Policy for PixBanana AI image generation platform.',
+    description,
     alternates: {
-      canonical: `${SITE_URL}${localePath}/privacy`,
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: 'website',
+      images: [{ url: OG_IMAGE.url, width: OG_IMAGE.width, height: OG_IMAGE.height, alt: OG_IMAGE.alt }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [OG_IMAGE.url],
     },
     robots: {
       index: true,

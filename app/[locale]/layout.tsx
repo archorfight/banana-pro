@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales, defaultLocale } from '@/lib/i18n';
+import { SITE_URL, OG_IMAGE } from '@/lib/seo';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
@@ -12,8 +13,6 @@ interface LayoutProps {
   children: React.ReactNode;
   params: { locale: typeof locales[number] };
 }
-
-const SITE_URL = 'https://www.pixbanana.xyz';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -31,7 +30,7 @@ export async function generateMetadata({ params: { locale } }: LayoutProps): Pro
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: `${appName} — ${heroTitle}`,
+      default: `${appName} — ${heroTitle} | ${tagline}`,
       template: `%s | ${appName}`,
     },
     description: heroSubtitle,
@@ -51,11 +50,13 @@ export async function generateMetadata({ params: { locale } }: LayoutProps): Pro
       siteName: appName,
       type: 'website',
       locale: locale === 'zh' ? 'zh_CN' : 'en_US',
+      images: [{ url: OG_IMAGE.url, width: OG_IMAGE.width, height: OG_IMAGE.height, alt: OG_IMAGE.alt }],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${appName} — ${heroTitle}`,
       description: heroSubtitle,
+      images: [OG_IMAGE.url],
     },
     robots: {
       index: true,

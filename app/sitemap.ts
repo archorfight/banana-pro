@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next'
-
-const SITE_URL = 'https://www.pixbanana.xyz'
+import { SITE_URL } from '@/lib/seo'
 
 /**
  * Sitemap — only final 200-status, indexable URLs.
