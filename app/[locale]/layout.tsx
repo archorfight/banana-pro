@@ -63,7 +63,12 @@ export async function generateMetadata({ params: { locale } }: LayoutProps): Pro
       follow: true,
     },
     icons: {
-      icon: '/favicon.ico',
+      icon: [
+        { url: '/favicon.ico', sizes: 'any' },
+        { url: '/favicon-32.png', type: 'image/png', sizes: '32x32' },
+      ],
+      shortcut: ['/favicon.ico'],
+      apple: '/apple-touch-icon.png',
     },
   };
 }
