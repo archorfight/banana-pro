@@ -9,7 +9,7 @@ interface PageProps {
 }
 
 const descriptions: Record<string, string> = {
-  en: 'PixBanana refund policy: request a full refund within 7 days if credits are unused, prorated refunds for partially used packages, and how to submit a refund request.',
+  en: 'PixBanana refund policy: full refund within 7 days if credits are unused; prorated refunds for partially used packages.',
   zh: 'PixBanana 退款政策：点数未使用可在 7 天内申请全额退款，部分使用的套餐按比例退款，以及如何提交退款申请。',
 };
 

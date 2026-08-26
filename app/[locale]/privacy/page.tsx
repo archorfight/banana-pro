@@ -10,7 +10,7 @@ interface PageProps {
 }
 
 const descriptions: Record<string, string> = {
-  en: 'Read the PixBanana privacy policy: what data we collect (account, usage, payment, technical), how we use and protect it, who we share it with, and the rights you have over your information.',
+  en: 'PixBanana privacy policy: what data we collect, how we use and protect it, who we share it with, and your rights.',
   zh: '阅读 PixBanana 隐私政策：我们收集哪些数据（账户、使用、支付、技术信息），如何使用与保护数据、与谁共享，以及您对自己信息的权利。',
 };
 

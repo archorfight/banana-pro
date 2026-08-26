@@ -10,7 +10,7 @@ interface PageProps {
 }
 
 const descriptions: Record<string, string> = {
-  en: 'Read the PixBanana terms of service: acceptable use, prohibited content, ownership of generated images, credit purchases and refunds, liability, and how terms may change.',
+  en: 'PixBanana terms of service: acceptable use, image ownership, credit purchases, refunds, and liability.',
   zh: '阅读 PixBanana 服务条款：可接受的用途、禁用内容、生成图像的版权归属、点数购买与退款、责任限制，以及条款的变更方式。',
 };
 

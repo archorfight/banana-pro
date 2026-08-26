@@ -9,7 +9,7 @@ interface PageProps {
 }
 
 const descriptions: Record<string, string> = {
-  en: 'Simple, transparent pricing for PixBanana AI image generation. Buy credit packages with a one-time purchase — no subscription required. Credits never expire.',
+  en: 'Simple, transparent pricing for PixBanana AI image generation. One-time credit packages, no subscription, credits never expire.',
   zh: 'PixBanana AI 图像生成定价简单透明。一次性购买点数套餐，无需订阅，点数永不过期。',
 };
 
