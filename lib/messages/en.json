@@ -373,7 +373,7 @@
     "process": {
       "title": "How to Request a Refund",
       "steps": [
-        "Contact our support team at support@pixbanan.xyz with your order details",
+        "Contact our support team at support@pixbanana.xyz with your order details",
         "Provide your order ID, email used for purchase, and reason for refund",
         "Our team will review your request within 1-2 business days",
         "If approved, refunds will be processed within 3-5 business days",
@@ -389,7 +389,7 @@
     "contact": {
       "title": "Need Help?",
       "description": "If you have any questions about our refund policy or need assistance with a refund request, please don't hesitate to contact us.",
-      "email": "support@pixbanan.xyz",
+      "email": "support@pixbanana.xyz",
       "button": "Contact Support"
     }
   },
@@ -399,6 +399,6 @@
     "refundPolicy": "Refund Policy",
     "pricing": "Pricing",
     "contact": "Contact",
-    "supportEmail": "support@pixbanan.xyz"
+    "supportEmail": "support@pixbanana.xyz"
   }
 }

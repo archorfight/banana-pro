@@ -31,8 +31,8 @@ export default function AITransparency() {
                 </p>
                 <p>
                   <strong className="text-gray-900 dark:text-white">Transparency commitment:</strong> We believe in being open about how our service works. If you have questions about the AI models we use or how we process your data, please contact us at{' '}
-                  <a href="mailto:support@pixbanan.xyz" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
-                    support@pixbanan.xyz
+                  <a href="mailto:support@pixbanana.xyz" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+                    support@pixbanana.xyz
                   </a>.
                 </p>
               </div>

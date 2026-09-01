@@ -373,7 +373,7 @@
     "process": {
       "title": "如何申请退款",
       "steps": [
-        "联系客服团队 support@pixbanan.xyz，提供订单详情",
+        "联系客服团队 support@pixbanana.xyz，提供订单详情",
         "提供订单 ID、购买邮箱和退款原因",
         "我们团队将在 1-2 个工作日内审核",
         "审核通过后，退款将在 3-5 个工作日内处理",
@@ -389,7 +389,7 @@
     "contact": {
       "title": "需要帮助？",
       "description": "如果您对退款政策有任何疑问或需要协助处理退款申请，请随时联系我们。",
-      "email": "support@pixbanan.xyz",
+      "email": "support@pixbanana.xyz",
       "button": "联系客服"
     }
   },
@@ -399,6 +399,6 @@
     "refundPolicy": "退款政策",
     "pricing": "定价",
     "contact": "联系我们",
-    "supportEmail": "support@pixbanan.xyz"
+    "supportEmail": "support@pixbanana.xyz"
   }
 }
