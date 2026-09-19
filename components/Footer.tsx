@@ -86,6 +86,22 @@ export default function Footer() {
           <p className="text-sm text-gray-500">
             Independent product. Not affiliated with any AI model providers.
           </p>
+          <a
+            href="https://uno.directory"
+            target="_blank"
+            rel="noopener"
+            aria-label="Listed on Uno Directory"
+            className="opacity-60 hover:opacity-100 transition-opacity"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://uno.directory/uno-directory.svg"
+              alt="Listed on Uno Directory"
+              width={120}
+              height={30}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </footer>
