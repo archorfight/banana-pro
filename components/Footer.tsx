@@ -102,6 +102,21 @@ export default function Footer() {
               loading="lazy"
             />
           </a>
+          <a
+            href="https://toolparade.com/tools/pixbanana"
+            target="_blank"
+            rel="noopener"
+            aria-label="Tool Parade"
+            className="opacity-60 hover:opacity-100 transition-opacity"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://toolparade.com/assets/images/badge.png"
+              alt="Tool Parade"
+              height={30}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </footer>
