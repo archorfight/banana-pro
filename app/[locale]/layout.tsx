@@ -96,6 +96,45 @@ export default async function LocaleLayout({ children, params: { locale } }: Lay
             gtag('config', 'G-F96LQ95MYZ');
           `
         }} />
+        {/* Structured data: WebApplication + FAQPage from i18n messages (SEO GO gate, 2026-10-03) */}
+        {(() => {
+          let faq: Record<string, string> = {};
+          try {
+            const msg = require(`@/lib/messages/${locale}.json`);
+            faq = msg.faq || {};
+          } catch { /* fallback: no FAQ schema */ }
+          const questions = [1, 2, 3, 5, 6, 7]
+            .map((i) => [faq[`q${i}`], faq[`a${i}`]] as [string, string])
+            .filter(([q, a]) => q && a)
+            .map(([q, a]) => ({
+              "@type": "Question",
+              name: q,
+              acceptedAnswer: { "@type": "Answer", text: a },
+            }));
+          if (!questions.length) return null;
+          const ld = [
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "PixBanana",
+              url: SITE_URL,
+              applicationCategory: "DesignApplication",
+              operatingSystem: "Web",
+              description: faq.a1 || "AI-powered image generation platform.",
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: questions,
+            },
+          ];
+          return (
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+            />
+          );
+        })()}
       </head>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>
