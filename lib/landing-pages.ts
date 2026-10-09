@@ -1,0 +1,523 @@
+// Auto-generated from task t_7d1d933a — do not hand-edit content here.
+export interface LandingContent {
+  title: string; meta: string; h1: string; answer: string;
+  steps: string[]; prompts?: string[];
+  useCases: { t: string; d: string }[];
+  faq: { q: string; a: string }[];
+}
+export interface LandingPage {
+  slug: string; category: 'banana' | 'generator' | 'usecase' | 'style'; keyword: string;
+  en: LandingContent; zh: LandingContent; related: string[];
+}
+export const landingPages: LandingPage[] = [
+{
+  slug: "banana-ai-image-generator", category: "banana", keyword: "banana ai image generator",
+  en: {
+    title: "Banana AI Image Generator — Free Online Tool | PixBanana", meta: "Turn text into images with Banana AI. Free daily generations, 8+ styles, no design skills needed. Try the Banana AI image generator free.", h1: "Banana AI Image Generator", answer: "Banana AI image generator is the playful name for PixBanana's text-to-image engine: you type a description, pick a style, and get a finished image in seconds. Every new account gets one free generation per day — no credit card — and paid credit packs start at $9.99 for 100 images if you need more. It runs fully in the browser on desktop and mobile.",
+    steps: ["Type what you want in plain language — \"a corgi astronaut floating over neon Tokyo\" is enough, no prompt-engineering degree required.", "Pick a style: realistic, anime, watercolor, cyberpunk, 3D, comic, fantasy or abstract.", "Hit Generate and wait a few seconds for the render.", "Download the PNG at full resolution, or refine the same prompt and run it again."],
+    prompts: ["a cozy bookshop interior at golden hour, warm light through tall windows, cinematic", "product photo of a matte-black coffee grinder on marble, soft studio lighting", "isometric illustration of a tiny island city with windmills, pastel colors"],
+    useCases: [{ t: "Blog & social visuals", d: "Generate on-topic hero images and post graphics without stock-photo licensing headaches." }, { t: "Mood boards", d: "Iterate a dozen directions in minutes before committing to one look." }, { t: "Quick concept art", d: "Sketch ideas for clients or your own projects at idea speed." }],
+    faq: [{ q: "Is the Banana AI image generator free?", a: "Yes — one free generation every day on a free account. If you need volume, credit packs are one-time purchases from $9.99/100 images; there is no subscription." }, { q: "Do I own the images I generate?", a: "Images you create are yours to use, including commercial projects like blogs, ads and product mockups. See the terms page for the full language." }, { q: "Do I need to install anything?", a: "No. Everything runs in your browser — desktop, tablet or phone. There is nothing to download." }, { q: "What makes it different from other AI image tools?", a: "Natural-language editing: you can describe changes conversationally (\"make the sky stormy\") instead of wrestling with parameter sliders, and character consistency keeps faces stable across edits." }],
+  },
+  zh: {
+    title: "Banana AI 图像生成器 — 免费在线工具 | PixBanana", meta: "用 Banana AI 把文字变成图片。每日免费生成、8 种以上风格、无需设计基础，浏览器直接用。", h1: "Banana AI 图像生成器", answer: "Banana AI 图像生成器是 PixBanana 文生图引擎的昵称：输入一句描述、选好风格，几秒钟就能拿到成品图。新账号每天可免费生成 1 次，不需要绑卡；量大的话积分包 $9.99/100 张起，一次性买断、无订阅。手机和电脑浏览器都能直接用。",
+    steps: ["用大白话输入你想要的画面，比如「霓虹东京上空漂浮的柯基宇航员」，不需要提示词技巧。", "选风格：写实、动漫、水彩、赛博朋克、3D、漫画、奇幻或抽象。", "点生成，稍等几秒。", "直接下载全分辨率 PNG，或改一下描述再跑一次。"],
+    useCases: [{ t: "博客与社媒配图", d: "按主题即时生成头图和帖子图，不用再翻图库、担心版权。" }, { t: "情绪板", d: "几分钟迭代十几个方向，再决定最终视觉。" }, { t: "快速概念图", d: "以想法的速度给客户或自己出草图。" }],
+    faq: [{ q: "Banana AI 图像生成器免费吗？", a: "免费，每天可生成 1 次。需要更多可一次性购买积分包，$9.99/100 张起，没有订阅。" }, { q: "生成的图归我吗？", a: "归你使用，包括博客、广告、产品 mockup 等商业场景，详见条款页。" }, { q: "要装软件吗？", a: "不用，浏览器直接用，手机平板电脑都行。" }, { q: "和其他 AI 绘图工具有什么区别？", a: "支持自然语言改图（直接说「把天空改成暴风雨」），角色一致性功能还能让人物脸在不同编辑间保持稳定。" }],
+  },
+  related: ["banana-ai-text-to-image", "banana-ai-photo-editor", "ai-image-generator-free"],
+},
+{
+  slug: "banana-ai-text-to-image", category: "banana", keyword: "banana ai text to image",
+  en: {
+    title: "Banana AI Text to Image — Free Online Generator | PixBanana", meta: "Describe anything in words and Banana AI renders it as an image. Free daily generations, 8 styles, instant download. Try text to image free.", h1: "Banana AI Text to Image", answer: "Text to image is the core of Banana AI: one sentence in, one finished picture out. PixBanana's version is built for people who don't want to learn prompt syntax — describe the scene like you're texting a friend, choose a style, done. Free account includes one generation per day; credits never expire once purchased.",
+    steps: ["Open the editor and select Text to Image mode.", "Write a clear sentence: subject, setting, mood. \"A red lighthouse in a snowstorm, dramatic lighting\" works better than \"lighthouse\".", "Choose a style — each one changes the whole render, so try two or three on the same prompt.", "Generate, compare, download your favorite."],
+    prompts: ["a rainy Paris street at night reflected in puddles, film noir", "flat vector illustration of teamwork, 3 people moving a giant arrow, corporate blue", "macro shot of a bee on a sunflower, shallow depth of field"],
+    useCases: [{ t: "Etsy & shop graphics", d: "Unique banner art and product backgrounds without hiring an illustrator." }, { t: "YouTube & podcast covers", d: "Refresh channel art per video or episode in minutes." }, { t: "Presentation visuals", d: "Custom slides imagery that actually matches your point." }],
+    faq: [{ q: "How long should my text prompt be?", a: "One to three sentences is the sweet spot. Name the subject, the setting and the mood; over-stuffing a prompt usually muddies the result." }, { q: "Can I generate the same prompt in different styles?", a: "Yes, and it's the fastest way to find the look you want — the style selector completely changes the render while keeping your description." }, { q: "What languages can I write prompts in?", a: "English prompts give the most predictable results; Chinese works too, and the interface itself is available in both." }, { q: "Are the images high resolution?", a: "You get full-resolution PNG downloads suitable for web and social use." }],
+  },
+  zh: {
+    title: "Banana AI 文生图 — 免费在线生成 | PixBanana", meta: "用一句话描述画面，Banana AI 直接渲染成图。每日免费、8 种风格、即下即用。", h1: "Banana AI 文生图", answer: "文生图是 Banana AI 的核心能力：一句话进、一张成品图出。PixBanana 的版本专为不想学提示词语法的人设计——像发微信一样描述画面、选风格、出图。免费账号每天 1 次；积分买断后永不过期。",
+    steps: ["打开编辑器，选择文生图模式。", "写一句清楚的描述：主体＋场景＋氛围。「暴风雪中的红色灯塔，戏剧性光线」远好于只写「灯塔」。", "选风格——每个风格会整体改变画面，同一句描述多试两三个。", "生成、对比、下载最满意的一张。"],
+    useCases: [{ t: "电商与小店素材", d: "独一无二的横幅图和产品背景，不用请插画师。" }, { t: "视频与播客封面", d: "每期几分钟换新封面。" }, { t: "演示配图", d: "让幻灯片的图真正贴合你要讲的点。" }],
+    faq: [{ q: "提示词写多长合适？", a: "1-3 句最佳：写清主体、场景、氛围。塞太多反而画面混乱。" }, { q: "同一句提示能换风格吗？", a: "可以，这是找感觉最快的方式——风格选择器会整体改变画面，描述不变。" }, { q: "支持中文提示词吗？", a: "支持，英文结果更稳定；界面本身有中英文。" }, { q: "图片分辨率高吗？", a: "全分辨率 PNG 下载，网页和社媒场景都够用。" }],
+  },
+  related: ["banana-ai-image-generator", "text-to-image-generator", "banana-ai-avatar-generator"],
+},
+{
+  slug: "banana-ai-photo-editor", category: "banana", keyword: "banana ai photo editor",
+  en: {
+    title: "Banana AI Photo Editor — Edit Photos With Words | PixBanana", meta: "Edit photos by describing the change: \"remove the background\", \"make it sunset\". Banana AI photo editing, free daily generations online.", h1: "Banana AI Photo Editor", answer: "Banana AI photo editor lets you edit with words instead of layers. Upload a photo, then type instructions — \"remove the person in the back\", \"change the background to a beach\", \"make it look like autumn\" — and the AI re-renders the image accordingly. It's conversational: each edit builds on the last, so you can iterate toward the result instead of redoing masks and selections.",
+    steps: ["Upload your photo (JPG or PNG) in Image to Image mode.", "Describe the edit in one plain instruction. One change per message works best.", "Check the result, then stack the next instruction — the editor keeps context.", "Download the final version when it looks right."],
+    prompts: ["remove the parked car and extend the cobblestone street", "replace the background with a soft gradient studio backdrop", "make the lighting golden hour and add gentle film grain"],
+    useCases: [{ t: "Real-estate touch-ups", d: "Clear clutter and swap skies before listing photos go live." }, { t: "Product photo cleanup", d: "Neutral backgrounds and consistent lighting across a whole catalog." }, { t: "Personal photos", d: "Remove photobombers, fix lighting, or restyle memories without learning Photoshop." }],
+    faq: [{ q: "Does it replace Photoshop?", a: "For 80% of everyday edits — background swaps, object removal, relighting, restyling — it's faster than Photoshop. For pixel-precise compositing you'll still want a traditional editor." }, { q: "Will my uploaded photos stay private?", a: "Uploads are processed to generate your edit and are covered by the privacy policy; we don't sell or share your images." }, { q: "Can it edit faces?", a: "Yes, and character consistency keeps the same face recognizable through multiple edits — useful for profile-photo refreshes." }, { q: "What formats can I upload?", a: "Standard JPG and PNG files. Downloads come back as PNG." }],
+  },
+  zh: {
+    title: "Banana AI 照片编辑器 — 用说话的方式修图 | PixBanana", meta: "上传照片，用一句话描述修改：「去掉背景」「换成日落」。对话式 AI 修图，每天免费。", h1: "Banana AI 照片编辑器", answer: "Banana AI 照片编辑器让你用文字而不是图层修图。上传照片后直接打字下指令——「去掉后面那个人」「背景换成海滩」「改成秋天的感觉」——AI 就按指令重新渲染。它是对话式的：每次编辑承接上一次，可以逐步逼近想要的效果，不用反复抠图。",
+    steps: ["在图生图模式上传照片（JPG 或 PNG）。", "用一句大白话描述修改，一次说一个改动效果最好。", "看结果，接着叠下一条指令——编辑器记得上下文。", "满意后下载最终版本。"],
+    useCases: [{ t: "房产照片修饰", d: "上架前清杂物、换天空。" }, { t: "产品图统一", d: "整个目录统一背景和光线。" }, { t: "个人照片", d: "去路人、修光线、换风格，不用学 Photoshop。" }],
+    faq: [{ q: "能替代 Photoshop 吗？", a: "日常 80% 的修改——换背景、去物、改光、换风格——比 Photoshop 快。像素级合成仍需传统工具。" }, { q: "上传的照片隐私吗？", a: "上传仅用于生成你的编辑结果，隐私政策保障，不售卖不共享。" }, { q: "能编辑人脸吗？", a: "可以，角色一致性让同一张脸在多次编辑中保持可辨认，很适合头像翻新。" }, { q: "支持什么格式？", a: "标准 JPG/PNG 上传，产出 PNG。" }],
+  },
+  related: ["banana-ai-image-generator", "ai-photo-editor", "image-to-image-ai-editor"],
+},
+{
+  slug: "banana-ai-avatar-generator", category: "banana", keyword: "banana ai avatar generator",
+  en: {
+    title: "Banana AI Avatar Generator — From Your Photo, Free | PixBanana", meta: "Turn one selfie into polished AI avatars in any style — anime, 3D, watercolor, professional. Banana AI avatars, free daily generation.", h1: "Banana AI Avatar Generator", answer: "Upload one photo and Banana AI turns it into styled avatars: anime, 3D render, watercolor painting, oil portrait, or a professional headshot look. Because edits run through the image-to-image engine with character consistency, the avatar still looks like you — not a generic face. One free generation daily; a 100-credit pack covers a whole avatar set.",
+    steps: ["Upload a clear, front-facing photo — good lighting beats fancy poses.", "Pick a target style, e.g. \"turn me into a studio-Ghibli-style character\".", "Generate and compare 2-3 style directions.", "Download the ones you want for Discord, LinkedIn, or game profiles."],
+    prompts: ["turn this photo into a soft watercolor portrait, gentle colors", "make me a 3D Pixar-style character, friendly lighting", "professional headshot version, navy blazer, soft gray background"],
+    useCases: [{ t: "Profile refresh everywhere", d: "Matching avatars for Discord, Slack, GitHub and socials in one sitting." }, { t: "Team pages", d: "Consistent illustrated headshots for a whole company page without a photoshoot." }, { t: "Gifts & fun", d: "Portrait sets of family or friends in unusual art styles." }],
+    faq: [{ q: "Which photo should I upload?", a: "A well-lit, front-facing photo with just you in frame. Glasses and hats are fine but add variability — try one with and one without." }, { q: "Will the avatar actually look like me?", a: "Character consistency is designed exactly for this: facial identity carries across the stylization, so you stay recognizable." }, { q: "Can I get several styles from one photo?", a: "Yes — rerun the same upload with different style prompts; each run is a separate generation." }, { q: "Is it free?", a: "One avatar generation per day free; credit packs from $9.99/100 if you want the full set at once." }],
+  },
+  zh: {
+    title: "Banana AI 头像生成器 — 上传照片免费生成 | PixBanana", meta: "一张自拍生成任意风格的 AI 头像：动漫、3D、水彩、职业风。每天免费一次。", h1: "Banana AI 头像生成器", answer: "上传一张照片，Banana AI 把它变成各种风格的头像：动漫、3D 渲染、水彩、油画、职业形象照。因为走的是带角色一致性的图生图引擎，头像仍然像你本人，而不是一张路人脸。每天免费 1 次；100 积分包足够做一整套头像。",
+    steps: ["上传一张清晰的正面照——光线好比姿势花哨更重要。", "选目标风格，比如「把我变成吉卜力风格的角色」。", "生成后对比 2-3 个风格方向。", "下载喜欢的，用于 Discord、领英或游戏头像。"],
+    useCases: [{ t: "全平台头像统一", d: "一次搞定 Discord、Slack、GitHub 和社媒的配套头像。" }, { t: "团队页", d: "不用拍照，给整家公司做风格统一的插画头像。" }, { t: "送人与好玩", d: "给家人朋友做一套艺术风肖像。" }],
+    faq: [{ q: "该上传什么样的照片？", a: "光线好、正面、画面里只有你。眼镜帽子也行，但建议有和无各试一张。" }, { q: "头像真的像我吗？", a: "角色一致性就是为此设计的：风格化的同时保留面部特征，仍可辨认。" }, { q: "一张照片能出多种风格吗？", a: "可以，同一张图换风格提示重跑，每次独立计费生成。" }, { q: "免费吗？", a: "每天免费 1 次，想要整套可 $9.99/100 积分起买断。" }],
+  },
+  related: ["ai-avatar-generator-from-photo", "banana-ai-anime-generator", "banana-ai-image-generator"],
+},
+{
+  slug: "banana-ai-anime-generator", category: "banana", keyword: "banana ai anime generator",
+  en: {
+    title: "Banana AI Anime Generator — Anime Art From Text/Photo | PixBanana", meta: "Create anime art from text prompts or turn photos into anime style. Banana AI anime generator with character consistency. Free daily.", h1: "Banana AI Anime Generator", answer: "Banana AI anime generator does two things: text-to-image with the anime style for original characters and scenes, and photo-to-anime conversion using your own picture as reference. The anime style is one of the built-in render styles, so there's nothing to configure — and character consistency keeps an original character's face stable while you generate different poses and scenes.",
+    steps: ["Pick your input: a text description (original character) or a photo (you, anime-fied).", "For originals, define the character once: hair, eyes, outfit, vibe — then reuse that description verbatim for consistency.", "Generate in the anime style, then vary the scene while keeping the character block identical.", "Save your character sheet: same description + different settings = a whole gallery."],
+    prompts: ["anime girl with silver twin-tails, school uniform, standing in a rainy Shibuya crossing at night", "anime boy with messy brown hair and a guitar, rooftop at sunset, warm tones", "chibi version of this character holding a giant onigiri, pastel background"],
+    useCases: [{ t: "Original characters", d: "Design OCs for stories, VTuber concepts or roleplay without drawing skills." }, { t: "Anime profile pictures", d: "Photo-to-anime avatars that still look like you." }, { t: "Fan art practice", d: "Explore scenes and compositions before committing to a hand-drawn piece." }],
+    faq: [{ q: "Can I keep the same character across images?", a: "Yes — repeat the exact same character description in every prompt and only change the scene part; character consistency does the rest." }, { q: "Photo to anime — does it keep my face?", a: "It stylizes while preserving recognizable identity, so friends will still know it's you." }, { q: "Is anime style free?", a: "The style selector is free to use; generations follow the standard free-daily/credit-pack pricing." }, { q: "Can I make manga panels?", a: "Use the comic style for panel-style renders and add speech-bubble text in any editor afterward." }],
+  },
+  zh: {
+    title: "Banana AI 动漫生成器 — 文字/照片生成动漫图 | PixBanana", meta: "文字生成动漫角色，或把照片转动漫风。角色一致性保持人物稳定，每天免费一次。", h1: "Banana AI 动漫生成器", answer: "Banana AI 动漫生成器做两件事：用动漫风格做文生图（原创角色和场景），以及把你的照片转成动漫风。动漫风格是内置渲染风格之一，无需任何配置；角色一致性还能让原创角色的脸在换姿势、换场景时保持稳定。",
+    steps: ["选输入方式：文字描述（原创角色）或照片（本人动漫化）。", "原创角色先定义一次：发色、瞳色、服装、气质——之后每次原样复用这段描述保持一致。", "用动漫风格生成，再只改场景、保留角色描述不变。", "存好你的角色卡：同描述＋不同场景＝一整个画廊。"],
+    useCases: [{ t: "原创角色", d: "给小说、VTuber 设定或跑团设计 OC，不需要会画画。" }, { t: "动漫头像", d: "照片转动漫风，还是像你。" }, { t: "同人练习", d: "先探索构图，再决定手绘哪张。" }],
+    faq: [{ q: "能让同一角色出现在多张图里吗？", a: "可以——每次提示词原样复用角色描述、只改场景部分，角色一致性负责剩下的事。" }, { q: "照片转动漫还像我吗？", a: "风格化的同时保留可辨识的面部特征，朋友一眼认得出。" }, { q: "动漫风格收费吗？", a: "风格选择免费，生成按每天免费/积分包正常计费。" }, { q: "能画漫画分格吗？", a: "用漫画风格生成分格式画面，后期在任何编辑器加对话框即可。" }],
+  },
+  related: ["banana-ai-avatar-generator", "anime-ai-generator", "banana-ai-character-creator"],
+},
+{
+  slug: "banana-ai-logo-maker", category: "banana", keyword: "banana ai logo maker",
+  en: {
+    title: "Banana AI Logo Maker — Free AI Logo Ideas | PixBanana", meta: "Generate logo concepts from your brand name and vibe. Banana AI logo maker: fast ideas, free daily generation, download PNG.", h1: "Banana AI Logo Maker", answer: "Describe your brand — name, industry, mood — and Banana AI produces logo concepts as images: a minimal mark for a coffee roaster, a bold badge for an esports team, an abstract geometric symbol for a SaaS. It's an idea machine rather than a vector editor: generate 10 directions, pick the one with the right bones, then refine it yourself or hand it to a designer to vectorize.",
+    steps: ["Write the brief as a prompt: \"minimalist logo for a mountain coffee brand, line-art peak inside a circle, two colors\".", "Generate several variations — change one word (badge/geometric/mascot) each time.", "Shortlist the strongest 2-3 concepts.", "Refine with follow-up edits: \"simplify\", \"make it symmetrical\", \"dark background version\"."],
+    prompts: ["minimalist line-art logo of a fox curled into a circle, single weight stroke, orange on cream", "bold esports badge logo, stylized lightning bolt, red and black", "elegant serif wordmark concept for a bakery named Fournil, wheat accent"],
+    useCases: [{ t: "Startup ideation", d: "Explore visual directions before paying for a full brand identity." }, { t: "Side projects", d: "Real logos for band pages, Discords, newsletters and small shops." }, { t: "Client pitches", d: "Show three concrete directions in the first meeting instead of mood-board vagueness." }],
+    faq: [{ q: "Are AI logos good enough to ship?", a: "For concepting, absolutely. For final use, treat the output as a strong draft: refine or vectorize it, and run a basic trademark search as you would with any logo." }, { q: "Can it do text?", a: "It renders wordmark-style concepts well enough to judge direction, but lettering in AI images isn't font-precise — final type should be set by hand." }, { q: "Can I use logos commercially?", a: "Yes, generated images are yours to use commercially per the terms. Uniqueness of AI output is your responsibility for trademark purposes." }, { q: "How many concepts should I generate?", a: "10-20 across 3-4 style directions is a normal first round; a 100-credit pack covers it with room to spare." }],
+  },
+  zh: {
+    title: "Banana AI Logo 制作器 — 免费 AI 标志创意 | PixBanana", meta: "用品牌名＋一句话描述生成 logo 概念。快速出创意方向，每日免费，下载 PNG。", h1: "Banana AI Logo 制作器", answer: "描述你的品牌——名字、行业、气质——Banana AI 就能产出 logo 概念图：咖啡烘焙品牌的极简图形、电竞队的粗犷徽章、SaaS 的抽象几何符号。把它当创意机器而不是矢量编辑器：生成 10 个方向，挑出骨架最好的，再自己精修或交给设计师矢量化。",
+    steps: ["把 brief 写成提示词：「山地咖啡品牌的极简 logo，圆形里的线条山峰，双色」。", "多次生成做变体——每次只换一个词（徽章/几何/吉祥物）。", "圈出最强的 2-3 个概念。", "用追加编辑精修：「简化」「做对称」「出深色底版本」。"],
+    useCases: [{ t: "创业点子期", d: "在花钱做完整品牌识别前先探索视觉方向。" }, { t: "副业项目", d: "给乐队页、Discord、newsletter、小店做真 logo。" }, { t: "客户提案", d: "第一次见面就给三个具体方向，而不是含糊的情绪板。" }],
+    faq: [{ q: "AI logo 能直接用吗？", a: "做概念完全够。最终使用请当作高质量草稿：精修或矢量化，并像任何 logo 一样做基本商标检索。" }, { q: "能处理文字吗？", a: "字标风格的概念足以判断方向，但 AI 图里的字形不是精确字体，终稿文字应手工排。" }, { q: "可以商用吗？", a: "可以，条款规定生成图归你商用。AI 产出的独特性需你自行把关（商标层面）。" }, { q: "该生成多少个？", a: "第一轮 10-20 个、3-4 个风格方向比较正常，100 积分包绰绰有余。" }],
+  },
+  related: ["ai-logo-generator-free", "banana-ai-image-generator", "banana-ai-thumbnail-maker"],
+},
+{
+  slug: "banana-ai-character-creator", category: "banana", keyword: "banana ai character generator",
+  en: {
+    title: "Banana AI Character Creator — Consistent OC Generator | PixBanana", meta: "Design original characters with AI and keep them consistent across scenes. Banana AI character creator with consistency tech. Free daily.", h1: "Banana AI Character Creator", answer: "Banana AI character creator is built around one hard problem: making the same character show up again and again. Define a character once — hair, eyes, outfit, build — then reuse that exact description block in every prompt while changing only the scene. The character-consistency engine keeps the face and look stable, so you get a coherent character sheet instead of a stranger in every render.",
+    steps: ["Write the character block: age vibe, hair color and style, eye color, outfit, one distinctive accessory.", "Lock that text — never edit it between generations.", "Append the scene: \"...standing in a cyberpunk alley\", \"...reading in a library\".", "Save the winners; your character block now works like a reusable asset."],
+    prompts: ["character block example: young woman, short teal hair, amber eyes, yellow raincoat, round glasses — scene: waiting at a tram stop in the rain", "same block, scene: sitting in a cozy café sketching in a notebook", "same block, scene: action pose jumping between rooftops, motion blur"],
+    useCases: [{ t: "Webcomic pre-production", d: "Lock character designs before drawing a single panel." }, { t: "VTuber & streaming personas", d: "Explore persona looks cheaply before commissioning a full model." }, { t: "Tabletop RPGs", d: "Portraits for your party — consistent per character across the campaign." }],
+    faq: [{ q: "Why does my character change between images?", a: "If the description block is edited between runs, drift creeps in. Copy-paste the exact same block every time; only the scene sentence should change." }, { q: "Can I use a reference photo instead of text?", a: "Yes — image-to-image with your reference plus a scene instruction is the other path, best when the character already exists visually." }, { q: "Does it work for non-human characters?", a: "Yes: creatures, robots and mascots follow the same block-plus-scene pattern; distinctive silhouette features (horns, wings, plating) are what you keep identical." }, { q: "How many scenes can one character fill?", a: "As many as you have credits for — a 100-credit pack is roughly a 100-scene character gallery." }],
+  },
+  zh: {
+    title: "Banana AI 角色生成器 — 保持一致性的 OC 工具 | PixBanana", meta: "用 AI 设计原创角色并跨场景保持一致。角色一致性引擎，每天免费一次。", h1: "Banana AI 角色生成器", answer: "Banana AI 角色生成器围绕一个难题打造：让同一个角色反复出现。先定义一次角色——发型发色、瞳色、服装、体型——之后每次生成原样复用这段描述，只换场景。角色一致性引擎保持面部和外形稳定，你得到的是连贯的角色设定图，而不是每张图一个陌生人。",
+    steps: ["写好角色块：年龄段、发色发型、瞳色、服装、一个标志性配饰。", "锁死这段文字——生成之间绝不修改。", "在后面追加场景：「……站在赛博朋克小巷」「……在图书馆看书」。", "存下满意的结果；角色块从此是可复用资产。"],
+    useCases: [{ t: "网漫前期", d: "动笔画分镜前锁定角色设计。" }, { t: "VTuber 与主播人设", d: "低成本探索形象，再下单做完整模型。" }, { t: "跑团 RPG", d: "给整个队伍出立绘，战役期间每人保持一致。" }],
+    faq: [{ q: "为什么我的角色每张都不一样？", a: "如果描述块在两次生成间被改动就会漂移。每次原样复制粘贴，只有场景句可以换。" }, { q: "能用参考图代替文字吗？", a: "可以——图生图＋场景指令是另一条路，适合角色已有视觉设定的情况。" }, { q: "非人类角色也行吗？", a: "行：生物、机器人、吉祥物同样用「块＋场景」模式，保持不变的应是轮廓特征（角、翅膀、装甲）。" }, { q: "一个角色能出多少场景？", a: "有多少积分出多少——100 积分包约等于 100 张场景画廊。" }],
+  },
+  related: ["ai-character-generator", "banana-ai-character-creator", "banana-ai-avatar-generator"],
+},
+{
+  slug: "banana-ai-thumbnail-maker", category: "banana", keyword: "banana ai thumbnail generator",
+  en: {
+    title: "Banana AI Thumbnail Maker — YouTube Thumbnails | PixBanana", meta: "Generate click-worthy YouTube thumbnails with AI: bold subjects, readable composition, any style. Free daily generation.", h1: "Banana AI Thumbnail Maker", answer: "Banana AI thumbnail maker turns a one-line video idea into thumbnail candidates: a shocked-face-style reaction composition, a clean product-on-gradient shot, a before/after split. Generate in the realistic style for vlogs or comic/anime styles for gaming channels, then iterate with conversational edits — \"zoom out\", \"add red arrow energy\", \"brighter\" — until it pops at 320 pixels wide.",
+    steps: ["Describe the video's core promise, not just the topic: \"budget PC build that beats consoles\" beats \"PC video\".", "Ask for thumbnail composition explicitly: bold central subject, high contrast, space for a 3-4 word title.", "Generate 3-5 candidates and view them at small size — pick what reads tiny.", "Refine the winner: brighter, simpler, more contrast."],
+    prompts: ["gaming thumbnail: character mid-jump with glowing sword, dark dungeon, rim lighting, high contrast", "tech thumbnail: sleek mini PC floating over neon gradient, dramatic top light", "cooking thumbnail: oversized cheese pull close-up, warm light, shallow depth"],
+    useCases: [{ t: "YouTube channels", d: "Fresh, non-stock thumbnails per video without a designer." }, { t: "Twitch & clips", d: "Cover images for VODs and highlight clips." }, { t: "Blog & newsletter headers", d: "The same bold-composition logic works as article hero images." }],
+    faq: [{ q: "Can it add text to the thumbnail?", a: "Generate the image with clear negative space, then add your 3-4 word title in any editor — you keep full control of fonts and readability." }, { q: "What size should thumbnails be?", a: "YouTube displays at 1280×720 (16:9); design for readability at 320px wide since that's what subscribers see." }, { q: "Do AI thumbnails violate YouTube rules?", a: "No — AI-generated thumbnail images are standard practice. Misleading imagery is the policy problem, not the tool used to make the image." }, { q: "How do I A/B test?", a: "Generate two or three directions, upload your pick, and use YouTube's built-in Test & Compare feature to rotate them." }],
+  },
+  zh: {
+    title: "Banana AI 缩略图制作器 — YouTube 封面 | PixBanana", meta: "一句话视频创意生成点击感十足的缩略图：大胆主体、高对比、任意风格。每天免费。", h1: "Banana AI 缩略图制作器", answer: "Banana AI 缩略图制作器把一句话的视频创意变成封面候选：夸张反应式构图、干净的产品渐变图、前后对比分屏。Vlog 用写实风格、游戏频道用漫画/动漫风格，再用对话式编辑迭代——「拉远」「加红色箭头感」「更亮」——直到 320 像素宽也足够抓眼。",
+    steps: ["描述视频的核心卖点而非话题：「性能打赢主机的低价装机」好过「装机视频」。", "明确要求缩略图构图：中央大主体、高对比、留出 3-4 个词的标题空间。", "生成 3-5 张候选，缩小预览——挑小图也看得清的那张。", "精修胜者：更亮、更简、对比更强。"],
+    useCases: [{ t: "YouTube 频道", d: "每支视频的新封面，不靠设计师也不撞图库。" }, { t: "Twitch 与切片", d: "直播回放和高光片段的封面。" }, { t: "博客与 newsletter 头图", d: "同一套大构图逻辑直接当文章头图。" }],
+    faq: [{ q: "能在图里加字吗？", a: "生成时留出干净的负空间，标题 3-4 个词用任何编辑器加——字体和可读性完全自己掌控。" }, { q: "缩略图尺寸多大？", a: "YouTube 展示 1280×720（16:9）；按 320px 宽仍可读来设计，因为订阅者看到的就是那个尺寸。" }, { q: "AI 缩略图违反平台规则吗？", a: "不违反——AI 生成封面已是常规做法。平台管的是误导性内容，不是制作工具。" }, { q: "怎么做 A/B 测试？", a: "生成两三个方向，上传后用 YouTube 自带的 Test & Compare 轮换。" }],
+  },
+  related: ["youtube-thumbnail-ai-generator", "banana-ai-image-generator", "banana-ai-logo-maker"],
+},
+{
+  slug: "banana-ai-art-generator", category: "banana", keyword: "banana ai art generator",
+  en: {
+    title: "Banana AI Art Generator — Free AI Art From Text | PixBanana", meta: "Create AI art in 8+ styles from text prompts. Banana AI art generator, free daily generations, instant PNG download.", h1: "Banana AI Art Generator", answer: "Banana AI art generator is the art-first face of PixBanana: text prompts in, finished artwork out, across eight render styles including watercolor, cyberpunk, fantasy, comic, 3D and abstract. Unlike tools that hide style behind parameters, the style selector is one click — which makes exploring the same prompt across looks the fastest way to find your aesthetic.",
+    steps: ["Start with a subject you can picture clearly: a place, a creature, an object.", "Add two modifiers: light and mood. \"Abandoned greenhouse, dawn fog, melancholic\".", "Run it in 3 different styles to see where the concept lands best.", "Branch the winner with small edits: color shifts, added elements, camera angle."],
+    prompts: ["abandoned art-deco swimming pool filled with desert sand, noon haze", "a paper crane the size of a whale floating over a city, dusk", "botanical illustration of a bioluminescent mushroom, black background, scientific detail"],
+    useCases: [{ t: "Wall art & prints", d: "Personalized pieces for your walls or print-on-demand shops." }, { t: "Album & track art", d: "Unique covers per release or single." }, { t: "Creative warm-ups", d: "Daily prompt practice for artists and designers." }],
+    faq: [{ q: "Which style should I start with?", a: "Realistic if you want photographic, watercolor or comic for illustration energy, abstract for backgrounds and textures. Running the same prompt in three styles teaches you faster than any guide." }, { q: "Can I mix styles?", a: "You can prompt toward hybrids (\"anime style with watercolor backgrounds\") — results are creative if less predictable than single styles." }, { q: "Is the art really free?", a: "One free generation daily, forever. Art packs of 100/200/500 credits are one-time purchases if you go deep." }, { q: "Can I sell AI art?", a: "Commercial use is included in the terms; check your print-on-demand platform's own AI policy, which varies." }],
+  },
+  zh: {
+    title: "Banana AI 艺术生成器 — 免费文字生成 AI 艺术 | PixBanana", meta: "一句话生成 8 种风格的 AI 艺术作品。每天免费、即下即用。", h1: "Banana AI 艺术生成器", answer: "Banana AI 艺术生成器是 PixBanana 的艺术面孔：文字进、作品出，覆盖水彩、赛博朋克、奇幻、漫画、3D、抽象等八种渲染风格。风格选择器一键切换，不藏在参数里——同一句提示跨风格试跑，是找到自己审美的最快方式。",
+    steps: ["从一个能清晰想象的主体开始：地点、生物或物体。", "加两个修饰：光线和情绪。「废弃温室、黎明雾气、忧郁」。", "跑三种风格，看概念在哪条路线上最成立。", "对胜者做小改动衍生：换色、加元素、换视角。"],
+    useCases: [{ t: "挂画与印刷品", d: "自家墙面的定制作品或按需印刷店铺。" }, { t: "专辑与单曲封面", d: "每次发行独一无二的封面。" }, { t: "创作热身", d: "给艺术家和设计师的每日提示词练习。" }],
+    faq: [{ q: "先试哪个风格？", a: "想要照片感选写实，插画能量选水彩或漫画，背景纹理选抽象。同一句提示跑三个风格，比任何教程学得都快。" }, { q: "能混风格吗？", a: "可以往混合方向写（「动漫风＋水彩背景」），结果有创意但不如单一风格稳定。" }, { q: "真的免费吗？", a: "永久每天 1 次免费。玩得深可一次性买 100/200/500 积分包。" }, { q: "AI 艺术能卖吗？", a: "条款包含商用；各按需印刷平台自己的 AI 政策不同，需分别确认。" }],
+  },
+  related: ["ai-art-generator-free", "banana-ai-image-generator", "fantasy-ai-art-generator"],
+},
+{
+  slug: "nano-banana-alternative", category: "banana", keyword: "nano banana alternative",
+  en: {
+    title: "Nano Banana Alternative — Free AI Image Tool | PixBanana", meta: "Looking for a Nano Banana alternative? PixBanana offers text-to-image, photo editing and 8 styles with free daily generations. Try it free.", h1: "Nano Banana Alternative: Why People Switch to PixBanana", answer: "If you've hit usage limits or region blocks on Nano Banana, PixBanana covers the same core jobs: text-to-image generation, conversational photo editing, and stylized avatars — with one free generation daily that doesn't require a subscription, and simple one-time credit packs ($9.99/100) instead of monthly billing. It runs in any browser with no install, and the editor keeps character consistency across edits.",
+    steps: ["Bring your existing prompts — plain-language descriptions work as-is.", "Pick Text to Image for generation or Image to Image for editing/photos.", "Choose a style and generate; iterate with follow-up instructions.", "Compare outputs side by side with what you made elsewhere."],
+    prompts: ["a treehouse office among giant redwoods, morning light through leaves", "reimagine this product photo with a Japanese-minimalist backdrop", "watercolor cityscape of Lisbon rooftops at sunset"],
+    useCases: [{ t: "Usage-limit refugees", d: "Daily free generation keeps hobby projects alive between paid bursts." }, { t: "Prompt libraries", d: "Plain prompts port directly — no syntax rewrite needed." }, { t: "Simple pricing", d: "One-time credits instead of a recurring subscription you forget about." }],
+    faq: [{ q: "Is PixBanana affiliated with Nano Banana?", a: "No — PixBanana is an independent AI image platform. It's a separate product with its own models and pricing, commonly used for the same tasks." }, { q: "Do my prompts transfer?", a: "Yes. PixBanana is built for natural-language prompts, so descriptive prompts work as-is; parameter-style syntax just gets ignored rather than breaking." }, { q: "What's free exactly?", a: "One generation per day on a free account, no card required. Credit packs are optional and one-time." }, { q: "Can it edit photos like Nano Banana does?", a: "Yes — upload an image and describe the change conversationally; each instruction builds on the previous state." }],
+  },
+  zh: {
+    title: "Nano Banana 替代品 — 免费 AI 图像工具 | PixBanana", meta: "找 Nano Banana 替代方案？PixBanana 提供文生图、对话式修图、8 种风格，每天免费生成。", h1: "Nano Banana 替代品：为什么大家换到 PixBanana", answer: "如果你在 Nano Banana 上碰到用量限制或地区限制，PixBanana 覆盖同样的核心场景：文生图、对话式修图、风格化头像——每天免费 1 次、无需订阅，积分包一次性买断（$9.99/100）而非按月扣费。任意浏览器直接用、免安装，编辑器还带角色一致性。",
+    steps: ["把你现成的提示词带来——大白话描述直接可用。", "生成选文生图，修图/照片选图生图。", "选风格生成；用追加指令迭代。", "和你在别处做的图并排对比。"],
+    useCases: [{ t: "撞限额的用户", d: "每天 1 次免费，让兴趣项目在付费间隙不断档。" }, { t: "提示词库", d: "自然语言提示直接迁移，不用改写语法。" }, { t: "简单定价", d: "一次性积分，而不是忘了取消的包月。" }],
+    faq: [{ q: "PixBanana 和 Nano Banana 是一家的吗？", a: "不是——PixBanana 是独立的 AI 图像平台，模型与定价都是自己的，只是常被用来做同类任务。" }, { q: "提示词能直接搬吗？", a: "能。PixBanana 就是为自然语言提示设计的；参数式语法会被忽略而不是报错。" }, { q: "免费包含什么？", a: "免费账号每天 1 次生成，不用绑卡。积分包可选且一次性。" }, { q: "能像 Nano Banana 那样修图吗？", a: "可以——上传图片、用说话的方式描述修改，每条指令承接上一步状态。" }],
+  },
+  related: ["banana-ai-image-generator", "banana-ai-photo-editor", "ai-image-generator-free"],
+},
+{
+  slug: "ai-image-generator-free", category: "generator", keyword: "ai image generator free",
+  en: {
+    title: "AI Image Generator Free — Daily Free Generations | PixBanana", meta: "Free AI image generator: one free generation every day, no credit card, no subscription. 8 styles, instant download. Start free.", h1: "AI Image Generator (Free)", answer: "PixBanana gives every free account one AI image generation per day — no credit card, no subscription, no trial countdown. Type a description, pick one of eight styles, download the PNG. When you outgrow the free tier, credit packs are one-time purchases from $9.99/100 images with no recurring charge, and unused credits don't expire.",
+    steps: ["Create a free account — email is enough, no card.", "Type a description of the image you want in plain language.", "Pick a style: realistic, anime, watercolor, cyberpunk, 3D, comic, fantasy or abstract.", "Generate and download — your daily free generation resets every 24 hours."],
+    prompts: ["a wooden sailboat wrecked on a coral reef, turquoise water, aerial view", "vintage travel poster of Mount Fuji, bold colors, minimal text space", "macro photography of frost patterns on a windowpane, blue morning light"],
+    useCases: [{ t: "Hobby projects", d: "Daily free generations keep personal blogs and side projects illustrated." }, { t: "Testing the waters", d: "Evaluate quality on your own prompts before buying credits." }, { t: "Students & teachers", d: "Free visuals for presentations, worksheets and club posters." }],
+    faq: [{ q: "Is it really free or a free trial?", a: "Really free, ongoing: one generation per day resets every 24 hours. It never converts to a paid charge on its own." }, { q: "Do I need a credit card for the free tier?", a: "No. A card is only needed if you choose to buy a credit pack, and those are one-time." }, { q: "What's the catch on free images?", a: "Same engine and styles as paid generations — free tier is limited in count (1/day), not in quality." }, { q: "What happens when I need more?", a: "Credit packs: $9.99 for 100, $16.99 for 200, $29.99 for 500 images — one-time purchases, no subscription, credits don't expire." }],
+  },
+  zh: {
+    title: "免费 AI 图像生成器 — 每日免费生成 | PixBanana", meta: "免费 AI 图像生成器：每天 1 次免费生成，不用绑卡、没有订阅。8 种风格、即下即用。", h1: "AI 图像生成器（免费）", answer: "PixBanana 给每个免费账号每天 1 次 AI 图像生成——不用绑卡、没有订阅、没有倒计时的试用。输入描述、八选一风格、下载 PNG。免费额度不够用时，积分包 $9.99/100 张起一次性买断，无周期扣费，积分不过期。",
+    steps: ["注册免费账号——邮箱即可，无需绑卡。", "用大白话输入想要的画面。", "选风格：写实、动漫、水彩、赛博朋克、3D、漫画、奇幻或抽象。", "生成下载——每日免费次数每 24 小时重置。"],
+    useCases: [{ t: "兴趣项目", d: "每天 1 次免费，让个人博客和副业持续有图可用。" }, { t: "先试后买", d: "用自己的提示词先验证质量，再决定是否买积分。" }, { t: "学生与老师", d: "演示、讲义、社团海报的免费配图。" }],
+    faq: [{ q: "是真免费还是试用？", a: "长期真免费：每天 1 次、每 24 小时重置，不会自动转收费。" }, { q: "要绑卡吗？", a: "免费档不用。只有主动买积分包才需要卡，且是一次性付款。" }, { q: "免费图有什么限制？", a: "引擎和风格与付费完全相同——免费限制的是次数（每天 1 次），不是质量。" }, { q: "不够用怎么办？", a: "积分包：$9.99/100 张、$16.99/200 张、$29.99/500 张，一次性买断、无订阅、不过期。" }],
+  },
+  related: ["banana-ai-image-generator", "ai-art-generator-free", "text-to-image-generator"],
+},
+{
+  slug: "ai-image-generator-no-signup", category: "generator", keyword: "ai image generator free no sign up",
+  en: {
+    title: "AI Image Generator, Minimal-Friction Free Access | PixBanana", meta: "Generate AI images with a 30-second email signup — no card, no subscription, one free generation daily. 8 styles, instant download.", h1: "AI Image Generator With Easy Access", answer: "PixBanana keeps the path to your first image as short as possible: an email signup (which is what stores your daily free generation and download history), no credit card, no subscription. One free generation per day, every day, with the same engine and all eight styles as paid users. Signup exists because generations are tied to an account for quota and history — nothing more onerous than that.",
+    steps: ["Sign up with email — about 30 seconds, no card fields anywhere.", "Confirm and you're in the editor immediately.", "Describe your image and pick a style.", "Generate, download, come back tomorrow for another free one."],
+    prompts: ["sunlit reading nook with a cat asleep on cushions", "science-fiction space elevator above a rice-field valley at dawn", "hand-drawn map of a small fishing village, ink and wash"],
+    useCases: [{ t: "One-off image needs", d: "A single hero graphic or card tonight, not a lifetime commitment." }, { t: "Evaluating AI image tools", d: "Fastest honest test: your own prompts, free daily quota." }, { t: "Casual creators", d: "Dip in when inspiration strikes; the daily free generation waits." }],
+    faq: [{ q: "Why is there any signup at all?", a: "Generations are metered per account — the free daily quota and your download history need somewhere to live. It's email-only and takes under a minute." }, { q: "Do you ask for payment info?", a: "Never for the free tier. Payment fields only appear when you deliberately open pricing and buy credits." }, { q: "Can I delete my account later?", a: "Yes — you can request deletion, and the privacy policy covers what's removed." }, { q: "What do I get daily for free?", a: "One full-quality generation per day with any style, reset every 24 hours." }],
+  },
+  zh: {
+    title: "低门槛 AI 图像生成器 | PixBanana", meta: "邮箱 30 秒注册即可生成——不绑卡、无订阅、每天 1 次免费。8 种风格、即下即用。", h1: "轻松上手的 AI 图像生成器", answer: "PixBanana 把「从想到图」的路径压到最短：一个邮箱注册（用于存放每日免费额度和下载历史），不绑卡、无订阅。每天 1 次免费生成，引擎和八种风格与付费用户完全一致。需要注册只是因为生成按账号计量——仅此而已，没有更麻烦的门槛。",
+    steps: ["邮箱注册——约 30 秒，全程没有填卡的地方。", "确认后立刻进入编辑器。", "描述画面、选风格。", "生成、下载，明天再来一次免费。"],
+    useCases: [{ t: "一次性需求", d: "今晚就要一张头图或卡片，而不是终身承诺。" }, { t: "工具选型", d: "最诚实的测试：自己的提示词＋每日免费额度。" }, { t: "随手创作", d: "灵感来了就用，每日免费额度一直在。" }],
+    faq: [{ q: "为什么还要注册？", a: "生成按账号计量——免费额度和下载历史需要地方存。只需邮箱、一分钟内完成。" }, { q: "要支付信息吗？", a: "免费档永远不要。只有你主动打开定价页买积分才会出现支付字段。" }, { q: "以后能删号吗？", a: "可以申请删除，隐私政策写明了删除范围。" }, { q: "每天免费给什么？", a: "每天 1 次全质量生成，任选风格，24 小时重置。" }],
+  },
+  related: ["ai-image-generator-free", "banana-ai-image-generator", "ai-art-generator-free"],
+},
+{
+  slug: "text-to-image-generator", category: "generator", keyword: "text to image generator",
+  en: {
+    title: "Text to Image Generator — From Words to Art | PixBanana", meta: "Describe any image in words and get it rendered in seconds. Free daily generations, 8 styles, full-resolution PNG download.", h1: "Text to Image Generator", answer: "A text to image generator converts written descriptions into images. PixBanana's version accepts natural language — no prompt syntax — and renders in eight styles from realistic to watercolor. It's the same engine behind the Banana AI tools on this site: one free generation daily, credit packs from $9.99/100 when you need volume, downloads as full-resolution PNG.",
+    steps: ["Write one to three sentences: subject, setting, mood.", "Choose a style; different styles change the render completely.", "Generate a few variants of the same prompt before judging it.", "Download favorites or refine the wording and go again."],
+    prompts: ["a jellyfish-shaped hot air balloon over a Victorian city", "cross-section illustration of a cozy underground burrow home", "storm clouds breaking over a lone lighthouse, dramatic god rays"],
+    useCases: [{ t: "Marketing visuals", d: "Ad concepts and social posts without stock-photo deja vu." }, { t: "Worldbuilding", d: "Illustrate scenes from your novel, campaign or lore." }, { t: "Design exploration", d: "Twenty rough directions in the time one brief takes to write." }],
+    faq: [{ q: "How specific should my description be?", a: "Specific enough to picture: subject + setting + lighting/mood. Beyond that, extra constraints start fighting each other." }, { q: "Can I generate the same idea in multiple styles?", a: "Yes — the style selector is independent of the prompt, so one description can become eight very different images." }, { q: "What file do I get?", a: "Full-resolution PNG, ready for web and social use." }, { q: "Is commercial use allowed?", a: "Yes, per the terms — blog, ads, product pages and print-on-demand all qualify (check your platform's own AI policies too)." }],
+  },
+  zh: {
+    title: "文生图生成器 — 从文字到作品 | PixBanana", meta: "描述任何画面，几秒生成图片。每天免费、8 种风格、全分辨率 PNG 下载。", h1: "文生图生成器", answer: "文生图生成器把文字描述变成图片。PixBanana 的版本接受自然语言——没有提示词语法——并提供写实到水彩等八种风格。它就是本站 Banana AI 工具背后的同一个引擎：每天 1 次免费，量大可 $9.99/100 积分起，下载全分辨率 PNG。",
+    steps: ["写 1-3 句话：主体、场景、氛围。", "选风格；不同风格会完全改变画面。", "同一句提示多生成几个变体再下结论。", "下载满意的，或改措辞再来一轮。"],
+    useCases: [{ t: "营销素材", d: "广告概念和社媒配图，告别图库既视感。" }, { t: "世界观构建", d: "为小说、战役或设定集配场景图。" }, { t: "设计探索", d: "写一份 brief 的时间出二十个方向。" }],
+    faq: [{ q: "描述要写多细？", a: "细到能在脑中成像即可：主体＋场景＋光线/情绪。再往上堆约束会互相打架。" }, { q: "同一创意能出多风格吗？", a: "可以——风格选择器与提示词独立，一句描述可变八张很不同的图。" }, { q: "得到什么文件？", a: "全分辨率 PNG，网页与社媒直接可用。" }, { q: "允许商用吗？", a: "条款允许——博客、广告、产品页、按需印刷都算（平台自身 AI 政策需另查）。" }],
+  },
+  related: ["banana-ai-text-to-image", "ai-image-generator-free", "image-to-image-ai-editor"],
+},
+{
+  slug: "image-to-image-ai-editor", category: "generator", keyword: "image to image ai",
+  en: {
+    title: "Image to Image AI Editor — Transform Your Photos | PixBanana", meta: "Upload an image, describe the transformation, get a new version. Image-to-image AI editing with free daily generations.", h1: "Image to Image AI Editor", answer: "Image to image means starting from a picture instead of a blank prompt: you upload a photo or drawing, then describe what to change — style, background, lighting, season — and the AI re-renders it. PixBanana's editor treats this as a conversation, so each instruction builds on the last result, and character consistency keeps faces stable through the edits.",
+    steps: ["Upload your starting image (JPG/PNG).", "State the transformation in one sentence: \"same scene but at night with neon reflections\".", "Review, then stack further edits on the result.", "Download the final PNG."],
+    prompts: ["turn this daytime street photo into a rainy night version with neon reflections", "convert this sketch into a finished watercolor illustration", "keep the composition but render it as a 3D claymation scene"],
+    useCases: [{ t: "Style transfer", d: "Sketches to finished art; photos to painted looks." }, { t: "Photo restyling", d: "Season, time-of-day and lighting swaps for the same shot." }, { t: "Iterative design", d: "Feed a rough draft in and refine it by talking." }],
+    faq: [{ q: "How close does the output stay to my upload?", a: "Composition and main subjects carry over strongly; the more transformative the instruction, the more the render reinterprets detail." }, { q: "Can I chain multiple edits?", a: "Yes — that's the core workflow. Each edit applies to the current state, like layers of conversation." }, { q: "Does it work on drawings, not just photos?", a: "Yes — sketches, screenshots and diagrams all work as inputs for restyling." }, { q: "What about resolution?", a: "Outputs download as full-resolution PNGs." }],
+  },
+  zh: {
+    title: "图生图 AI 编辑器 — 改造你的照片 | PixBanana", meta: "上传图片、描述改变、得到新版本。对话式图生图编辑，每天免费一次。", h1: "图生图 AI 编辑器", answer: "图生图的意思是从一张图出发，而不是从空白提示开始：上传照片或画作，然后描述要改什么——风格、背景、光线、季节——AI 就重新渲染。PixBanana 的编辑器把这做成对话：每条指令承接上一步结果，角色一致性还让面部在编辑中保持稳定。",
+    steps: ["上传起点图片（JPG/PNG）。", "用一句话说明改造：「同一场景但改成雨夜霓虹倒影」。", "检查结果，再继续叠加编辑。", "下载最终 PNG。"],
+    useCases: [{ t: "风格迁移", d: "草图变成品；照片变绘画感。" }, { t: "照片重调", d: "同一张构图换季节、换时段、换光线。" }, { t: "迭代设计", d: "丢进粗稿，靠对话把它磨细。" }],
+    faq: [{ q: "输出和上传图有多像？", a: "构图和主体强烈保留；指令越具改造性，细节被重新诠释越多。" }, { q: "能连续多次编辑吗？", a: "可以——这就是核心工作流，每一步作用于当前状态，像层叠对话。" }, { q: "非照片也行吗？", a: "行——草图、截图、示意图都可以作为重绘输入。" }, { q: "分辨率呢？", a: "全分辨率 PNG 下载。" }],
+  },
+  related: ["banana-ai-photo-editor", "text-to-image-generator", "ai-photo-editor"],
+},
+{
+  slug: "ai-photo-editor", category: "generator", keyword: "ai photo editor",
+  en: {
+    title: "AI Photo Editor — Edit Photos by Describing Changes | PixBanana", meta: "Remove backgrounds, fix lighting, restyle photos — by typing what you want. Conversational AI photo editing, free daily generation.", h1: "AI Photo Editor", answer: "This AI photo editor replaces masks, layers and sliders with sentences: \"remove the background and put a soft studio gradient\", \"brighten the faces and warm the tones\". Upload a JPG or PNG, type the instruction, get the re-rendered result — then keep talking to refine it. Daily free generation included; no subscription ever.",
+    steps: ["Upload the photo.", "Write one instruction per edit — single changes give the most predictable results.", "Check the render; undo mentally by re-uploading if an edit went sideways.", "Stack instructions until the photo is where you want it."],
+    prompts: ["remove all background clutter, replace with clean white studio backdrop", "make this overcast photo look like golden hour", "erase the reflections on the glasses"],
+    useCases: [{ t: "E-commerce", d: "Catalog-ready product shots without studio time." }, { t: "Portraits", d: "Lighting fixes and backdrop swaps for profile photos." }, { t: "Listings & ads", d: "Make phone photos look intentional." }],
+    faq: [{ q: "Can it remove specific objects?", a: "Yes — name the object in the instruction (\"remove the chair on the left\") rather than asking generally for cleanup." }, { q: "Does editing degrade the photo?", a: "The AI re-renders rather than compressing; small text and fine patterns are the likeliest places to lose fidelity, so check those." }, { q: "Is my photo stored?", a: "Uploads are processed to deliver your edit per the privacy policy; we don't sell or share images." }, { q: "Free tier?", a: "One edit generation per day free; credit packs from $9.99/100 for heavier sessions." }],
+  },
+  zh: {
+    title: "AI 照片编辑器 — 描述即可修图 | PixBanana", meta: "去背景、修光线、换风格——打字说需求就行。对话式 AI 修图，每天免费一次。", h1: "AI 照片编辑器", answer: "这个 AI 照片编辑器用句子替代蒙版、图层和滑杆：「去掉背景换成柔和影棚渐变」「把人脸提亮、色调调暖」。上传 JPG/PNG、输入指令、拿到重渲染结果——然后继续对话打磨。每天含 1 次免费生成；永远没有订阅。",
+    steps: ["上传照片。", "一次编辑写一条指令——单一改动的结果最可预期。", "查看渲染；如果改歪了，重新上传原图重来。", "叠加指令直到照片到位。"],
+    useCases: [{ t: "电商", d: "不用进影棚也能出目录级产品图。" }, { t: "人像", d: "头像照片修光、换背景。" }, { t: "挂牌与广告", d: "让手机随手拍看起来是认真拍的。" }],
+    faq: [{ q: "能去掉特定物体吗？", a: "能——在指令里点名物体（「去掉左边的椅子」），比笼统说「清理」效果好。" }, { q: "编辑会损画质吗？", a: "AI 是重渲染而非压缩；小字和细纹最可能失真，重点检查这些。" }, { q: "照片会被存储吗？", a: "按隐私政策只为交付编辑结果而处理；不售卖不共享。" }, { q: "有免费额度吗？", a: "每天 1 次编辑生成免费；高强度可 $9.99/100 积分起。" }],
+  },
+  related: ["banana-ai-photo-editor", "image-to-image-ai-editor", "ai-background-remover"],
+},
+{
+  slug: "ai-avatar-generator-from-photo", category: "usecase", keyword: "ai avatar generator from photo",
+  en: {
+    title: "AI Avatar Generator From Photo — Any Style | PixBanana", meta: "Upload one photo, get styled avatars: professional headshots, anime, 3D, watercolor. Character consistency keeps it you. Free daily.", h1: "AI Avatar Generator From Photo", answer: "Upload a single photo and get avatars in any style — professional headshot, anime character, 3D render, watercolor portrait. PixBanana's character-consistency engine keeps your face recognizable through the stylization, so the result reads as you, not a lookalike. One free generation daily; a 100-credit pack builds a full multi-style set.",
+    steps: ["Upload a well-lit, front-facing photo (single subject).", "Name the target style: \"professional LinkedIn headshot\" or \"anime style\".", "Generate, then try 2-3 different style directions from the same upload.", "Download your picks for each platform."],
+    prompts: ["professional headshot, charcoal blazer, soft window light, neutral background", "anime style portrait, gentle colors, soft smile", "3D stylized character render, friendly proportions, pastel clothing"],
+    useCases: [{ t: "Job hunting", d: "A credible headshot without a photographer." }, { t: "Gaming & Discord", d: "Distinctive avatars that are still recognizably you." }, { t: "Team uniformity", d: "Same illustrated style across everyone's profile." }],
+    faq: [{ q: "What photo works best?", a: "Front-facing, evenly lit, only you in frame. Avoid heavy filters; the engine does better with honest pixels." }, { q: "Will it look like me after stylization?", a: "That's what character consistency is for — identity survives the art direction." }, { q: "How many styles can one photo become?", a: "As many as you like; each is a separate generation. The style selector plus prompt wording steers each one." }, { q: "Is this free?", a: "One avatar generation per day on the free tier; credit packs are one-time from $9.99." }],
+  },
+  zh: {
+    title: "照片生成 AI 头像 — 任意风格 | PixBanana", meta: "上传一张照片，生成各风格头像：职业形象、动漫、3D、水彩。角色一致性保留你的脸，每天免费。", h1: "照片生成 AI 头像", answer: "上传一张照片，得到任意风格的头像——职业形象照、动漫角色、3D 渲染、水彩肖像。PixBanana 的角色一致性引擎让脸在风格化后仍可辨认，结果读起来是「你」而不是「像你的人」。每天免费 1 次；100 积分包可做一整套多风格头像。",
+    steps: ["上传光线良好的正面照（单人）。", "点名目标风格：「职业领英头像」或「动漫风」。", "生成后用同一张照片再试 2-3 个风格方向。", "为每个平台下载对应版本。"],
+    useCases: [{ t: "求职", d: "不用摄影师也能有靠谱形象照。" }, { t: "游戏与 Discord", d: "有辨识度但仍像你的头像。" }, { t: "团队统一", d: "所有人的资料页同款插画风格。" }],
+    faq: [{ q: "什么照片最好？", a: "正面、光线均匀、画面只有你。别用重滤镜，引擎喜欢真实像素。" }, { q: "风格化后还像我吗？", a: "这正是角色一致性的作用——身份特征在艺术化后保留。" }, { q: "一张照片能出几种风格？", a: "想要几种都行，每次独立生成；风格选择器＋提示词措辞共同决定方向。" }, { q: "免费吗？", a: "免费档每天 1 次；积分包 $9.99 起一次性购买。" }],
+  },
+  related: ["banana-ai-avatar-generator", "ai-headshot-generator", "anime-ai-generator"],
+},
+{
+  slug: "ai-headshot-generator", category: "usecase", keyword: "ai headshot generator",
+  en: {
+    title: "AI Headshot Generator — Professional Headshots | PixBanana", meta: "Turn a casual photo into a professional headshot: right clothes, studio lighting, clean background. Free daily generation.", h1: "AI Headshot Generator", answer: "An AI headshot generator takes an ordinary photo and renders the professional version: business attire, even studio-style lighting, neutral background — the trinity that makes LinkedIn photos work. Upload one clear selfie, describe the look (\"navy blazer, soft gray backdrop\"), and download a headshot you can use anywhere. It's an edit, not a deepfake: the face is still yours, kept consistent by the engine.",
+    steps: ["Upload a sharp photo — face well-lit, looking at camera.", "Describe the professional framing: attire, background tone, lighting style.", "Generate 2-3 variants and pick the most natural one.", "Use it on LinkedIn, company pages and speaker bios."],
+    prompts: ["professional headshot, charcoal blazer, soft window light, neutral background", "corporate style portrait, white shirt, light blue background, confident smile", "editorial headshot, black turtleneck, warm gray background"],
+    useCases: [{ t: "LinkedIn refresh", d: "A credible photo this evening instead of a shoot next month." }, { t: "Company team pages", d: "Consistent headshots across remote staff." }, { t: "Conference submissions", d: "Speaker bios always ask for one; now you always have one." }],
+    faq: [{ q: "Is an AI headshot OK for LinkedIn?", a: "LinkedIn allows AI-assisted images; what matters is that it looks like you. Keep it honest — same face, better light." }, { q: "Which photo should I start from?", a: "Any sharp, front-facing shot with decent lighting; the render adds attire, backdrop and studio light." }, { q: "Can I get multiple outfits?", a: "Yes — rerun with different attire descriptions; each render is a separate generation." }, { q: "Glasses, beard, hijab?", a: "Describe exactly what stays (\"keep the glasses and beard\") so edits preserve them rather than improvising." }],
+  },
+  zh: {
+    title: "AI 形象照生成器 — 专业头像 | PixBanana", meta: "把日常照片变成职业形象照：合适着装、影棚光线、干净背景。每天免费一次。", h1: "AI 形象照生成器", answer: "AI 形象照生成器把普通照片渲染成职业版本：商务着装、均匀的影棚式光线、中性背景——让领英照片成立的三要素。上传一张清晰自拍，描述造型（「藏青西装、浅灰背景」），下载一张到处能用的形象照。这是编辑不是换脸：脸还是你的脸，由一致性引擎保持。",
+    steps: ["上传清晰照片——面部光线好、看镜头。", "描述职业造型：着装、背景色调、光线风格。", "生成 2-3 个变体，挑最自然的一张。", "用于领英、公司页和演讲者简介。"],
+    useCases: [{ t: "领英换新", d: "今晚就有靠谱照片，不用等下个月拍照。" }, { t: "公司团队页", d: "远程同事的形象照终于统一。" }, { t: "会议投稿", d: "演讲简介总要照片，现在随时有。" }],
+    faq: [{ q: "AI 形象照能放领英吗？", a: "领英允许 AI 辅助图片；关键是像你。保持诚实——同一张脸、更好的光。" }, { q: "用什么照片起步？", a: "任何清晰、正面、光线尚可的照片；渲染会补上着装、背景和影棚光。" }, { q: "能出多套着装吗？", a: "能——换着装描述重跑，每次独立生成。" }, { q: "眼镜、胡子、头巾？", a: "明确写「保留眼镜和胡子」，让编辑保留而不是即兴发挥。" }],
+  },
+  related: ["ai-avatar-generator-from-photo", "banana-ai-avatar-generator", "ai-photo-editor"],
+},
+{
+  slug: "ai-logo-generator-free", category: "usecase", keyword: "ai logo generator free",
+  en: {
+    title: "AI Logo Generator Free — Logo Concepts Daily | PixBanana", meta: "Free AI logo generator: brand-name prompts, badge/wordmark/mascot concepts, one free generation daily, no subscription.", h1: "AI Logo Generator (Free)", answer: "Type your brand's name and vibe and the generator produces logo concepts — badges, marks, wordmark styles, mascots — as images you can download. The free tier gives one generation daily, forever; logo concepting typically takes 10-20 generations, so a $9.99/100 credit pack covers a full naming round with room to spare. Treat outputs as strong drafts to refine and vectorize.",
+    steps: ["Prompt with brand name + industry + mood: \"logo for Rustline, an outdoor gear brand, rugged and minimal\".", "Vary one variable at a time: style word, color, symbol.", "Keep a shortlist; regenerate the strongest with simplification edits.", "Vectorize the final direction by hand or with a designer for production files."],
+    prompts: ["minimal geometric logo, hexagon containing a mountain silhouette, two greens", "mascot logo, friendly badger holding a wrench, circle badge, workshop brand", "luxury wordmark concept for a tea house, thin serif, single gold accent"],
+    useCases: [{ t: "New brands", d: "See your name visualized before committing to identity design." }, { t: "Rebrands", d: "Cheap exploration of directions before the expensive round." }, { t: "Events & teams", d: "Logos for hackathons, leagues and clubs that deserve better than clip art." }],
+    faq: [{ q: "Can I trademark an AI-generated logo?", a: "You can use and refine it commercially, but trademark registration depends on distinctiveness — as with any logo, search before you invest." }, { q: "Why vectorize afterward?", a: "AI outputs raster PNGs; production needs SVG for infinite scale (favicon to storefront sign). A designer can trace the winning concept quickly." }, { q: "How many generations per concept?", a: "Expect 10-20 across variations for a solid shortlist — well within the 100-credit pack." }, { q: "Does it render my brand name's text?", a: "Wordmark-style concepts come out well enough to judge direction; final lettering should be set with real fonts." }],
+  },
+  zh: {
+    title: "免费 AI Logo 生成器 | PixBanana", meta: "免费 AI logo 生成器：品牌名提示、徽章/字标/吉祥物概念，每天 1 次免费、无订阅。", h1: "AI Logo 生成器（免费）", answer: "输入品牌名和气质，生成器就产出 logo 概念——徽章、图形、字标风格、吉祥物——并可直接下载。免费档永久每天 1 次；logo 概念通常需要 10-20 次生成，$9.99/100 积分包够整轮命名还绰绰有余。请把产出当作待精修和矢量化的高质量草稿。",
+    steps: ["用品牌名＋行业＋气质写提示：「户外装备品牌 Rustline 的 logo，粗犷极简」。", "一次只变一个变量：风格词、颜色、符号。", "保留候选清单；对最强的做简化编辑再生成。", "最终方向手工或找设计师矢量化出生产文件。"],
+    useCases: [{ t: "新品牌", d: "在投入完整识别设计前先看到名字被视觉化。" }, { t: "品牌重塑", d: "昂贵轮次之前先低成本探索方向。" }, { t: "活动与团队", d: "黑客松、联赛、社团也值得真 logo，而不是剪贴画。" }],
+    faq: [{ q: "AI logo 能注册商标吗？", a: "可以商用和精修；商标注册取决于显著性——和任何 logo 一样，投入前先检索。" }, { q: "为什么要矢量化？", a: "AI 出的是 PNG 位图；生产需要 SVG 才能从 favicon 缩到门店招牌。设计师描摹胜出概念很快。" }, { q: "一个概念要生成几次？", a: "像样的候选清单通常 10-20 次——100 积分包内轻松覆盖。" }, { q: "会渲染品牌名文字吗？", a: "字标概念足以判方向；终稿字体应用真字体排。" }],
+  },
+  related: ["banana-ai-logo-maker", "ai-image-generator-free", "banana-ai-thumbnail-maker"],
+},
+{
+  slug: "anime-ai-generator", category: "usecase", keyword: "anime ai generator",
+  en: {
+    title: "Anime AI Generator — Text & Photo to Anime | PixBanana", meta: "Generate anime art from text or convert photos to anime style. Built-in anime style, character consistency, free daily generation.", h1: "Anime AI Generator", answer: "The anime style is built into PixBanana's style selector: text prompts become anime scenes, and photos convert to anime versions of themselves. For original characters, write the character once (hair, eyes, outfit) and reuse that block verbatim while changing scenes — character consistency keeps them recognizable across the set.",
+    steps: ["Choose input: text (original art) or photo (anime-fied you).", "For originals, define the character block first and keep it fixed.", "Set the scene: location, time of day, mood.", "Generate across variations; download the frames you love."],
+    prompts: ["rooftop confession scene at sunset, two students, cherry blossom drift", "epic battle pose, magical girl with glowing staff, night city backdrop", "slice-of-life scene: girl eating ramen at a small counter, steam rising"],
+    useCases: [{ t: "OC design", d: "Full character galleries without drawing ability." }, { t: "Anime PfPs", d: "Photo-to-anime avatars for Discord and forums." }, { t: "Storyboards", d: "Anime-style scene frames for pitches and fan works." }],
+    faq: [{ q: "Is the anime style included in free generations?", a: "Yes — all eight styles, including anime, are available on the free daily generation." }, { q: "How do I keep my character consistent?", a: "Repeat the identical character description block in every prompt; change only the scene sentence." }, { q: "Photo to anime keeps my face?", a: "Largely yes — stylization with identity preservation is the design goal; extreme art direction will bend it further." }, { q: "Can I make it look like a specific studio's style?", a: "Describe qualities (soft palettes, painterly backgrounds) rather than naming studios; results hit the vibe without IP issues." }],
+  },
+  zh: {
+    title: "动漫 AI 生成器 — 文字/照片转动漫 | PixBanana", meta: "文字生成动漫画面，或照片转动漫风。内置动漫风格、角色一致性，每天免费一次。", h1: "动漫 AI 生成器", answer: "动漫风格内置于 PixBanana 的风格选择器：文字提示变动漫场景，照片变动漫版的你。做原创角色时，先写一次角色块（发型、瞳色、服装），之后原样复用、只换场景——角色一致性让 TA 在整套图里保持可辨认。",
+    steps: ["选输入：文字（原创）或照片（本人动漫化）。", "原创先定义角色块并保持不变。", "设定场景：地点、时段、情绪。", "多变体生成，下载喜欢的帧。"],
+    useCases: [{ t: "OC 设计", d: "不会画画也有整套角色画廊。" }, { t: "动漫头像", d: "照片转动漫，Discord 和论坛都能用。" }, { t: "分镜", d: "给提案和同人作品出动漫风场景帧。" }],
+    faq: [{ q: "免费生成含动漫风格吗？", a: "含——每天免费生成可选全部八种风格，包括动漫。" }, { q: "怎么保持角色一致？", a: "每次提示原样复用角色描述块，只改场景句。" }, { q: "照片转动漫还像我吗？", a: "大体像——「风格化＋保留身份」就是设计目标；艺术方向越极端偏差越大。" }, { q: "能模仿特定工作室风格吗？", a: "描述质感（柔和配色、绘画感背景）而不是点名工作室；出氛围不惹版权问题。" }],
+  },
+  related: ["banana-ai-anime-generator", "ai-character-generator", "ai-avatar-generator-from-photo"],
+},
+{
+  slug: "ai-character-generator", category: "usecase", keyword: "ai character generator",
+  en: {
+    title: "AI Character Generator — Original Characters in Minutes | PixBanana", meta: "Design original AI characters from text or photo reference. Consistent faces across scenes with consistency technology. Free daily.", h1: "AI Character Generator", answer: "Describe a character — or upload a reference — and generate them in any scene and style. The workflow that works: lock a fixed character block (appearance details), keep it verbatim across prompts, and vary only the scene sentence. PixBanana's character-consistency engine does the hard part, holding the face stable while everything around it changes.",
+    steps: ["Write the character block: hair, eyes, build, outfit, one signature detail.", "Never edit the block between generations.", "Append scene + mood for each new image.", "Export a character sheet: portrait, action, environment, close-up."],
+    prompts: ["block: tall wanderer, long grey coat, scar over left eyebrow, mechanical right hand — scene: negotiating in a desert bazaar", "block (same) — scene: standing in heavy rain, city neon behind", "block (same) — scene: quiet close-up by candlelight"],
+    useCases: [{ t: "Novels & comics", d: "Visual anchors for characters before chapters or panels exist." }, { t: "Game prototypes", d: "Concept rosters for pitch decks and game jams." }, { t: "Roleplay & fan communities", d: "Stable character portraits for long campaigns." }],
+    faq: [{ q: "Text or photo reference — which is better?", a: "Text for new characters (total freedom), photo when a visual already exists and you want it in new scenes." }, { q: "Why did my character drift?", a: "Almost always an edited description block. Copy-paste it verbatim every time." }, { q: "Multiple characters in one image?", a: "Possible — give each a short block in the prompt and accept somewhat lower predictability as complexity rises." }, { q: "Does consistency cost extra?", a: "No — it's part of the engine, not a premium feature." }],
+  },
+  zh: {
+    title: "AI 角色生成器 — 几分钟出原创角色 | PixBanana", meta: "文字或参考图生成原创 AI 角色。一致性技术让脸跨场景稳定，每天免费一次。", h1: "AI 角色生成器", answer: "描述一个角色——或上传参考图——在任何场景和风格里生成 TA。可用的工作流：锁定固定的角色块（外貌细节），跨提示原样复用，只换场景句。PixBanana 的角色一致性引擎负责最难的部分：万物变动时保持那张脸稳定。",
+    steps: ["写角色块：发型瞳色、体型、服装、一个签名细节。", "生成之间绝不改块。", "每张新图追加场景＋情绪。", "导出角色表：正面像、动作、环境、特写。"],
+    useCases: [{ t: "小说与漫画", d: "在章节和分镜存在之前先有角色的视觉锚点。" }, { t: "游戏原型", d: "提案和 game jam 的概念阵容。" }, { t: "跑团与同人社区", d: "长战役的稳定角色立绘。" }],
+    faq: [{ q: "文字还是参考图好？", a: "新角色用文字（完全自由）；已有视觉设定要进新场景用参考图。" }, { q: "角色为什么漂移？", a: "几乎都是描述块被改了。每次原样复制粘贴即可。" }, { q: "一张图多个角色？", a: "可以——每个角色写短块，复杂度上升时可预期性会降一些。" }, { q: "一致性要加钱吗？", a: "不用——是引擎自带能力，不是付费功能。" }],
+  },
+  related: ["banana-ai-character-creator", "banana-ai-avatar-generator", "anime-ai-generator"],
+},
+{
+  slug: "youtube-thumbnail-ai-generator", category: "usecase", keyword: "youtube thumbnail ai generator",
+  en: {
+    title: "YouTube Thumbnail AI Generator — Free & Fast | PixBanana", meta: "Generate YouTube thumbnails with AI: bold subjects, high contrast, any style. Free daily generation, instant PNG download.", h1: "YouTube Thumbnail AI Generator", answer: "Describe the video's hook and the generator produces thumbnail candidates built for small-size readability: one bold central subject, high contrast, space for a short title. Works in realistic style for vlogs and reviews, comic or anime styles for gaming. Free daily generation, PNG download, then add your title text in any editor for full font control.",
+    steps: ["Write the hook, not the topic: \"$300 PC that plays GTA 6\" not \"PC build\".", "Specify thumbnail logic: single subject, high contrast, negative space for text.", "Generate 3-5 candidates; judge them at 320px wide.", "Add your 3-4 word title in an editor; upload with YouTube's Test & Compare to rotate variants."],
+    prompts: ["shocked creator face left, exploding gaming rig right, dark background, rim light", "clean product shot of a phone floating over a blue gradient, dramatic shadow", "before/after split: messy garage left, dream workshop right"],
+    useCases: [{ t: "Weekly uploaders", d: "A distinct, on-brand thumbnail per video without a designer retainer." }, { t: "Small channels", d: "Look bigger than your sub count with consistent, punchy covers." }, { t: "A/B testing", d: "Generate variants cheaply and let YouTube's data pick." }],
+    faq: [{ q: "Should text go in the AI image?", a: "Better to leave negative space and add text yourself — AI lettering isn't font-crisp and you keep brand control." }, { q: "Ideal dimensions?", a: "1280×720 (16:9). Design for 320px-wide readability because that's the feed reality." }, { q: "Are AI thumbnails allowed?", a: "Yes; YouTube's concern is misleading content, not the production tool." }, { q: "How do I keep a consistent channel look?", a: "Reuse the same style and layout pattern in every prompt — consistency of formula reads as branding." }],
+  },
+  zh: {
+    title: "YouTube 缩略图 AI 生成器 — 免费快速 | PixBanana", meta: "AI 生成 YouTube 缩略图：大主体、高对比、任意风格。每天免费、PNG 即下。", h1: "YouTube 缩略图 AI 生成器", answer: "描述视频的钩子，生成器产出为小尺寸可读性而生的缩略图候选：一个大胆的中央主体、高对比、留出短标题空间。Vlog 和评测用写实风，游戏用漫画或动漫风。每天免费生成、PNG 下载，标题文字用任何编辑器加，字体完全自控。",
+    steps: ["写钩子而不是话题：「300 美元畅玩 GTA 6 的主机」而不是「装机」。", "说明缩略图逻辑：单一主体、高对比、文字负空间。", "生成 3-5 张候选，按 320px 宽评判。", "编辑器加 3-4 词标题；上传后用 Test & Compare 轮换变体。"],
+    useCases: [{ t: "周更作者", d: "每支视频一张有辨识度的封面，不用养设计师。" }, { t: "小频道", d: "封面气场先超过订阅数。" }, { t: "A/B 测试", d: "低成本出变体，让 YouTube 数据投票。" }],
+    faq: [{ q: "文字要 AI 直接画吗？", a: "最好留负空间自己加——AI 字形不够脆，自己加还保住品牌字体。" }, { q: "尺寸要求？", a: "1280×720（16:9）。按 320px 宽可读设计，因为信息流里就那么小。" }, { q: "AI 缩略图允许吗？", a: "允许；平台在意的是误导性内容，不是制作工具。" }, { q: "频道风格怎么统一？", a: "每次提示复用同一风格与排版公式——公式一致就是品牌感。" }],
+  },
+  related: ["banana-ai-thumbnail-maker", "ai-image-generator-free", "banana-ai-image-generator"],
+},
+{
+  slug: "ai-background-remover", category: "usecase", keyword: "ai background remover",
+  en: {
+    title: "AI Background Remover & Replacer — By Description | PixBanana", meta: "Remove or replace photo backgrounds by typing what you want: \"white studio backdrop\", \"beach at dusk\". Conversational AI editing, free daily.", h1: "AI Background Remover & Replacer", answer: "Instead of tracing edges with a lasso, describe the outcome: \"remove the background, pure white\" or \"replace it with a softly blurred office\". PixBanana re-renders the image with the new backdrop — and because it regenerates rather than crops, lighting and reflections adjust to match, which is where cut-paste edits usually look fake. Replacement works too: any backdrop you can describe.",
+    steps: ["Upload the product/portrait photo.", "One instruction: \"remove the background, replace with clean light-gray studio gradient\".", "Inspect edges around hair and fine detail; regenerate with \"keep hair detail crisp\" if needed.", "Download the PNG."],
+    prompts: ["remove background, replace with pure white e-commerce backdrop", "replace background with blurred modern kitchen, keep product lighting consistent", "replace background with warm bokeh lights, evening mood"],
+    useCases: [{ t: "Marketplace listings", d: "White-background versions for Amazon/eBay-style requirements." }, { t: "Product catalogs", d: "One product, many lifestyle backdrops without reshoots." }, { t: "Profile photos", d: "Neutral or branded backdrops for team pages." }],
+    faq: [{ q: "How clean are the edges?", a: "Strong on typical product shapes; hair and fur benefit from an explicit \"keep hair/fur detail\" instruction and a second pass." }, { q: "Can it replace, not just remove?", a: "Yes — any describable backdrop: studio, gradient, blurred office, bokeh, seasonal scenes." }, { q: "Does lighting adapt?", a: "That's the advantage of re-rendering: shadows and reflections shift to match the new scene instead of pasted-on look." }, { q: "Format and cost?", a: "PNG in/out, one free generation daily, credit packs from $9.99/100 for batches." }],
+  },
+  zh: {
+    title: "AI 背景去除/替换 — 描述即可 | PixBanana", meta: "打字就能去背景/换背景：「白底影棚」「黄昏海滩」。对话式 AI 编辑，每天免费。", h1: "AI 背景去除与替换", answer: "不用套索描边，直接描述结果：「去掉背景，纯白」或「换成柔和虚化的办公室」。PixBanana 会带着新背景重新渲染整图——因为是重生成而非抠图拼接，光线和反光会跟着匹配，这正是剪贴式编辑最假的地方。替换也行：你能描述的背景都能换。",
+    steps: ["上传产品/人像照片。", "一条指令：「去掉背景，换成干净的浅灰影棚渐变」。", "检查发丝等细节边缘；必要时加「保留发丝细节」重生成。", "下载 PNG。"],
+    useCases: [{ t: "电商上架", d: "亚马逊/eBay 式白底图要求一次到位。" }, { t: "产品目录", d: "一件产品多种生活化背景，不用重拍。" }, { t: "形象照", d: "团队页的中性或品牌背景。" }],
+    faq: [{ q: "边缘干净吗？", a: "常规产品形状很强；头发毛发加一句「保留毛发细节」再跑一遍更好。" }, { q: "只能去除不能替换吗？", a: "替换也行——影棚、渐变、虚化办公室、光斑、季节场景，能描述就能换。" }, { q: "光线会跟着变吗？", a: "这正是重渲染的优势：阴影反光随新场景匹配，没有贴图感。" }, { q: "格式与费用？", a: "PNG 进出，每天 1 次免费，批量用 $9.99/100 积分包。" }],
+  },
+  related: ["ai-photo-editor", "banana-ai-photo-editor", "image-to-image-ai-editor"],
+},
+{
+  slug: "realistic-ai-image-generator", category: "style", keyword: "realistic ai image generator",
+  en: {
+    title: "Realistic AI Image Generator — Photorealistic AI | PixBanana", meta: "Photorealistic AI images from text: lighting, lens feel and detail. Realistic style, free daily generation, PNG download.", h1: "Realistic AI Image Generator", answer: "The realistic style renders photorealistic images: believable lighting, depth of field and material texture. It's the right style for mockups, lifestyle scenes, and any image that needs to pass as a photograph. Prompt it like a photographer — subject, lens distance, light source, time of day — and the output leans photographic.",
+    steps: ["Frame the prompt photographically: \"wide shot, overcast light\" grounds the render in camera logic.", "Name the light: window light, golden hour, studio softbox — light is 80% of realism.", "Add lens/mood cues: shallow depth of field, 35mm feel, film grain.", "Generate 2-3 variants; realism rewards selection over perfection."],
+    prompts: ["editorial photo of a ceramicist's hands shaping clay, window light, shallow depth", "modern kitchen interior, morning sun through blinds, magazine styling", "outdoor portrait, golden hour backlight, 85mm compression"],
+    useCases: [{ t: "Product mockups", d: "Photographic contexts before the photoshoot exists." }, { t: "Blogs & articles", d: "Realistic supporting imagery that isn't stock." }, { t: "Concept photography", d: "Scout shots for planned productions." }],
+    faq: [{ q: "How do I maximize realism?", a: "Light descriptions matter most, then camera language (lens, depth of field). Avoid stacking impossible constraints — physics wins arguments." }, { q: "Can it do people convincingly?", a: "Yes, especially at editorial distances; extreme close-ups of faces are where AI realism still wobbles most." }, { q: "Is realistic style free?", a: "Yes — it's one of the eight styles available on the daily free generation." }, { q: "Any rules on photorealism?", a: "Use responsibly: don't create misleading images of real people or events; the AI transparency notice applies to AI-generated content." }],
+  },
+  zh: {
+    title: "写实 AI 图像生成器 — 照片级真实感 | PixBanana", meta: "文字生成照片级真实感图像：光线、镜头感与细节。写实风格，每天免费。", h1: "写实 AI 图像生成器", answer: "写实风格渲染照片级真实的图像：可信的光线、景深和材质纹理。适合 mockup、生活场景和任何需要「看起来像照片」的图。像摄影师一样写提示——主体、镜头距离、光源、时段——输出就会往照片靠。",
+    steps: ["用摄影语言写提示：「广角、阴天光线」让渲染落到相机逻辑里。", "写清光：窗光、黄金时刻、影棚柔光箱——光线决定写实的 80%。", "加镜头/氛围线索：浅景深、35mm 感、胶片颗粒。", "生成 2-3 个变体；写实风格靠筛选不靠一次到位。"],
+    useCases: [{ t: "产品 mockup", d: "拍摄还没发生，照片级场景先有了。" }, { t: "博客文章", d: "不是图库的真实感配图。" }, { t: "摄影概念", d: "为计划中的拍摄踩点。" }],
+    faq: [{ q: "怎么最大化真实感？", a: "光线描述最重要，其次是相机语言（镜头、景深）。别堆物理上不可能的约束——物理会赢。" }, { q: "人物可信吗？", a: "编辑级距离很可信；大特写人脸是 AI 写实最易露馅的地方。" }, { q: "写实风格免费吗？", a: "免费——是每日免费生成可选的八种风格之一。" }, { q: "照片级有使用规则吗？", a: "负责任使用：不要生成真实人物/事件的误导图像；AI 透明度声明适用于 AI 生成内容。" }],
+  },
+  related: ["ai-image-generator-free", "banana-ai-image-generator", "ai-photo-editor"],
+},
+{
+  slug: "anime-ai-image-generator", category: "style", keyword: "anime ai image generator",
+  en: {
+    title: "Anime AI Image Generator — Anime Style AI Art | PixBanana", meta: "Generate anime-style images from text: characters, scenes, key visuals. Built-in anime style with consistency. Free daily.", h1: "Anime AI Image Generator", answer: "Pick the anime style and text prompts render as anime art: character portraits, city scenes, key-visual compositions. Pair it with the fixed character-block method to hold the same character across a whole set of images. The style is part of the standard selector — available on the daily free generation.",
+    steps: ["Set style to anime; write the scene in plain language.", "For recurring characters: fixed appearance block, verbatim, every time.", "Vary scene, time of day and mood; keep the block frozen.", "Export portraits, action frames and environment shots as a set."],
+    prompts: ["shrine steps in late autumn, red maple leaves, quiet afternoon light", "duel scene: two swordsmen on a moonlit bridge, wind-blown coats", "cafe interior in soft pastel anime style, rain outside the window"],
+    useCases: [{ t: "Character art", d: "OCs, VTuber concepts, roleplay portraits." }, { t: "Scene art", d: "Locations and key visuals for stories." }, { t: "Fan communities", d: "Consistent art for zines and Discord servers." }],
+    faq: [{ q: "How is this different from the anime generator page?", a: "Same engine, style-focused framing — this page centers the anime aesthetic itself; the generator page centers the banana-AI tooling around it." }, { q: "Best prompts for anime?", a: "Name the mood and light (sunset, neon night, overcast) plus one strong compositional element; anime style rewards clean focal ideas." }, { q: "Chibi or serious styles?", a: "Steer with wording: \"chibi proportions\" or \"detailed key visual\" meaningfully shifts the render." }, { q: "Free tier includes anime?", a: "Yes, all eight styles including anime are on the free daily generation." }],
+  },
+  zh: {
+    title: "动漫风 AI 图像生成器 | PixBanana", meta: "文字生成动漫风格图像：角色、场景、主视觉。内置动漫风格＋一致性，每天免费。", h1: "动漫风 AI 图像生成器", answer: "选动漫风格，文字提示即渲染动漫画面：角色立绘、城市场景、主视觉构图。配合固定角色块法，可以让同一个角色贯穿整套图。风格在标准选择器里——每日免费生成即可用。",
+    steps: ["风格选动漫，用大白话写场景。", " recurring 角色用固定外貌块，每次原样复用。", "变场景、变时段变情绪，角色块冻结不动。", "按套装导出立绘、动作帧和环境图。"],
+    useCases: [{ t: "角色图", d: "OC、VTuber 概念、跑团立绘。" }, { t: "场景图", d: "小说的地点和主视觉。" }, { t: "同人社区", d: "同人志和 Discord 的稳定画风。" }],
+    faq: [{ q: "和动漫生成器页有什么区别？", a: "同引擎，视角不同——本页聚焦动漫美学本身，生成器页聚焦围绕它的 banana-AI 工具。" }, { q: "动漫提示怎么写？", a: "写清情绪与光线（夕阳、霓虹夜、阴天）＋一个强构图元素；动漫风格吃干净的焦点。" }, { q: "Q 版还是正剧风？", a: "措辞引导：「Q 版比例」或「精细主视觉」会明显改变渲染。" }, { q: "免费档含动漫吗？", a: "含，八种风格都在每日免费生成里。" }],
+  },
+  related: ["anime-ai-generator", "banana-ai-anime-generator", "ai-character-generator"],
+},
+{
+  slug: "watercolor-ai-art-generator", category: "style", keyword: "watercolor ai art generator",
+  en: {
+    title: "Watercolor AI Art Generator — Painterly Images | PixBanana", meta: "Generate watercolor-style art from text: soft washes, paper texture, gentle palettes. Free daily generation, PNG download.", h1: "Watercolor AI Art Generator", answer: "The watercolor style renders with the medium's signature traits — translucent washes, paper grain, blooms of pigment, generous white space. It suits invitations, editorial illustration, children's content and anywhere a soft human touch beats polish. Prompt with the subject plus a palette hint and let the style do the painting.",
+    steps: ["Describe the subject simply; watercolor punishes over-stuffing.", "Add a palette cue: \"muted earth tones\", \"cool blues\".", "Leave room: \"lots of white space\" keeps compositions airy.", "Generate variants — watercolor's happy accidents are the point."],
+    prompts: ["watercolor of lavender fields with a small stone house, loose brushwork", "watercolor botanical study of eucalyptus branches, generous white space", "watercolor cityscape of Venice canals, muted blues and siennas"],
+    useCases: [{ t: "Wedding & events", d: "Invitation art and signage motifs without an illustrator." }, { t: "Editorial illustration", d: "Soft imagery for essays and newsletters." }, { t: "Children's content", d: "Gentle visuals for story pages and printables." }],
+    faq: [{ q: "Can I get a specific palette?", a: "Yes — name 2-3 colors or a mood (\"sage and cream\"); the style holds to it reasonably well." }, { q: "Does it include paper texture?", a: "By default the render carries paper grain; you can prompt \"clean white background, minimal texture\" to dial it down." }, { q: "Good for logos?", a: "As mood concepts, yes; final logos still need vectorization (see the logo pages)." }, { q: "Free?", a: "Watercolor is one of the eight styles on the free daily generation." }],
+  },
+  zh: {
+    title: "水彩 AI 艺术生成器 — 绘画感图像 | PixBanana", meta: "文字生成水彩风格作品：柔和晕染、纸纹、温柔配色。每天免费、PNG 下载。", h1: "水彩 AI 艺术生成器", answer: "水彩风格渲染带这个媒介的标志特质——透明晕染、纸纹颗粒、颜料扩散和大量留白。适合请柬、编辑插画、儿童内容和一切「柔软人味胜过精修」的场景。写上主体＋配色提示，剩下的交给风格去画。",
+    steps: ["主体简单写；水彩最怕堆料。", "加配色线索：「灰调大地色」「冷蓝」。", "留白：「大量留白」保持构图透气。", "多变体生成——水彩的意外之喜正是精髓。"],
+    useCases: [{ t: "婚礼与活动", d: "请柬画和指示牌元素，不用请插画师。" }, { t: "编辑插画", d: "随笔和 newsletter 的柔软配图。" }, { t: "儿童内容", d: "故事页和打印物的温柔视觉。" }],
+    faq: [{ q: "能指定配色吗？", a: "能——写 2-3 个颜色或一种情绪（「鼠尾草绿＋奶白」），风格会相当好地遵守。" }, { q: "带纸纹吗？", a: "默认带纸纹颗粒；写「干净白底、少纹理」可以调低。" }, { q: "适合做 logo 吗？", a: "当氛围概念可以；终稿 logo 仍需矢量化（见 logo 相关页）。" }, { q: "免费吗？", a: "水彩是每日免费生成可选的八种风格之一。" }],
+  },
+  related: ["ai-art-generator-free", "banana-ai-art-generator", "realistic-ai-image-generator"],
+},
+{
+  slug: "cyberpunk-ai-art-generator", category: "style", keyword: "cyberpunk ai art generator",
+  en: {
+    title: "Cyberpunk AI Art Generator — Neon Futures | PixBanana", meta: "Generate cyberpunk art: neon-soaked streets, chrome, rain and holograms. Built-in cyberpunk style, free daily generation.", h1: "Cyberpunk AI Art Generator", answer: "The cyberpunk style delivers the full aesthetic: neon reflections on wet asphalt, holographic signage, chrome implants, oppressive mega-city verticality. Great for game concept art, stream overlays, album covers and wallpapers. Prompt with the street-level ingredients — rain, neon color pair, crowd density — and the style assembles the future.",
+    steps: ["Pick your neon pair: pink/cyan is classic; amber/teal reads more noir.", "Add weather: rain multiplies the reflections that sell the style.", "Set scale: street level for grit, skyline for awe.", "Generate dark; the style rewards deep shadows."],
+    prompts: ["street-level noodle stall under tangled neon signage, rain, pink and cyan", "rooftop view of a mega-city canyon, holographic whales swimming between towers", "back-alley cyberdoc clinic, buzzing sign, steam from vents"],
+    useCases: [{ t: "Game & stream art", d: "Scene concepts, overlays and background loops." }, { t: "Music visuals", d: "Synthwave and electronic covers with the right darkness." }, { t: "Wallpapers", d: "Desktop and phone backgrounds with depth." }],
+    faq: [{ q: "Why do my cyberpunk images look washed out?", a: "Add explicit darkness cues: \"night, deep shadows, high contrast\". The style's neon needs black to punch against." }, { q: "Can I mix cyberpunk with other styles?", a: "Prompt hybrids like \"cyberpunk city in watercolor style\" work creatively; expect looser control than pure styles." }, { q: "Good for characters too?", a: "Yes — chrome limbs, techwear and implants render well; use the character-block method for recurring ones." }, { q: "Included in free tier?", a: "Yes, cyberpunk is one of the eight styles on the daily free generation." }],
+  },
+  zh: {
+    title: "赛博朋克 AI 艺术生成器 — 霓虹未来 | PixBanana", meta: "生成赛博朋克作品：霓虹湿街、镀铬、雨水与全息。内置风格，每天免费。", h1: "赛博朋克 AI 艺术生成器", answer: "赛博朋克风格给足全套美学：湿沥青上的霓虹反光、全息招牌、镀铬义体、巨型城市的压迫纵深感。适合游戏概念图、直播皮肤、专辑封面和壁纸。写上街头级原料——雨、霓虹配色、人群密度——风格自己把未来拼好。",
+    steps: ["选霓虹配色：粉/青是经典；琥珀/青更黑色电影。", "加天气：雨会成倍放大卖风格的反光。", "定尺度：街头级出粗粝，天际线出震撼。", "往暗里生成；风格吃深阴影。"],
+    useCases: [{ t: "游戏与直播美术", d: "场景概念、皮肤和背景循环。" }, { t: "音乐视觉", d: "合成器和电子封面的恰当日暗。" }, { t: "壁纸", d: "有纵深感的桌面和手机壁纸。" }],
+    faq: [{ q: "为什么我的赛博朋克图发灰？", a: "加明确的暗部线索：「夜晚、深阴影、高对比」。霓虹需要黑色才打得出来。" }, { q: "能和其他风格混吗？", a: "「水彩风赛博朋克城市」这类混合可行；控制力比纯风格松一些。" }, { q: "也适合角色吗？", a: "适合——镀铬四肢、机能服、义体渲染都好；recurring 角色用角色块法。" }, { q: "免费档有吗？", a: "有，赛博朋克是每日免费生成八风格之一。" }],
+  },
+  related: ["ai-art-generator-free", "banana-ai-art-generator", "fantasy-ai-art-generator"],
+},
+{
+  slug: "fantasy-ai-art-generator", category: "style", keyword: "fantasy ai art generator",
+  en: {
+    title: "Fantasy AI Art Generator — Epic Fantasy Art | PixBanana", meta: "Generate fantasy art: dragons, citadels, enchanted forests, epic light. Built-in fantasy style with consistency. Free daily.", h1: "Fantasy AI Art Generator", answer: "The fantasy style handles the genre's canon — dragons, ancient citadels, enchanted forests, sorcerers' studies — with painterly rendering and dramatic light. It's the natural home for D&D campaign art, novel covers and worldbuilding. Combine with the character-block method for a consistent adventuring party across the whole campaign.",
+    steps: ["Name the subject and the scale: \"dragon curled around a mountain spire\".", "Add one magical element and one light cue; more muddies it.", "For parties: one fixed block per character, reuse verbatim.", "Generate environment art separately from portraits for cleaner results."],
+    prompts: ["ancient library citadel carved into a canyon, floating candles, dusk", "frost giant walking through a pine blizzard, epic scale", "alchemist's tower interior, brass instruments, green glow from below"],
+    useCases: [{ t: "TTRPG campaigns", d: "Battle maps' mood pieces, NPC portraits, session teasers." }, { t: "Novel covers", d: "Genre-appropriate concept covers for drafts and queries." }, { t: "Worldbuilding", d: "Illustrate locations as you write them." }],
+    faq: [{ q: "Can it do dark fantasy?", a: "Yes — add \"dark, gothic, muted palette\" cues; the style shifts readily toward grimdark." }, { q: "Best for battle scenes?", a: "Wide compositions work well; tight multi-character combat gets chaotic — favor 2-3 subjects max." }, { q: "Recurring heroes?", a: "Character blocks again: fixed appearance text, verbatim reuse, consistency engine holds faces." }, { q: "Free tier?", a: "Fantasy is among the eight styles available on the free daily generation." }],
+  },
+  zh: {
+    title: "奇幻 AI 艺术生成器 — 史诗奇幻 | PixBanana", meta: "生成奇幻作品：巨龙、城堡、魔法森林、史诗光线。内置风格＋一致性，每天免费。", h1: "奇幻 AI 艺术生成器", answer: "奇幻风格接得住这个类型的全部母题——巨龙、古堡、魔法森林、法师书房——带绘画感渲染和戏剧光线。它是 D&D 战役图、小说封面和世界观构建的天然主场。配合角色块法，整支冒险队可以贯穿整个战役保持一致。",
+    steps: ["写清主体和尺度：「盘绕山尖的巨龙」。", "加一个魔法元素和一个光线线索；再多就糊。", "队伍设定：每个角色一个固定块，原样复用。", "环境图和肖像分开生成，效果更干净。"],
+    useCases: [{ t: "跑团战役", d: "战斗氛围图、NPC 立绘、开场预告图。" }, { t: "小说封面", d: "给草稿和投稿做类型感概念封面。" }, { t: "世界观", d: "边写边把地点画出来。" }],
+    faq: [{ q: "能做黑暗奇幻吗？", a: "能——加「黑暗、哥特、低饱和」线索；风格很容易转向 grimdark。" }, { q: "适合战斗场面吗？", a: "大构图很好；多人近身混战会乱——尽量控制在 2-3 个主体。" }, { q: "主角能反复出现吗？", a: "还是角色块：外貌文本固定原样复用，一致性引擎稳脸。" }, { q: "免费档？", a: "奇幻是每日免费生成八风格之一。" }],
+  },
+  related: ["ai-art-generator-free", "banana-ai-art-generator", "ai-character-generator"],
+},
+{
+  slug: "3d-ai-art-generator", category: "style", keyword: "3d ai art generator",
+  en: {
+    title: "3D AI Art Generator — Rendered Look, No Blender | PixBanana", meta: "Generate 3D-style art from text: soft renders, claymation, Pixar-energy characters. Built-in 3D style, free daily.", h1: "3D AI Art Generator", answer: "The 3D style produces the rendered look — soft materials, studio lighting, dimensional characters — without you opening Blender. Think claymation scenes, friendly stylized characters, product-viz style compositions. Prompt with material and light (\"matte clay\", \"glossy plastic\", \"soft studio light\") and the style builds the dimensionality.",
+    steps: ["Name the material: clay, plastic, felt, glossy ceramic — material drives the look.", "Add lighting like a render: three-point, soft studio, HDRI-style ambient.", "Specify character proportions for stylized work: \"chunky friendly proportions\".", "Keep scenes simple; 3D style rewards one hero subject."],
+    prompts: ["clay-style diorama of a tiny ramen shop, warm interior light", "stylized 3D astronaut character, chunky proportions, pastel suit", "isometric 3D bedroom with plants, soft daylight"],
+    useCases: [{ t: "App & brand mascots", d: "Friendly 3D characters for empty states and landing pages." }, { t: "Dioramas", d: "Miniature world illustrations for posts and prints." }, { t: "Product concepts", d: "Rendered feel before CAD exists." }],
+    faq: [{ q: "Can I get real 3D models?", a: "No — this generates images with a 3D rendered look, not meshes. For models you'd still need 3D software." }, { q: "Pixar-style people?", a: "Stylized characters render well; push with \"friendly proportions, expressive eyes\" wording." }, { q: "Isometric scenes?", a: "A strength — add \"isometric, clean edges\" to the prompt." }, { q: "Free tier?", a: "3D is one of the eight styles on the daily free generation." }],
+  },
+  zh: {
+    title: "3D AI 艺术生成器 — 不开 Blender 的渲染感 | PixBanana", meta: "文字生成 3D 风格作品：柔软渲染、黏土定格、皮克斯感角色。内置风格，每天免费。", h1: "3D AI 艺术生成器", answer: "3D 风格产出渲染观感——柔软材质、影棚打光、立体角色——而你不用打开 Blender。想象黏土定格场景、友好的风格化角色、产品可视化式构图。提示里写材质和光（「哑光黏土」「亮面塑料」「柔和影棚光」），风格自建立体感。",
+    steps: ["点名材质：黏土、塑料、毛毡、亮面陶瓷——材质定调。", "按渲染写光：三点布光、柔影棚、类 HDRI 环境光。", "风格化角色写比例：「敦实友好比例」。", "场景从简；3D 风格吃单一主角。"],
+    useCases: [{ t: "应用与品牌吉祥物", d: "空状态和落地页的友好 3D 角色。" }, { t: "微缩场景", d: "帖子与印刷的迷你世界插画。" }, { t: "产品概念", d: "CAD 出现之前的渲染感。" }],
+    faq: [{ q: "能出真 3D 模型吗？", a: "不能——生成的是 3D 渲染观感的图片，不是网格；要模型还得 3D 软件。" }, { q: "能做皮克斯感人物吗？", a: "风格化角色很好；用「友好比例、眼神有戏」的措辞推。" }, { q: "等距场景？", a: "是强项——提示加「等距视角、干净边缘」。" }, { q: "免费档？", a: "3D 是每日免费生成八风格之一。" }],
+  },
+  related: ["ai-art-generator-free", "banana-ai-art-generator", "ai-avatar-generator-from-photo"],
+},
+{
+  slug: "abstract-ai-art-generator", category: "style", keyword: "abstract ai art generator",
+  en: {
+    title: "Abstract AI Art Generator — Backgrounds & Textures | PixBanana", meta: "Generate abstract art: gradients, textures, fluid shapes for backgrounds and covers. Built-in abstract style, free daily.", h1: "Abstract AI Art Generator", answer: "The abstract style generates non-representational art — fluid gradients, textures, geometric interplay — ideal for website backgrounds, presentation decks, music covers and wallpapers. Prompt with palette, energy (calm/dynamic) and texture (grain, glass, liquid) rather than subjects, and harvest variations cheaply: backgrounds are a volume game and the free daily generation compounds.",
+    steps: ["Skip subjects; prompt palette + mood + texture.", "Name the use: \"website hero background, dark, subtle motion feel\".", "Generate at volume — abstract rewards selection.", "Test text contrast on top before committing to a background."],
+    prompts: ["deep indigo-to-black gradient with faint gold particle drift, calm", "liquid glass abstract, teal and pearl, soft depth", "geometric line interplay on cream, minimal, editorial"],
+    useCases: [{ t: "Site & deck backgrounds", d: "On-brand hero and section backgrounds that aren't stock gradients." }, { t: "Music covers", d: "Mood-matched abstract art per release." }, { t: "Wallpapers & textures", d: "Fresh device backgrounds and overlay textures." }],
+    faq: [{ q: "How do I avoid busy backgrounds?", a: "Add \"minimal, lots of negative space\" and a two-color cap; busy-ness usually comes from over-prompted palettes." }, { q: "Can I match my brand colors?", a: "Yes — name the exact 2-3 colors; abstract styles hold palettes well." }, { q: "Good for print?", a: "Full-resolution PNGs work for posters and covers; check size at print dimensions." }, { q: "Free?", a: "Abstract is one of the eight styles on the daily free generation." }],
+  },
+  zh: {
+    title: "抽象 AI 艺术生成器 — 背景与纹理 | PixBanana", meta: "生成抽象作品：渐变、纹理、流体形状，做背景和封面。内置风格，每天免费。", h1: "抽象 AI 艺术生成器", answer: "抽象风格生成非具象作品——流动渐变、纹理、几何互动——非常适合网站背景、演示文稿、音乐封面和壁纸。提示写配色、能量（平静/动感）和纹理（颗粒、玻璃、液体）而不是主体；抽象背景是量贩游戏，多变体＋每日免费额度会滚雪球。",
+    steps: ["跳过主体；写配色＋情绪＋纹理。", "说明用途：「网站 hero 背景，深色，微动感」。", "量产地生成——抽象靠筛选。", "上文字前先测对比度再定背景。"],
+    useCases: [{ t: "网站与文稿背景", d: "不是图库渐变的品牌感 hero 和分区背景。" }, { t: "音乐封面", d: "每次发行配一幅情绪匹配的抽象图。" }, { t: "壁纸与纹理", d: "常新的设备壁纸和叠加纹理。" }],
+    faq: [{ q: "怎么避免背景太花？", a: "加「极简、大量负空间」并限两个颜色；花哨多半来自配色堆太多。" }, { q: "能贴品牌色吗？", a: "能——写明确 2-3 个颜色；抽象风格对配色守得很好。" }, { q: "能印刷吗？", a: "全分辨率 PNG 做海报封面可行；按印刷尺寸核对大小。" }, { q: "免费吗？", a: "抽象是每日免费生成八风格之一。" }],
+  },
+  related: ["ai-art-generator-free", "banana-ai-art-generator", "watercolor-ai-art-generator"],
+},
+{
+  slug: "ai-art-generator-free", category: "style", keyword: "ai art generator free",
+  en: {
+    title: "AI Art Generator Free — Daily Free AI Art | PixBanana", meta: "Free AI art generator: one free artwork daily, 8 styles, no subscription ever. Credit packs one-time from $9.99. Start free today.", h1: "AI Art Generator (Free)", answer: "PixBanana's free tier gives you one AI artwork per day — any of the eight styles, full quality, no subscription and no card. The style selector spans realistic, anime, watercolor, cyberpunk, fantasy, comic, 3D and abstract, so a single free generation each day can cover a different look all week. When you want volume, packs are one-time purchases from $9.99/100 and credits never expire.",
+    steps: ["Sign up with just an email — no card fields exist on the free path.", "Describe the artwork: subject, setting, mood.", "Pick any of the eight styles — all are free-tier eligible.", "Generate, download the PNG, return tomorrow for the next free one."],
+    prompts: ["a lighthouse made of stacked books on a cliff, storm light", "abstract composition of torn paper layers, indigo and copper", "friendly forest spirit offering a lantern, painterly style"],
+    useCases: [{ t: "Daily practice", d: "A free artwork a day keeps the creative rust off." }, { t: "Small projects", d: "Zines, school work and personal sites illustrated at zero cost." }, { t: "Style sampling", d: "Learn which styles fit your taste before buying credits." }],
+    faq: [{ q: "Free forever or a trial?", a: "Free forever: the daily generation resets every 24 hours and never becomes a charge." }, { q: "Are free images lower quality?", a: "No — same engine, same styles, same PNG downloads. The free limit is count, not quality." }, { q: "What if I need 50 images this weekend?", a: "Credit packs are one-time: $9.99/100, $16.99/200, $29.99/500 — no subscription, no expiry." }, { q: "Can I use free-tier art commercially?", a: "Yes — the same commercial terms apply regardless of whether a generation was free or credited." }],
+  },
+  zh: {
+    title: "免费 AI 艺术生成器 — 每日免费 | PixBanana", meta: "免费 AI 艺术生成器：每天 1 幅免费作品、8 种风格、永远无订阅。积分包 $9.99 起一次性。", h1: "AI 艺术生成器（免费）", answer: "PixBanana 免费档每天给你 1 幅 AI 艺术作品——八种风格任选、全质量、无订阅、不用绑卡。风格选择器覆盖写实、动漫、水彩、赛博朋克、奇幻、漫画、3D 和抽象，一天的免费额度一周能试遍不同风格。想要量，积分包 $9.99/100 起一次性买断、永不过期。",
+    steps: ["只用邮箱注册——免费路径上没有填卡的地方。", "描述作品：主体、场景、氛围。", "任选八种风格之一——全部对免费档开放。", "生成、下载 PNG，明天再来。"],
+    useCases: [{ t: "每日练习", d: "一天一幅免费作品，创作不生锈。" }, { t: "小项目", d: "同人志、课业、个人站零成本配图。" }, { t: "风格试穿", d: "买积分前先弄清哪种风格适合你。" }],
+    faq: [{ q: "永久免费还是试用？", a: "永久免费：每日额度 24 小时重置，永远不会变成扣费。" }, { q: "免费图质量差吗？", a: "不差——同引擎、同风格、同 PNG 下载。免费限的是次数不是质量。" }, { q: "周末要 50 张怎么办？", a: "积分包一次性：$9.99/100、$16.99/200、$29.99/500——无订阅、不过期。" }, { q: "免费档能商用吗？", a: "能——无论免费还是积分生成，商用条款一致。" }],
+  },
+  related: ["banana-ai-art-generator", "ai-image-generator-free", "watercolor-ai-art-generator"],
+},
+];

@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/seo'
+import { landingPages } from '@/lib/landing-pages'
 
 /**
  * Sitemap — only final 200-status, indexable URLs.
@@ -49,6 +50,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     })
+  }
+
+  // Keyword-cluster landing pages (t_7d1d933a): one entry per locale per slug.
+  for (const p of landingPages) {
+    for (const path of [`/${p.slug}`, `/zh/${p.slug}`]) {
+      entries.push({
+        url: `${SITE_URL}${path}`,
+        lastModified,
+        changeFrequency: 'weekly',
+        priority: 0.7,
+        alternates: {
+          languages: {
+            en: `${SITE_URL}/${p.slug}`,
+            zh: `${SITE_URL}/zh/${p.slug}`,
+            'x-default': `${SITE_URL}/${p.slug}`,
+          },
+        },
+      })
+    }
   }
 
   return entries
