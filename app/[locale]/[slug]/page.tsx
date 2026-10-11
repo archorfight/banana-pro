@@ -5,6 +5,9 @@ import { notFound } from 'next/navigation';
 import { locales, defaultLocale } from '@/lib/i18n';
 import { SITE_URL, OG_IMAGE } from '@/lib/seo';
 import { landingPages } from '@/lib/landing-pages';
+import { landingPages2, hubSpokes } from '@/lib/landing-pages-2';
+
+const allPages = [...landingPages, ...landingPages2];
 import BananaDecoration from '@/components/BananaDecoration';
 
 interface Props {
@@ -13,12 +16,12 @@ interface Props {
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
-    landingPages.map((p) => ({ locale, slug: p.slug }))
+    allPages.map((p) => ({ locale, slug: p.slug }))
   );
 }
 
 export async function generateMetadata({ params: { locale, slug } }: Props): Promise<Metadata> {
-  const page = landingPages.find((p) => p.slug === slug);
+  const page = allPages.find((p) => p.slug === slug);
   if (!page) return {};
   const c = page[locale === 'zh' ? 'zh' : 'en'];
   const localePath = locale === defaultLocale ? '' : `/${locale}`;
@@ -46,7 +49,7 @@ export async function generateMetadata({ params: { locale, slug } }: Props): Pro
 }
 
 export default async function LandingPage({ params: { locale, slug } }: Props) {
-  const page = landingPages.find((p) => p.slug === slug);
+  const page = allPages.find((p) => p.slug === slug);
   if (!page) notFound();
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'common' });
@@ -151,7 +154,7 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
         </h2>
         <div className="flex flex-wrap gap-3">
           {page.related.map((s) => {
-            const r = landingPages.find((p) => p.slug === s);
+            const r = allPages.find((p) => p.slug === s);
             if (!r) return null;
             const rc = r[locale === 'zh' ? 'zh' : 'en'];
             return (
@@ -172,6 +175,54 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
           </Link>
         </div>
       </section>
+
+      {/* Hub–spoke internal linking (t_40419d7c): high-ranking pages act as hubs. */}
+      {'hub' in page && (page as { hub: string }).hub && (() => {
+        const hubSlug = (page as { hub: string }).hub;
+        const hubPage = allPages.find((p) => p.slug === hubSlug);
+        if (!hubPage) return null;
+        const hubC = hubPage[locale === 'zh' ? 'zh' : 'en'];
+        return (
+          <section className="max-w-3xl mx-auto px-6 py-8">
+            <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-2">
+              {locale === 'zh' ? '本文属于' : 'Part of the guide:'}
+            </p>
+            <Link
+              href={link(hubSlug)}
+              className="text-lg font-semibold text-yellow-700 dark:text-yellow-300 hover:underline"
+            >
+              {hubC.h1} →
+            </Link>
+          </section>
+        );
+      })()}
+
+      {hubSpokes[page.slug] && (() => {
+        const spokes = hubSpokes[page.slug].map((s) => allPages.find((p) => p.slug === s)).filter(Boolean);
+        if (spokes.length === 0) return null;
+        return (
+          <section className="max-w-3xl mx-auto px-6 py-8">
+            <h2 className="text-2xl font-bold mb-6">
+              {locale === 'zh' ? `更多${c.h1}用法` : `More ${c.h1} tools`}
+            </h2>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {spokes.map((sp) => {
+                const sc = sp![locale === 'zh' ? 'zh' : 'en'];
+                return (
+                  <Link
+                    key={sp!.slug}
+                    href={link(sp!.slug)}
+                    className="rounded-lg border border-neutral-200 dark:border-neutral-700 p-4 hover:border-yellow-400 transition-colors"
+                  >
+                    <span className="font-semibold">{sc.h1}</span>
+                    <span className="block text-sm text-neutral-500 dark:text-neutral-400 mt-1 line-clamp-2">{sc.answer.slice(0, 110)}…</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        );
+      })()}
     </main>
   );
 }
