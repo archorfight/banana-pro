@@ -9,6 +9,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { defaultLocale } from '@/lib/i18n';
 import { Mail, Github, Twitter } from 'lucide-react';
 import Link from 'next/link';
+import SubscribeForm from './SubscribeForm';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -77,6 +78,9 @@ export default function Footer() {
             </a>
           </div>
         </div>
+
+        {/* Newsletter signup */}
+        <SubscribeForm />
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
