@@ -3,6 +3,7 @@ import { SITE_URL } from '@/lib/seo'
 import { landingPages } from '@/lib/landing-pages';
 import { landingPages2 } from '@/lib/landing-pages-2';
 import { BATCH1_EXTRA_SLUGS } from '@/lib/deploy-batches';
+import { christmasPages } from '@/lib/landing-pages-christmas';
 
 /**
  * Sitemap — only final 200-status, indexable URLs.
@@ -56,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Keyword-cluster landing pages: batch-1 slice only (一期全部 + 二期 BATCH1_EXTRA_SLUGS).
   // Staged 二期页不入 sitemap — sitemap 只反映实际上线路由 (照 obbba 配方).
-  const batch1Pages = [...landingPages, ...landingPages2.filter((p) => BATCH1_EXTRA_SLUGS.has(p.slug))];
+  const batch1Pages = [...landingPages, ...landingPages2.filter((p) => BATCH1_EXTRA_SLUGS.has(p.slug)), ...christmasPages];
   for (const p of batch1Pages) {
     for (const path of [`/${p.slug}`, `/zh/${p.slug}`]) {
       entries.push({

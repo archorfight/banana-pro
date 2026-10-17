@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "date": "2026-07-27T04:41:54.137Z",
+    "baseUrl": "https://grsaiapi.com/v1/api/generate",
+    "model": "gpt-image-2",
+    "totalCalls": 20,
+    "costPerCallCNY": 0.03,
+    "estimatedTotalCostCNY": 0.6
+  },
+  "successRate": 15,
+  "latencyMs": {
+    "p50": 37561,
+    "p95": 43155,
+    "min": 32060,
+    "max": 43155
+  },
+  "errorBreakdown": {
+    "NETWORK": 1,
+    "INSUFFICIENT_BALANCE": 15,
+    "OTHER": 1
+  },
+  "scenarioStats": {
+    "t2i_general": {
+      "total": 1,
+      "success": 1,
+      "avgMs": 43155
+    },
+    "t2i_product": {
+      "total": 1,
+      "success": 1,
+      "avgMs": 32060
+    },
+    "t2i_text": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 12356
+    },
+    "t2i_landscape": {
+      "total": 1,
+      "success": 1,
+      "avgMs": 37561
+    },
+    "t2i_portrait": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 374
+    },
+    "t2i_food": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 325
+    },
+    "t2i_architecture": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 350
+    },
+    "t2i_abstract": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 322
+    },
+    "edit_style": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 419
+    },
+    "edit_bg": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 692
+    },
+    "edit_season": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 320
+    },
+    "edit_aspect": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 334
+    },
+    "ratio_1": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 313
+    },
+    "ratio_2": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 316
+    },
+    "ratio_3": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 382
+    },
+    "ratio_4": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 316
+    },
+    "reject_violence": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 321
+    },
+    "reject_nsfw": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 328
+    },
+    "timeout_stress": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 319
+    },
+    "insufficient_balance": {
+      "total": 1,
+      "success": 0,
+      "avgMs": 313
+    }
+  },
+  "note": "Cost based on GrsAI published 0.03 CNY/request for gpt-image-2. Result URLs SHA-256 hashed. Balance test uses invalid key."
+}

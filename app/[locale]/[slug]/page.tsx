@@ -7,12 +7,14 @@ import { SITE_URL, OG_IMAGE } from '@/lib/seo';
 import { landingPages } from '@/lib/landing-pages';
 import { landingPages2, hubSpokes } from '@/lib/landing-pages-2';
 import { BATCH1_EXTRA_SLUGS } from '@/lib/deploy-batches';
+import { christmasPages } from '@/lib/landing-pages-christmas';
 
 // Batch-1 slice (照 obbba 分批配方): 一期 30 页全部上线 + 二期最强词族 30 页;
 // 其余二期页留 staging — 不进 generateStaticParams(构建后 404), 相关内链也只指向上线页, 避免死链.
 const allPages = [
   ...landingPages,
   ...landingPages2.filter((p) => BATCH1_EXTRA_SLUGS.has(p.slug)),
+  ...christmasPages,
 ];
 import BananaDecoration from '@/components/BananaDecoration';
 

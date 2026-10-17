@@ -48,3 +48,4 @@ Thumbs.db
 tmpclaude-*
 tmp-**.env.development
 *.env.production
+.env*
